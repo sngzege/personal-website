@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — Ege Sengoz</title>
+    <meta name="description" content="Industrial engineer. Experience, skills, and certifications of Ege Sengoz." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+    <style>
+        .accent-line { width: 48px; height: 3px; background: #c2410c; border-radius: 2px; }
+        .scroll-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+        .tag { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 500; background: #f7f7f5; color: #4a5568; border: 1px solid #e5e7eb; }
+        .skill-bar-bg { background: #f0ede8; border-radius: 999px; height: 6px; overflow: hidden; }
+        .skill-bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #c2410c, #ea580c); transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
+        .timeline-line { position: absolute; left: 19px; top: 28px; bottom: 0; width: 2px; background: linear-gradient(to bottom, #c2410c, #e5e7eb); }
+        .timeline-dot { width: 40px; height: 40px; border-radius: 50%; background: #fff3ed; border: 2px solid #c2410c; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; z-index: 1; }
+        .cert-card { border: 1.5px solid #e5e7eb; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; }
+        .cert-card:hover { border-color: #c2410c; box-shadow: 0 8px 24px rgba(194,65,12,0.1); transform: translateY(-2px); }
+        .skill-pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; font-size: 0.8rem; font-weight: 500; border: 1.5px solid #e5e7eb; background: white; color: #374151; transition: all 0.2s; }
+        .skill-pill:hover { border-color: #c2410c; color: #c2410c; background: #fff3ed; }
+        .section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: #9ca3af; }
+    </style>
+  </head>
+<body class="bg-background text-text-primary" style="font-family:'DM Sans',sans-serif;">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="home.html" style="font-family:'Fraunces',serif;" class="text-xl font-bold text-primary tracking-tight">
+                    E.Şengöz<span style="color:#c2410c;">.</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="home.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_home">Home</a>
+                    <a href="about.html" class="text-primary font-medium border-b-2" style="border-color:#c2410c;" data-i18n="nav_about">About</a>
+                    <a href="projects.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_projects">Projects</a>
+                    <a href="blog.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_blog">Blog</a>
+                    <a href="engineering-solutions.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_solutions">Solutions</a>
+                    <a href="contact.html" class="btn-primary text-sm px-5 py-2" data-i18n="nav_contact">Contact</a>
+                    <div style="display:flex;align-items:center;background:#f3f4f6;border-radius:999px;padding:3px;gap:2px;">
+                        <button id="btn-en" onclick="setLang('en')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;transition:all 0.2s;background:transparent;color:#6b7280;">EN</button>
+                        <button id="btn-tr" onclick="setLang('tr')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;transition:all 0.2s;background:transparent;color:#6b7280;">TR</button>
+                    </div>
+                </div>
+                <button class="md:hidden p-2 text-primary" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="md:hidden hidden mt-4 pb-4 border-t border-gray-100" id="mobile-menu">
+                <div class="flex flex-col space-y-4 pt-4">
+                    <a href="home.html" class="text-secondary font-medium" data-i18n="nav_home">Home</a>
+                    <a href="about.html" class="text-primary font-medium" data-i18n="nav_about">About</a>
+                    <a href="projects.html" class="text-secondary font-medium" data-i18n="nav_projects">Projects</a>
+                    <a href="blog.html" class="text-secondary font-medium" data-i18n="nav_blog">Blog</a>
+                    <a href="engineering-solutions.html" class="text-secondary font-medium" data-i18n="nav_solutions">Solutions</a>
+                    <a href="contact.html" class="text-secondary font-medium" data-i18n="nav_contact">Contact</a>
+                    <div style="display:flex;align-items:center;background:#f3f4f6;border-radius:999px;padding:3px;gap:2px;width:fit-content;">
+                        <button id="btn-en-mob" onclick="setLang('en')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;background:transparent;color:#6b7280;">EN</button>
+                        <button id="btn-tr-mob" onclick="setLang('tr')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;background:transparent;color:#6b7280;">TR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-32 pb-20 relative overflow-hidden" style="background:linear-gradient(135deg,#1a1a1a 0%,#2d1810 60%,#1e3a5f 100%);">
+        <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px); background-size: 60px 60px;"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                <div class="lg:col-span-2">
+                    <div class="accent-line mb-5"></div>
+                    <h1 style="font-family:'Fraunces',serif;" class="text-hero text-white mb-5" data-i18n="about_hero_title">About Me</h1>
+                    <p class="text-gray-300 text-xl max-w-2xl leading-relaxed mb-6" data-i18n="about_hero_lead">Industrial engineer with a mechanical engineering foundation and a growing software skill set. I design systems, validate quality, and build tools that make engineering work more precise and efficient.</p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="tag" style="background:rgba(194,65,12,0.15);color:#fca97a;border-color:rgba(194,65,12,0.3);" data-i18n="about_tag_industrial">Industrial Engineering</span>
+                        <span class="tag" style="background:rgba(30,58,95,0.2);color:#93c5fd;border-color:rgba(30,58,95,0.3);" data-i18n="about_tag_mechanical">Mechanical Design</span>
+                        <span class="tag" style="background:rgba(56,161,105,0.15);color:#6ee7b7;border-color:rgba(56,161,105,0.3);" data-i18n="about_tag_iso">ISO Certified</span>
+                        <span class="tag" style="background:rgba(255,255,255,0.1);color:#d1d5db;border-color:rgba(255,255,255,0.2);" data-i18n="about_tag_software">Software Development</span>
+                    </div>
+                </div>
+                <div class="hidden lg:grid grid-cols-2 gap-4">
+                    <div class="bg-white/8 backdrop-blur-sm rounded-xl p-5 border border-white/10 text-center">
+                        <div style="font-family:'Fraunces',serif; font-size:2rem; font-weight:700; color:#c2410c;">8+</div>
+                        <div class="text-gray-400 text-xs mt-1" data-i18n="about_stat_years">Years Experience</div>
+                    </div>
+                    <div class="bg-white/8 backdrop-blur-sm rounded-xl p-5 border border-white/10 text-center">
+                        <div style="font-family:'Fraunces',serif; font-size:2rem; font-weight:700; color:#c2410c;">40+</div>
+                        <div class="text-gray-400 text-xs mt-1" data-i18n="about_stat_projects">Projects Delivered</div>
+                    </div>
+                    <div class="bg-white/8 backdrop-blur-sm rounded-xl p-5 border border-white/10 text-center">
+                        <div style="font-family:'Fraunces',serif; font-size:2rem; font-weight:700; color:#c2410c;">5</div>
+                        <div class="text-gray-400 text-xs mt-1" data-i18n="about_stat_certs">Certifications</div>
+                    </div>
+                    <div class="bg-white/8 backdrop-blur-sm rounded-xl p-5 border border-white/10 text-center">
+                        <div style="font-family:'Fraunces',serif; font-size:2rem; font-weight:700; color:#c2410c;">2x</div>
+                        <div class="text-gray-400 text-xs mt-1" data-i18n="about_stat_domains">Domains</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-6 py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+
+            <!-- Left Column: Experience & Education -->
+            <div class="lg:col-span-2 space-y-16">
+
+                <!-- Work Experience -->
+                <section class="scroll-reveal">
+                    <div class="flex items-center gap-4 mb-10">
+                        <div class="accent-line"></div>
+                        <h2 style="font-family:'Fraunces',serif;" class="text-display text-primary" data-i18n="about_section_experience">Work Experience</h2>
+                    </div>
+                    <div class="space-y-0">
+
+                        <!-- Job 1 -->
+                        <div class="flex gap-6 relative pb-10">
+                            <div class="timeline-line"></div>
+                            <div class="timeline-dot mt-1">
+                                <svg class="w-4 h-4" style="color:#c2410c;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            </div>
+                            <div class="flex-1 bg-white rounded-2xl p-6 border border-gray-100 shadow-soft">
+                                <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+                                    <div>
+                                        <h3 style="font-family:'Fraunces',serif;" class="text-lg font-semibold text-primary" data-i18n="about_role_1">Senior Industrial Engineer</h3>
+                                        <p class="text-accent font-medium text-sm" data-i18n="about_company_1">Precision Manufacturing Co.</p>
+                                    </div>
+                                    <span class="section-label bg-surface px-3 py-1 rounded-full">2022 — Present</span>
+                                </div>
+                                <p class="text-secondary text-sm leading-relaxed mb-4" data-i18n="about_role_1_desc">Lead engineer for production optimization and quality management systems. Responsible for ISO 9001 & 14001 compliance, mechanical design reviews, and cross-functional project delivery.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tag">ISO 9001</span>
+                                    <span class="tag">Lean Manufacturing</span>
+                                    <span class="tag">SolidWorks</span>
+                                    <span class="tag">Team Lead</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Job 2 -->
+                        <div class="flex gap-6 relative pb-10">
+                            <div class="timeline-line"></div>
+                            <div class="timeline-dot mt-1">
+                                <svg class="w-4 h-4" style="color:#c2410c;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            </div>
+                            <div class="flex-1 bg-white rounded-2xl p-6 border border-gray-100 shadow-soft">
+                                <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+                                    <div>
+                                        <h3 style="font-family:'Fraunces',serif;" class="text-lg font-semibold text-primary" data-i18n="about_role_2">Mechanical Design Engineer</h3>
+                                        <p class="text-accent font-medium text-sm" data-i18n="about_company_2">AutoParts Systems Ltd.</p>
+                                    </div>
+                                    <span class="section-label bg-surface px-3 py-1 rounded-full">2019 — 2022</span>
+                                </div>
+                                <p class="text-secondary text-sm leading-relaxed mb-4" data-i18n="about_role_2_desc">Designed jigs, fixtures, and tooling for automotive component manufacturing. Conducted FEA analysis, tolerance studies, and DFM reviews. Reduced tooling costs by 22% through design optimization.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tag">AutoCAD</span>
+                                    <span class="tag">ANSYS FEA</span>
+                                    <span class="tag">GD&T</span>
+                                    <span class="tag">DFM</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Job 3 -->
+                        <div class="flex gap-6 relative pb-10">
+                            <div class="timeline-line"></div>
+                            <div class="timeline-dot mt-1">
+                                <svg class="w-4 h-4" style="color:#c2410c;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                            </div>
+                            <div class="flex-1 bg-white rounded-2xl p-6 border border-gray-100 shadow-soft">
+                                <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+                                    <div>
+                                        <h3 style="font-family:'Fraunces',serif;" class="text-lg font-semibold text-primary" data-i18n="about_role_3">Quality Engineer</h3>
+                                        <p class="text-accent font-medium text-sm" data-i18n="about_company_3">MetalWorks Industries</p>
+                                    </div>
+                                    <span class="section-label bg-surface px-3 py-1 rounded-full">2017 — 2019</span>
+                                </div>
+                                <p class="text-secondary text-sm leading-relaxed mb-4" data-i18n="about_role_3_desc">Managed quality control processes for metal fabrication operations. Developed FMEA documentation, conducted supplier audits, and implemented corrective action programs that reduced defect rates by 40%.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="tag">FMEA</span>
+                                    <span class="tag">SPC</span>
+                                    <span class="tag">Supplier Audits</span>
+                                    <span class="tag">8D Reports</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Job 4 -->
+                        <div class="flex gap-6 relative">
+                            <div class="timeline-dot mt-1" style="border-color:#e5e7eb; background:#f9fafb;">
+                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                            </div>
+                            <div class="flex-1 bg-surface rounded-2xl p-6 border border-gray-100">
+                                <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+                                    <div>
+                                        <h3 style="font-family:'Fraunces',serif;" class="text-lg font-semibold text-primary" data-i18n="about_edu_title">B.Sc. Industrial Engineering</h3>
+                                        <p class="text-secondary font-medium text-sm" data-i18n="about_edu_school">Technical University — Mechanical Engineering Minor</p>
+                                    </div>
+                                    <span class="section-label bg-white px-3 py-1 rounded-full">2013 — 2017</span>
+                                </div>
+                                <p class="text-secondary text-sm leading-relaxed" data-i18n="about_edu_desc">Graduated with honors. Thesis on production line optimization using simulation modeling. Coursework in thermodynamics, materials science, manufacturing processes, and operations research.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Skills Section -->
+                <section class="scroll-reveal">
+                    <div class="flex items-center gap-4 mb-10">
+                        <div class="accent-line"></div>
+                        <h2 style="font-family:'Fraunces',serif;" class="text-display text-primary" data-i18n="about_section_skills">Technical Skills</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <!-- Engineering Skills -->
+                        <div>
+                            <p class="section-label mb-5" data-i18n="about_skills_eng_title">Engineering & Design</p>
+                            <div class="space-y-5">
+                                <div>
+                                    <div class="flex justify-between mb-1.5">
+                                        <span class="text-sm font-medium text-primary">SolidWorks / CAD</span>
+                                        <span class="text-xs text-secondary" data-i18n="skill_level_expert">Expert</span>
+                                    </div>
+                                    <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92%" style="width:0%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1.5">
+                                        <span class="text-sm font-medium text-primary">FEA / ANSYS</span>
+                                        <span class="text-xs text-secondary" data-i18n="skill_level_advanced">Advanced</span>
+                                    </div>
+                                    <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80%" style="width:0%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1.5">
+                                        <span class="text-sm font-medium text-primary">Lean / Six Sigma</span>
+                                        <span class="text-xs text-secondary" data-i18n="skill_level_expert">Expert</span>
+                                    </div>
+                                    <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%" style="width:0%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1.5">
+                                        <span class="text-sm font-medium text-primary">ISO Auditing</span>
+                                        <span class="text-xs text-secondary" data-i18n="skill_level_expert">Expert</span>
+                                    </div>
+                                    <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="95%" style="width:0%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1.5">
+                                        <span class="text-sm font-medium text-primary">GD&T / Tolerancing</span>
+                                        <span class="text-xs text-secondary" data-i18n="skill_level_advanced">Advanced</span>
+                                    </div>
+                                    <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85%" style="width:0%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Software Skills -->
+                        <div>
+                            <p class="section-label mb-5" data-i18n="about_skills_sw_title">Software & Tools</p>
+                            <div class="space-y-5">
+                                <div>
+                                    <div class="flex justify-between mb-1.5">
+                                        <span class="text-sm font-medium text-primary">Python</span>
+                                        <span class="text-xs text-secondary" data-i18n="skill_level_advanced">Advanced</span>
+                                    </div>
+                                    <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="78%" style="width:0%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1.5">
+                                        <span class="text-sm font-medium text-primary">Data Analysis (Pandas, NumPy)</span>
+                                        <span class="text-xs text-secondary" data-i18n="skill_level_intermediate">Intermediate</span>
+                                    </div>
+                                    <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="70%" style="width:0%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1.5">
+                                        <span class="text-sm font-medium text-primary">Web Development</span>
+                                        <span class="text-xs text-secondary" data-i18n="skill_level_intermediate">Intermediate</span>
+                                    </div>
+                                    <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="65%" style="width:0%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1.5">
+                                        <span class="text-sm font-medium text-primary">SQL / Databases</span>
+                                        <span class="text-xs text-secondary" data-i18n="skill_level_intermediate">Intermediate</span>
+                                    </div>
+                                    <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="62%" style="width:0%"></div></div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1.5">
+                                        <span class="text-sm font-medium text-primary">AutoCAD / Drafting</span>
+                                        <span class="text-xs text-secondary" data-i18n="skill_level_expert">Expert</span>
+                                    </div>
+                                    <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88%" style="width:0%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skill Pills -->
+                    <div class="mt-10">
+                        <p class="section-label mb-4" data-i18n="about_skills_all">All Skills</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill">SolidWorks</span>
+                            <span class="skill-pill">AutoCAD</span>
+                            <span class="skill-pill">ANSYS</span>
+                            <span class="skill-pill">ISO 9001</span>
+                            <span class="skill-pill">ISO 14001</span>
+                            <span class="skill-pill">FMEA</span>
+                            <span class="skill-pill">Six Sigma</span>
+                            <span class="skill-pill">Lean Manufacturing</span>
+                            <span class="skill-pill">VSM</span>
+                            <span class="skill-pill">Kaizen</span>
+                            <span class="skill-pill">GD&T</span>
+                            <span class="skill-pill">DFM</span>
+                            <span class="skill-pill">Python</span>
+                            <span class="skill-pill">Flask</span>
+                            <span class="skill-pill">Pandas</span>
+                            <span class="skill-pill">NumPy</span>
+                            <span class="skill-pill">SQL</span>
+                            <span class="skill-pill">HTML/CSS</span>
+                            <span class="skill-pill">SPC</span>
+                            <span class="skill-pill">ASME Standards</span>
+                            <span class="skill-pill">OEE</span>
+                            <span class="skill-pill">8D Problem Solving</span>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right Column: Certifications & Languages -->
+            <div class="space-y-10">
+
+                <!-- Certifications -->
+                <section class="scroll-reveal">
+                    <div class="accent-line mb-5"></div>
+                    <h2 style="font-family:'Fraunces',serif;" class="text-xl font-semibold text-primary mb-6" data-i18n="about_section_certs">Certifications</h2>
+                    <div class="space-y-4">
+
+                        <div class="cert-card bg-white rounded-xl p-5">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#fff3ed;">
+                                    <svg class="w-5 h-5" style="color:#c2410c;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-primary text-sm" data-i18n="about_cert_1">ISO 9001:2015 Lead Auditor</h3>
+                                    <p class="text-secondary text-xs mt-0.5" data-i18n="about_cert_1_meta">IRCA Certified · 2021</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cert-card bg-white rounded-xl p-5">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#f0fdf4;">
+                                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-primary text-sm" data-i18n="about_cert_2">ISO 14001:2015 Internal Auditor</h3>
+                                    <p class="text-secondary text-xs mt-0.5" data-i18n="about_cert_2_meta">Bureau Veritas · 2020</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cert-card bg-white rounded-xl p-5">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#eff6ff;">
+                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-primary text-sm" data-i18n="about_cert_3">Lean Six Sigma Green Belt</h3>
+                                    <p class="text-secondary text-xs mt-0.5" data-i18n="about_cert_3_meta">ASQ Certified · 2019</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cert-card bg-white rounded-xl p-5">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#fdf4ff;">
+                                    <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-primary text-sm" data-i18n="about_cert_4">Python for Data Science</h3>
+                                    <p class="text-secondary text-xs mt-0.5" data-i18n="about_cert_4_meta">Coursera / IBM · 2022</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Languages -->
+                <section class="scroll-reveal">
+                    <div class="accent-line mb-5"></div>
+                    <h2 style="font-family:'Fraunces',serif;" class="text-xl font-semibold text-primary mb-6" data-i18n="about_section_lang">Languages</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between py-3 border-b border-gray-100">
+                            <span class="text-sm font-medium text-primary" data-i18n="about_lang_tr">Turkish</span>
+                            <span class="tag" style="background:#fff3ed;color:#c2410c;border-color:rgba(194,65,12,0.2);" data-i18n="about_lang_tr_level">Native</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3 border-b border-gray-100">
+                            <span class="text-sm font-medium text-primary" data-i18n="about_lang_en">English</span>
+                            <span class="tag" style="background:#eff6ff;color:#1d4ed8;border-color:rgba(29,78,216,0.2);" data-i18n="about_lang_en_level">Professional</span>
+                        </div>
+                        <div class="flex items-center justify-between py-3">
+                            <span class="text-sm font-medium text-primary" data-i18n="about_lang_de">German</span>
+                            <span class="tag" data-i18n="about_lang_de_level">Conversational</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Links -->
+                <section class="scroll-reveal">
+                    <div class="accent-line mb-5"></div>
+                    <h2 style="font-family:'Fraunces',serif;" class="text-xl font-semibold text-primary mb-6" data-i18n="about_section_more">Explore More</h2>
+                    <div class="space-y-3">
+                        <a href="projects.html" class="flex items-center justify-between p-4 bg-white rounded-xl border border-gray-100 hover:border-accent hover:shadow-soft transition-all duration-200 group">
+                            <span class="text-sm font-medium text-primary" data-i18n="about_more_projects">View Projects</span>
+                            <svg class="w-4 h-4 text-secondary group-hover:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </a>
+                        <a href="engineering-solutions.html" class="flex items-center justify-between p-4 bg-white rounded-xl border border-gray-100 hover:border-accent hover:shadow-soft transition-all duration-200 group">
+                            <span class="text-sm font-medium text-primary" data-i18n="about_more_services">Engineering Services</span>
+                            <svg class="w-4 h-4 text-secondary group-hover:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </a>
+                        <a href="blog.html" class="flex items-center justify-between p-4 bg-white rounded-xl border border-gray-100 hover:border-accent hover:shadow-soft transition-all duration-200 group">
+                            <span class="text-sm font-medium text-primary" data-i18n="about_more_blog">Technical Blog</span>
+                            <svg class="w-4 h-4 text-secondary group-hover:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </a>
+                        <a href="contact.html" class="flex items-center justify-between p-4 bg-white rounded-xl border border-gray-100 hover:border-accent hover:shadow-soft transition-all duration-200 group">
+                            <span class="text-sm font-medium text-primary" data-i18n="about_more_contact">Get in Touch</span>
+                            <svg class="w-4 h-4 text-secondary group-hover:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </a>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-gray-400 py-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <span style="font-family:'Fraunces',serif;" class="text-white font-semibold text-lg">A.Mercer<span style="color:#c2410c;">.</span></span>
+            <div class="flex items-center gap-6 text-sm">
+                <a href="home.html" class="hover:text-white transition-colors">Home</a>
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="projects.html" class="hover:text-white transition-colors">Projects</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="engineering-solutions.html" class="hover:text-white transition-colors">Solutions</a>
+                <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+            </div>
+            <span class="text-sm">© 2026 Alex Mercer. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="../js/portfolio.js"></script>
+    <script>
+        PortfolioApp.registerPageTranslations({
+            en: {
+                about_hero_title: "About Me",
+                about_hero_lead: "Industrial engineer with a mechanical engineering foundation and a growing software skill set. I design systems, validate quality, and build tools that make engineering work more precise and efficient.",
+                about_tag_industrial: "Industrial Engineering",
+                about_tag_mechanical: "Mechanical Design",
+                about_tag_iso: "ISO Certified",
+                about_tag_software: "Software Development",
+                about_stat_years: "Years Experience",
+                about_stat_projects: "Projects Delivered",
+                about_stat_certs: "Certifications",
+                about_stat_domains: "Domains",
+                about_section_experience: "Work Experience",
+                about_role_1: "Senior Industrial Engineer",
+                about_company_1: "Precision Manufacturing Co.",
+                about_role_1_desc: "Lead engineer for production optimization and quality management systems. Responsible for ISO 9001 & 14001 compliance, mechanical design reviews, and cross-functional project delivery.",
+                about_role_2: "Mechanical Design Engineer",
+                about_company_2: "AutoParts Systems Ltd.",
+                about_role_2_desc: "Designed jigs, fixtures, and tooling for automotive component manufacturing. Conducted FEA analysis, tolerance studies, and DFM reviews. Reduced tooling costs by 22% through design optimization.",
+                about_role_3: "Quality Engineer",
+                about_company_3: "MetalWorks Industries",
+                about_role_3_desc: "Managed quality control processes for metal fabrication operations. Developed FMEA documentation, conducted supplier audits, and implemented corrective action programs that reduced defect rates by 40%.",
+                about_edu_title: "B.Sc. Industrial Engineering",
+                about_edu_school: "Technical University — Mechanical Engineering Minor",
+                about_edu_desc: "Graduated with honors. Thesis on production line optimization using simulation modeling. Coursework in thermodynamics, materials science, manufacturing processes, and operations research.",
+                about_section_skills: "Technical Skills",
+                about_skills_eng_title: "Engineering & Design",
+                about_skills_sw_title: "Software & Tools",
+                about_skills_all: "All Skills",
+                skill_level_expert: "Expert",
+                skill_level_advanced: "Advanced",
+                skill_level_intermediate: "Intermediate",
+                about_section_certs: "Certifications",
+                about_cert_1: "ISO 9001:2015 Lead Auditor",
+                about_cert_1_meta: "IRCA Certified · 2021",
+                about_cert_2: "ISO 14001:2015 Internal Auditor",
+                about_cert_2_meta: "Bureau Veritas · 2020",
+                about_cert_3: "Lean Six Sigma Green Belt",
+                about_cert_3_meta: "ASQ Certified · 2019",
+                about_cert_4: "Python for Data Science",
+                about_cert_4_meta: "Coursera / IBM · 2022",
+                about_section_lang: "Languages",
+                about_lang_tr: "Turkish",
+                about_lang_tr_level: "Native",
+                about_lang_en: "English",
+                about_lang_en_level: "Professional",
+                about_lang_de: "German",
+                about_lang_de_level: "Conversational",
+                about_section_more: "Explore More",
+                about_more_projects: "View Projects",
+                about_more_services: "Engineering Services",
+                about_more_blog: "Technical Blog",
+                about_more_contact: "Get in Touch"
+            },
+            tr: {
+                about_hero_title: "Hakkımda",
+                about_hero_lead: "Makine mühendisliği temeli ve gelişen yazılım yetkinlikleriyle endüstri mühendisiyim. Sistem tasarlar, kaliteyi doğrular ve mühendislik işlerini daha hassas ve verimli kılan araçlar geliştiririm.",
+                about_tag_industrial: "Endüstri Mühendisliği",
+                about_tag_mechanical: "Mekanik Tasarım",
+                about_tag_iso: "ISO Sertifikalı",
+                about_tag_software: "Yazılım Geliştirme",
+                about_stat_years: "Yıl Deneyim",
+                about_stat_projects: "Teslim Edilen Proje",
+                about_stat_certs: "Sertifika",
+                about_stat_domains: "Alan",
+                about_section_experience: "İş Deneyimi",
+                about_role_1: "Kıdemli Endüstri Mühendisi",
+                about_company_1: "Precision Manufacturing Co.",
+                about_role_1_desc: "Üretim optimizasyonu ve kalite yönetim sistemlerinde lider mühendis. ISO 9001 & 14001 uyumluluğu, mekanik tasarım gözden geçirmeleri ve çapraz ekip proje teslimlerinden sorumlu.",
+                about_role_2: "Mekanik Tasarım Mühendisi",
+                about_company_2: "AutoParts Systems Ltd.",
+                about_role_2_desc: "Otomotiv parça üretimi için aparat, fikstür ve takım tasarımı. FEA analizleri, tolerans çalışmaları ve DFM incelemeleri. Tasarım optimizasyonuyla takım maliyetlerinde %22 azalma.",
+                about_role_3: "Kalite Mühendisi",
+                about_company_3: "MetalWorks Industries",
+                about_role_3_desc: "Metal imalat operasyonlarında kalite kontrol süreçlerini yönetti. FMEA dokümantasyonu geliştirdi, tedarikçi denetimleri yaptı ve hataları %40 azaltan düzeltici/önleyici faaliyet programları uyguladı.",
+                about_edu_title: "Endüstri Mühendisliği (Lisans)",
+                about_edu_school: "Teknik Üniversite — Makine Mühendisliği Yandal",
+                about_edu_desc: "Onur derecesiyle mezuniyet. Simülasyon modelleme ile üretim hattı optimizasyonu üzerine bitirme tezi. Termodinamik, malzeme bilimi, imalat süreçleri ve yöneylem araştırması dersleri.",
+                about_section_skills: "Teknik Yetenekler",
+                about_skills_eng_title: "Mühendislik & Tasarım",
+                about_skills_sw_title: "Yazılım & Araçlar",
+                about_skills_all: "Tüm Yetenekler",
+                skill_level_expert: "Uzman",
+                skill_level_advanced: "İleri",
+                skill_level_intermediate: "Orta",
+                about_section_certs: "Sertifikalar",
+                about_cert_1: "ISO 9001:2015 Baş Denetçi",
+                about_cert_1_meta: "IRCA Sertifikalı · 2021",
+                about_cert_2: "ISO 14001:2015 İç Denetçi",
+                about_cert_2_meta: "Bureau Veritas · 2020",
+                about_cert_3: "Lean Six Sigma Green Belt",
+                about_cert_3_meta: "ASQ Sertifikalı · 2019",
+                about_cert_4: "Veri Bilimi için Python",
+                about_cert_4_meta: "Coursera / IBM · 2022",
+                about_section_lang: "Diller",
+                about_lang_tr: "Türkçe",
+                about_lang_tr_level: "Anadil",
+                about_lang_en: "İngilizce",
+                about_lang_en_level: "Profesyonel",
+                about_lang_de: "Almanca",
+                about_lang_de_level: "Konuşma",
+                about_section_more: "Daha Fazlası",
+                about_more_projects: "Projeleri Gör",
+                about_more_services: "Mühendislik Hizmetleri",
+                about_more_blog: "Teknik Blog",
+                about_more_contact: "İletişime Geç"
+            }
+        });
+
+        PortfolioApp.setupScrollReveal({ threshold: 0.1, stagger: 80 });
+        PortfolioApp.setupSkillBars('.skill-bar-fill');
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technical Blog — Alex Mercer Engineering</title>
+    <meta name="description" content="Technical notes by Ege ?eng?z on manufacturing systems, audits, software-enabled operations, and applied engineering." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+    <style>
+        .accent-line { width: 48px; height: 3px; background: #c2410c; border-radius: 2px; }
+        .scroll-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+        .tag { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 500; background: #f7f7f5; color: #4a5568; border: 1px solid #e5e7eb; }
+        .blog-card { transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s; border: 1.5px solid #e5e7eb; }
+        .blog-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-color: #c2410c; }
+        .status-wip { background: rgba(194,65,12,0.1); color: #c2410c; border-color: rgba(194,65,12,0.25); }
+        .status-news { background: rgba(30,58,95,0.1); color: #1e3a5f; border-color: rgba(30,58,95,0.25); }
+        .status-idea { background: rgba(214,158,46,0.1); color: #b7791f; border-color: rgba(214,158,46,0.25); }
+        .status-update { background: rgba(56,161,105,0.1); color: #38a169; border-color: rgba(56,161,105,0.25); }
+        .filter-btn { padding: 6px 18px; border-radius: 999px; font-size: 0.875rem; font-weight: 500; border: 1.5px solid #e5e7eb; color: #4a5568; background: white; cursor: pointer; transition: all 0.2s; }
+        .filter-btn.active, .filter-btn:hover { background: #c2410c; color: white; border-color: #c2410c; }
+        .blog-card.hidden { display: none; }
+        .featured-card { background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 60%, #1e3a5f 100%); }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .read-time { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #9ca3af; }
+    </style>
+  </head>
+<body class="bg-background text-text-primary" style="font-family:'DM Sans',sans-serif;">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="home.html" style="font-family:'Fraunces',serif;" class="text-xl font-bold text-primary tracking-tight">
+                    E.Şengöz<span style="color:#c2410c;">.</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="home.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_home">Home</a>
+                    <a href="about.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_about">About</a>
+                    <a href="projects.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_projects">Projects</a>
+                    <a href="blog.html" class="text-primary font-medium border-b-2" style="border-color:#c2410c;" data-i18n="nav_blog">Blog</a>
+                    <a href="engineering-solutions.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_solutions">Solutions</a>
+                    <a href="contact.html" class="btn-primary text-sm px-5 py-2" data-i18n="nav_contact">Contact</a>
+                    <div style="display:flex;align-items:center;background:#f3f4f6;border-radius:999px;padding:3px;gap:2px;">
+                        <button id="btn-en" onclick="setLang('en')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;transition:all 0.2s;background:transparent;color:#6b7280;">EN</button>
+                        <button id="btn-tr" onclick="setLang('tr')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;transition:all 0.2s;background:transparent;color:#6b7280;">TR</button>
+                    </div>
+                </div>
+                <button class="md:hidden p-2 text-primary" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="md:hidden hidden mt-4 pb-4 border-t border-gray-100" id="mobile-menu">
+                <div class="flex flex-col space-y-4 pt-4">
+                    <a href="home.html" class="text-secondary font-medium" data-i18n="nav_home">Home</a>
+                    <a href="about.html" class="text-secondary font-medium" data-i18n="nav_about">About</a>
+                    <a href="projects.html" class="text-secondary font-medium" data-i18n="nav_projects">Projects</a>
+                    <a href="blog.html" class="text-primary font-medium" data-i18n="nav_blog">Blog</a>
+                    <a href="engineering-solutions.html" class="text-secondary font-medium" data-i18n="nav_solutions">Solutions</a>
+                    <a href="contact.html" class="text-secondary font-medium" data-i18n="nav_contact">Contact</a>
+                    <div style="display:flex;align-items:center;background:#f3f4f6;border-radius:999px;padding:3px;gap:2px;width:fit-content;">
+                        <button id="btn-en-mob" onclick="setLang('en')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;background:transparent;color:#6b7280;">EN</button>
+                        <button id="btn-tr-mob" onclick="setLang('tr')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;background:transparent;color:#6b7280;">TR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-32 pb-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="accent-line mb-5"></div>
+            <h1 style="font-family:'Fraunces',serif;" class="text-hero text-primary mb-4">Technical Blog</h1>
+            <p class="text-secondary text-xl max-w-2xl leading-relaxed">Work-in-progress projects, engineering experiments, industry news, and ideas I'm actively developing — before they become polished portfolio pieces.</p>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="py-10 bg-surface border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="featured-card rounded-2xl overflow-hidden scroll-reveal">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-10 flex flex-col justify-center">
+                        <div class="flex items-center gap-3 mb-5">
+                            <span class="tag status-wip">🔧 Work in Progress</span>
+                            <span class="read-time">Apr 2026 · 6 min read</span>
+                        </div>
+                        <h2 style="font-family:'Fraunces',serif;" class="text-2xl font-bold text-white mb-4 leading-snug">Building a Real-Time OEE Dashboard with Python & WebSockets — What I've Learned So Far</h2>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">I've been working on a factory floor monitoring tool that pulls PLC data and visualizes OEE metrics in real-time. The architecture is mostly working but I'm still fighting latency issues on the data pipeline. Here's what I've tried and what's next.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tag" style="background:rgba(255,255,255,0.1);color:#d1d5db;border-color:rgba(255,255,255,0.15);">Python</span>
+                            <span class="tag" style="background:rgba(255,255,255,0.1);color:#d1d5db;border-color:rgba(255,255,255,0.15);">WebSockets</span>
+                            <span class="tag" style="background:rgba(255,255,255,0.1);color:#d1d5db;border-color:rgba(255,255,255,0.15);">OEE</span>
+                            <span class="tag" style="background:rgba(255,255,255,0.1);color:#d1d5db;border-color:rgba(255,255,255,0.15);">Manufacturing</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all duration-300 text-sm">
+                            Read Post
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </a>
+                    </div>
+                    <div class="relative min-h-64 lg:min-h-0">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2940&auto=format&fit=crop" alt="Dashboard development" class="absolute inset-0 w-full h-full object-cover opacity-40" loading="lazy" onerror="this.src='https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';this.onerror=null;" />
+                        <div class="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-transparent lg:from-transparent"></div>
+                        <!-- Code snippet overlay -->
+                        <div class="absolute bottom-6 right-6 bg-gray-900/90 backdrop-blur-sm rounded-xl p-4 border border-white/10 hidden lg:block">
+                            <pre class="mono text-xs text-green-400 leading-relaxed">ws.on('message', (data) => {
+  const oee = calcOEE(data);
+  broadcast(oee);
+});</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <section class="py-8 bg-white border-b border-gray-100 sticky top-[73px] z-40">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-wrap gap-3 items-center">
+                <span class="text-sm text-secondary font-medium mr-2">Filter:</span>
+                <button class="filter-btn active" data-filter="all">All Posts</button>
+                <button class="filter-btn" data-filter="wip">Work in Progress</button>
+                <button class="filter-btn" data-filter="news">Industry News</button>
+                <button class="filter-btn" data-filter="idea">Ideas & Concepts</button>
+                <button class="filter-btn" data-filter="update">Project Updates</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blog-grid">
+
+                <!-- Post 1 -->
+                <div class="blog-card bg-white rounded-2xl overflow-hidden scroll-reveal" data-category="wip">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2940&auto=format&fit=crop" alt="Fixture design" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';this.onerror=null;" />
+                        <div class="absolute top-4 left-4">
+                            <span class="tag status-wip">🔧 WIP</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="read-time">Mar 2026 · 4 min</span>
+                        </div>
+                        <h3 style="font-family:'Fraunces',serif;" class="text-lg font-semibold text-primary mb-2 leading-snug">Designing a Modular Fixture System for Small-Batch Production</h3>
+                        <p class="text-secondary text-sm leading-relaxed mb-4">Experimenting with a reconfigurable jig concept that could cut setup time for short production runs. Still in the CAD phase — sharing early sketches and the design logic.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">SolidWorks</span>
+                            <span class="tag">Fixtures</span>
+                            <span class="tag">DFM</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-accent text-sm font-semibold hover:gap-2.5 transition-all duration-200">
+                            Read more
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="blog-card bg-white rounded-2xl overflow-hidden scroll-reveal" data-category="news">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2940&auto=format&fit=crop" alt="ISO standards" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';this.onerror=null;" />
+                        <div class="absolute top-4 left-4">
+                            <span class="tag status-news">📰 News</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="read-time">Mar 2026 · 3 min</span>
+                        </div>
+                        <h3 style="font-family:'Fraunces',serif;" class="text-lg font-semibold text-primary mb-2 leading-snug">ISO 9001 Revision Coming in 2026 — What Engineers Should Know</h3>
+                        <p class="text-secondary text-sm leading-relaxed mb-4">The ISO TC 176 committee is working on the next revision of ISO 9001. Here's a summary of the proposed changes and how they might affect current QMS implementations.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">ISO 9001</span>
+                            <span class="tag">QMS</span>
+                            <span class="tag">Standards</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-accent text-sm font-semibold hover:gap-2.5 transition-all duration-200">
+                            Read more
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Post 3 -->
+                <div class="blog-card bg-white rounded-2xl overflow-hidden scroll-reveal" data-category="idea">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2940&auto=format&fit=crop" alt="Software idea" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';this.onerror=null;" />
+                        <div class="absolute top-4 left-4">
+                            <span class="tag status-idea">💡 Idea</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="read-time">Feb 2026 · 5 min</span>
+                        </div>
+                        <h3 style="font-family:'Fraunces',serif;" class="text-lg font-semibold text-primary mb-2 leading-snug">Could AI Replace FMEA? My Honest Take as a Quality Engineer</h3>
+                        <p class="text-secondary text-sm leading-relaxed mb-4">I've been testing LLMs to assist with failure mode analysis. They're surprisingly good at brainstorming failure modes but still miss the contextual judgment that comes from floor experience.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">FMEA</span>
+                            <span class="tag">AI</span>
+                            <span class="tag">Quality</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-accent text-sm font-semibold hover:gap-2.5 transition-all duration-200">
+                            Read more
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Post 4 -->
+                <div class="blog-card bg-white rounded-2xl overflow-hidden scroll-reveal" data-category="update">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?q=80&w=2940&auto=format&fit=crop" alt="Project update" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';this.onerror=null;" />
+                        <div class="absolute top-4 left-4">
+                            <span class="tag status-update">✅ Update</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="read-time">Feb 2026 · 3 min</span>
+                        </div>
+                        <h3 style="font-family:'Fraunces',serif;" class="text-lg font-semibold text-primary mb-2 leading-snug">Lean Automation Suite — v0.3 Released with Multi-Site Support</h3>
+                        <p class="text-secondary text-sm leading-relaxed mb-4">The reporting tool I've been building for production KPI tracking now supports multiple plant configurations. Added a config file system so each site can have its own shift schedule and metrics.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">Python</span>
+                            <span class="tag">Lean</span>
+                            <span class="tag">Open Source</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-accent text-sm font-semibold hover:gap-2.5 transition-all duration-200">
+                            Read more
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Post 5 -->
+                <div class="blog-card bg-white rounded-2xl overflow-hidden scroll-reveal" data-category="wip">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2940&auto=format&fit=crop" alt="Pressure vessel" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';this.onerror=null;" />
+                        <div class="absolute top-4 left-4">
+                            <span class="tag status-wip">🔧 WIP</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="read-time">Jan 2026 · 7 min</span>
+                        </div>
+                        <h3 style="font-family:'Fraunces',serif;" class="text-lg font-semibold text-primary mb-2 leading-snug">Parametric Pressure Vessel Calculator — Building a Python Tool for ASME Checks</h3>
+                        <p class="text-secondary text-sm leading-relaxed mb-4">Tired of doing ASME Section VIII calculations by hand, I started building a Python script that automates the wall thickness and nozzle reinforcement checks. Still rough but functional.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">Python</span>
+                            <span class="tag">ASME</span>
+                            <span class="tag">Pressure Vessels</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-accent text-sm font-semibold hover:gap-2.5 transition-all duration-200">
+                            Read more
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Post 6 -->
+                <div class="blog-card bg-white rounded-2xl overflow-hidden scroll-reveal" data-category="news">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2940&auto=format&fit=crop" alt="Industry news" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';this.onerror=null;" />
+                        <div class="absolute top-4 left-4">
+                            <span class="tag status-news">📰 News</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="read-time">Jan 2026 · 4 min</span>
+                        </div>
+                        <h3 style="font-family:'Fraunces',serif;" class="text-lg font-semibold text-primary mb-2 leading-snug">Digital Twin Adoption in SME Manufacturing — Is It Actually Practical?</h3>
+                        <p class="text-secondary text-sm leading-relaxed mb-4">Everyone's talking about digital twins but most case studies are from large OEMs. I looked at what's actually available for smaller manufacturers and whether the ROI makes sense.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">Digital Twin</span>
+                            <span class="tag">Industry 4.0</span>
+                            <span class="tag">SME</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-accent text-sm font-semibold hover:gap-2.5 transition-all duration-200">
+                            Read more
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Post 7 -->
+                <div class="blog-card bg-white rounded-2xl overflow-hidden scroll-reveal" data-category="idea">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2940&auto=format&fit=crop" alt="Automation idea" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';this.onerror=null;" />
+                        <div class="absolute top-4 left-4">
+                            <span class="tag status-idea">💡 Idea</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="read-time">Dec 2025 · 5 min</span>
+                        </div>
+                        <h3 style="font-family:'Fraunces',serif;" class="text-lg font-semibold text-primary mb-2 leading-snug">What If Non-Conformance Reports Were Auto-Generated from Sensor Data?</h3>
+                        <p class="text-secondary text-sm leading-relaxed mb-4">A concept I've been sketching: connecting SPC control charts to an LLM that drafts the NCR narrative automatically when a process goes out of control. Feasibility analysis inside.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">SPC</span>
+                            <span class="tag">Automation</span>
+                            <span class="tag">NCR</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-accent text-sm font-semibold hover:gap-2.5 transition-all duration-200">
+                            Read more
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Post 8 -->
+                <div class="blog-card bg-white rounded-2xl overflow-hidden scroll-reveal" data-category="update">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?q=80&w=2940&auto=format&fit=crop" alt="Update" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';this.onerror=null;" />
+                        <div class="absolute top-4 left-4">
+                            <span class="tag status-update">✅ Update</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="read-time">Dec 2025 · 2 min</span>
+                        </div>
+                        <h3 style="font-family:'Fraunces',serif;" class="text-lg font-semibold text-primary mb-2 leading-snug">Six Months of Learning Web Dev as a Mechanical Engineer — Honest Review</h3>
+                        <p class="text-secondary text-sm leading-relaxed mb-4">I started learning HTML, CSS, and Python web frameworks to build my own engineering tools. Here's what was surprisingly easy, what was hard, and what I'd do differently.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">Learning</span>
+                            <span class="tag">Web Dev</span>
+                            <span class="tag">Career</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-accent text-sm font-semibold hover:gap-2.5 transition-all duration-200">
+                            Read more
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Post 9 -->
+                <div class="blog-card bg-white rounded-2xl overflow-hidden scroll-reveal" data-category="wip">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2940&auto=format&fit=crop" alt="WIP project" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';this.onerror=null;" />
+                        <div class="absolute top-4 left-4">
+                            <span class="tag status-wip">🔧 WIP</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="read-time">Nov 2025 · 6 min</span>
+                        </div>
+                        <h3 style="font-family:'Fraunces',serif;" class="text-lg font-semibold text-primary mb-2 leading-snug">Ergonomics Risk Assessment Tool — Early Prototype Notes</h3>
+                        <p class="text-secondary text-sm leading-relaxed mb-4">Started building a web-based RULA/REBA assessment tool for workstation ergonomics. The scoring logic is done but the UI needs work. Sharing the approach and some early screenshots.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag">Ergonomics</span>
+                            <span class="tag">RULA</span>
+                            <span class="tag">Web App</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-accent text-sm font-semibold hover:gap-2.5 transition-all duration-200">
+                            Read more
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-gray-400 py-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <span style="font-family:'Fraunces',serif;" class="text-white font-semibold text-lg">E.Sengoz<span style="color:#c2410c;">.</span></span>
+            <div class="flex items-center gap-6 text-sm">
+                <a href="home.html" class="hover:text-white transition-colors">Home</a>
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="projects.html" class="hover:text-white transition-colors">Projects</a>
+                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="engineering-solutions.html" class="hover:text-white transition-colors">Solutions</a>
+                <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+            </div>
+            <span class="text-sm">© 2026 E.Sengoz. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="../js/portfolio.js"></script>
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.scroll-reveal');
+        PortfolioApp.setupScrollReveal({ threshold: 0.1 });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), i * 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        reveals.forEach(el => observer.observe(el));
+
+        // Filter logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('#blog-grid .blog-card');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const filter = this.getAttribute('data-filter');
+                cards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

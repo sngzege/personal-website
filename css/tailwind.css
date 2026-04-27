@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #0f141a;
+  --color-secondary: #7f8b99;
+  --color-accent: #c6a76a;
+  --color-accent-alt: #5d7890;
+  --color-background: #0f1115;
+  --color-surface: #151922;
+  --color-surface-elevated: #1d252d;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(198, 167, 106, 0.18);
+  --color-text-primary: #eef2f6;
+  --color-text-secondary: #94a0af;
+  --color-text-muted: #7f8b99;
+  --brand-accent: #c6a76a;
+  
+  --color-success: #38a169;
+  --color-warning: #d0a85c;
+  --color-error: #e53e3e;
+  --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.24);
+  --shadow-medium: 0 18px 44px rgba(0, 0, 0, 0.3);
+  --transition-smooth: 300ms ease-out;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    line-height: 1.6;
+    background-image:
+      radial-gradient(circle at top left, rgba(93, 120, 144, 0.18), transparent 28%),
+      radial-gradient(circle at top right, rgba(198, 167, 106, 0.14), transparent 22%),
+      linear-gradient(180deg, #0f1115 0%, #121620 100%);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', serif;
+    color: var(--color-text-primary);
+    line-height: 1.2;
+  }
+
+  a {
+    transition: color 200ms ease, border-color 200ms ease;
+  }
+  
+  
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent text-primary px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-opacity-50;
+  }
+  
+  .btn-secondary {
+    @apply bg-surface text-text-primary border px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:border-accent hover:text-accent focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-50;
+    border-color: var(--color-border);
+  }
+  
+  .card {
+    @apply rounded-xl shadow-soft transition-all duration-300 hover:shadow-medium;
+    background: rgba(29, 37, 45, 0.88);
+    border: 1px solid var(--color-border);
+  }
+  
+  .form-input {
+    @apply w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-300;
+    background: rgba(15, 20, 26, 0.78);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent to-accent-alt bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .surface-panel {
+    background: rgba(29, 37, 45, 0.88);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-soft);
+  }
+}
+
+nav {
+  background: rgba(17, 20, 24, 0.82) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[style*="#c2410c"] {
+  color: var(--brand-accent) !important;
+  border-color: var(--brand-accent) !important;
+}
+
+[style*="#fff3ed"] {
+  background: rgba(198, 167, 106, 0.12) !important;
+}
+
+[style*="#fff8f5"] {
+  background: rgba(198, 167, 106, 0.08) !important;
+}
+
+[style*="background:#f3f4f6"],
+[style*="background: #f3f4f6"] {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+.stat-card {
+  border-left-color: var(--brand-accent) !important;
+}
+
+.bg-white,
+.bg-surface,
+.featured-card,
+.blog-card,
+.service-card,
+.resource-card,
+.testimonial-card {
+  background: rgba(29, 37, 45, 0.88) !important;
+}
+
+.bg-background {
+  background-color: transparent !important;
+}
+
+.text-primary,
+.text-text-primary,
+.text-white {
+  color: var(--color-text-primary) !important;
+}
+
+.text-secondary,
+.text-gray-500,
+.text-gray-400,
+.text-gray-300 {
+  color: var(--color-text-secondary) !important;
+}
+
+.border-gray-100,
+.border-gray-200,
+.border-gray-300,
+.blog-card,
+.filter-btn,
+.tag,
+.skill-pill {
+  border-color: var(--color-border) !important;
+}
+
+.tag,
+.skill-pill,
+.filter-btn {
+  background: rgba(17, 20, 24, 0.72) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+.filter-btn.active,
+.filter-btn:hover,
+.tag.status-wip,
+.status-wip {
+  background: var(--brand-accent) !important;
+  color: #0f141a !important;
+  border-color: transparent !important;
+}
+
+.accent-line {
+  background: linear-gradient(90deg, var(--brand-accent) 0%, var(--color-accent-alt) 100%) !important;
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects — Ege Sengoz</title>
+    <meta name="description" content="Engineering and software projects by Ege Sengoz — IoT systems, mechanical design, AI planning, and more." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+    <style>
+        .accent-line { width: 48px; height: 3px; background: #c2410c; border-radius: 2px; }
+        .filter-btn { padding: 6px 18px; border-radius: 999px; font-size: 0.875rem; font-weight: 500; border: 1.5px solid #e5e7eb; color: #4a5568; background: white; cursor: pointer; transition: all 0.2s; }
+        .filter-btn.active, .filter-btn:hover { background: #c2410c; color: white; border-color: #c2410c; }
+        .project-card { transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s; cursor: pointer; }
+        .project-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+        .project-card.hidden { display: none; }
+        .tag { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 500; background: #f7f7f5; color: #4a5568; border: 1px solid #e5e7eb; }
+        .scroll-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+        .lang-toggle { display: flex; align-items: center; background: #f3f4f6; border-radius: 999px; padding: 3px; gap: 2px; }
+        .lang-btn { padding: 4px 14px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; border: none; cursor: pointer; transition: all 0.2s; background: transparent; color: #6b7280; }
+        .lang-btn.active { background: #c2410c; color: white; }
+        .view-detail-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 600; color: #c2410c; transition: gap 0.2s; }
+        .project-card:hover .view-detail-btn { gap: 10px; }
+    </style>
+  </head>
+<body class="bg-background text-text-primary" style="font-family:'DM Sans',sans-serif;">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="home.html" style="font-family:'Fraunces',serif;" class="text-xl font-bold text-primary tracking-tight">
+                    E.Şengöz<span style="color:#c2410c;">.</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="home.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_home">Home</a>
+                    <a href="about.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_about">About</a>
+                    <a href="projects.html" class="text-primary font-medium border-b-2" style="border-color:#c2410c;" data-i18n="nav_projects">Projects</a>
+                    <a href="blog.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_blog">Blog</a>
+                    <a href="engineering-solutions.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_solutions">Solutions</a>
+                    <a href="contact.html" class="btn-primary text-sm px-5 py-2" data-i18n="nav_contact">Contact</a>
+                    <div class="lang-toggle">
+                        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+                        <button class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+                    </div>
+                </div>
+                <button class="md:hidden p-2 text-primary" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="md:hidden hidden mt-4 pb-4 border-t border-gray-100" id="mobile-menu">
+                <div class="flex flex-col space-y-4 pt-4">
+                    <a href="home.html" class="text-secondary font-medium" data-i18n="nav_home">Home</a>
+                    <a href="about.html" class="text-secondary font-medium" data-i18n="nav_about">About</a>
+                    <a href="projects.html" class="text-primary font-medium" data-i18n="nav_projects">Projects</a>
+                    <a href="blog.html" class="text-secondary font-medium" data-i18n="nav_blog">Blog</a>
+                    <a href="engineering-solutions.html" class="text-secondary font-medium" data-i18n="nav_solutions">Solutions</a>
+                    <a href="contact.html" class="text-secondary font-medium" data-i18n="nav_contact">Contact</a>
+                    <div class="lang-toggle w-fit">
+                        <button class="lang-btn" id="btn-en-mob" onclick="setLang('en')">EN</button>
+                        <button class="lang-btn" id="btn-tr-mob" onclick="setLang('tr')">TR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-32 pb-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="accent-line mb-5"></div>
+            <h1 style="font-family:'Fraunces',serif;" class="text-hero text-primary mb-4" data-i18n="page_title">Projects</h1>
+            <p class="text-secondary text-xl max-w-2xl" data-i18n="page_subtitle">A collection of IoT systems, mechanical design, AI planning, and software tools — from factory floor to digital solutions.</p>
+        </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <section class="py-8 bg-white border-b border-gray-100 sticky top-[73px] z-40">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-wrap gap-3 items-center">
+                <span class="text-sm text-secondary font-medium mr-2" data-i18n="filter_label">Filter:</span>
+                <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All Projects</button>
+                <button class="filter-btn" data-filter="mechanical" data-i18n="filter_mechanical">Mechanical</button>
+                <button class="filter-btn" data-filter="software" data-i18n="filter_software">Software</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                <!-- Cards rendered by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-gray-400 py-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <a href="home.html" style="font-family:'Fraunces',serif;" class="text-xl font-bold text-white">E.Sengoz<span style="color:#c2410c;">.</span></a>
+            <p class="text-sm text-gray-500">© 2026 E.Sengoz. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/portfolio.js"></script>
+    <script src="../data/projects.js"></script>
+    <script>
+        const i18n = {
+            en: {
+                nav_home: "Home", nav_about: "About", nav_projects: "Projects",
+                nav_blog: "Blog", nav_solutions: "Solutions", nav_contact: "Contact",
+                page_title: "Projects",
+                page_subtitle: "A collection of IoT systems, mechanical design, AI planning, and software tools — from factory floor to digital solutions.",
+                filter_label: "Filter:", filter_all: "All Projects",
+                filter_mechanical: "Mechanical", filter_software: "Software",
+                view_detail: "View Details"
+            },
+            tr: {
+                nav_home: "Ana Sayfa", nav_about: "Hakkımda", nav_projects: "Projeler",
+                nav_blog: "Blog", nav_solutions: "Çözümler", nav_contact: "İletişim",
+                page_title: "Projeler",
+                page_subtitle: "IoT sistemleri, mekanik tasarım, yapay zeka planlaması ve yazılım araçlarından oluşan bir koleksiyon — fabrika zemininden dijital çözümlere.",
+                filter_label: "Filtrele:", filter_all: "Tüm Projeler",
+                filter_mechanical: "Mekanik", filter_software: "Yazılım",
+                view_detail: "Detayları Gör"
+            }
+        };
+
+        let currentLang = window.PortfolioApp.getLang();
+        let currentFilter = 'all';
+
+        window.PortfolioApp.registerPageTranslations(i18n);
+        window.PortfolioApp.onLanguageChange((lang) => {
+            currentLang = lang;
+            renderCards();
+        }, { immediate: false });
+
+        function getCategoryColor(cat) {
+            const map = {
+                mechanical: { bg: 'rgba(194,65,12,0.1)', color: '#c2410c', border: 'rgba(194,65,12,0.2)' },
+                software: { bg: 'rgba(30,58,95,0.1)', color: '#1e3a5f', border: 'rgba(30,58,95,0.2)' }
+            };
+            return map[cat] || map.software;
+        }
+
+        function renderCards() {
+            const t = i18n[currentLang];
+            const grid = document.getElementById('projects-grid');
+            const filtered = currentFilter === 'all'
+                ? projectsData
+                : projectsData.filter(p => p.category === currentFilter);
+
+            grid.innerHTML = filtered.map(project => {
+                const data = project[currentLang];
+                const colors = getCategoryColor(project.category);
+                const tagsHTML = project.tags.slice(0, 3).map(tag => `<span class="tag">${tag}</span>`).join('');
+                return `
+                    <div class="project-card bg-white rounded-2xl overflow-hidden border border-gray-100 scroll-reveal" onclick="window.location.href='project-detail.html?id=${project.id}'">
+                        <div class="relative overflow-hidden h-52">
+                            <img src="${project.image}" alt="${data.title}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='${project.fallbackImage}';this.onerror=null;" />
+                            <div class="absolute top-4 left-4">
+                                <span class="tag" style="background:${colors.bg};color:${colors.color};border-color:${colors.border};">${data.categoryLabel}</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 style="font-family:'Fraunces',serif;" class="text-xl font-semibold text-primary mb-2">${data.title}</h3>
+                            <p class="text-secondary text-sm leading-relaxed mb-4">${data.description.substring(0, 120)}...</p>
+                            <div class="flex flex-wrap gap-2 mb-4">${tagsHTML}</div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-secondary">${data.company} · ${project.year}</span>
+                                <span class="view-detail-btn">
+                                    ${t.view_detail}
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // Trigger scroll reveal
+            setTimeout(() => {
+                document.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('visible'));
+            }, 50);
+        }
+
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.getAttribute('data-filter');
+                renderCards();
+            });
+        });
+
+        // Init
+        renderCards();
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

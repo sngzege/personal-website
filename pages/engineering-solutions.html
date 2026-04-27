@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Engineering Solutions — Ege Sengoz</title>
+    <meta name="description" content="Professional engineering services: ISO certification audits, mechanical design, software development, manufacturing consulting, and more." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+    <style>
+        .accent-line { width: 48px; height: 3px; background: #c2410c; border-radius: 2px; }
+        .service-card { transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s; border: 1.5px solid #e5e7eb; cursor: pointer; }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-color: #c2410c; }
+        .service-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; background: #fff3ed; }
+        .scroll-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+        .check-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+        .check-dot { width: 18px; height: 18px; border-radius: 50%; background: #fff3ed; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+        .badge { display: inline-block; padding: 3px 12px; border-radius: 999px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+        .lang-toggle { display: flex; align-items: center; background: #f3f4f6; border-radius: 999px; padding: 3px; gap: 2px; }
+        .lang-btn { padding: 4px 14px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; border: none; cursor: pointer; transition: all 0.2s; background: transparent; color: #6b7280; }
+        .lang-btn.active { background: #c2410c; color: white; }
+        .view-detail-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 600; color: #c2410c; margin-top: 16px; transition: gap 0.2s; }
+        .service-card:hover .view-detail-btn { gap: 10px; }
+    </style>
+  </head>
+<body class="bg-background text-text-primary" style="font-family:'DM Sans',sans-serif;">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="home.html" style="font-family:'Fraunces',serif;" class="text-xl font-bold text-primary tracking-tight">
+                    E.Şengöz<span style="color:#c2410c;">.</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="home.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_home">Home</a>
+                    <a href="about.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_about">About</a>
+                    <a href="projects.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_projects">Projects</a>
+                    <a href="blog.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_blog">Blog</a>
+                    <a href="engineering-solutions.html" class="text-primary font-medium border-b-2" style="border-color:#c2410c;" data-i18n="nav_solutions">Solutions</a>
+                    <a href="contact.html" class="btn-primary text-sm px-5 py-2" data-i18n="nav_contact">Contact</a>
+                    <div class="lang-toggle">
+                        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+                        <button class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+                    </div>
+                </div>
+                <button class="md:hidden p-2 text-primary" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="md:hidden hidden mt-4 pb-4 border-t border-gray-100" id="mobile-menu">
+                <div class="flex flex-col space-y-4 pt-4">
+                    <a href="home.html" class="text-secondary font-medium" data-i18n="nav_home">Home</a>
+                    <a href="about.html" class="text-secondary font-medium" data-i18n="nav_about">About</a>
+                    <a href="projects.html" class="text-secondary font-medium" data-i18n="nav_projects">Projects</a>
+                    <a href="blog.html" class="text-secondary font-medium" data-i18n="nav_blog">Blog</a>
+                    <a href="engineering-solutions.html" class="text-primary font-medium" data-i18n="nav_solutions">Solutions</a>
+                    <a href="contact.html" class="text-secondary font-medium" data-i18n="nav_contact">Contact</a>
+                    <div class="lang-toggle w-fit">
+                        <button class="lang-btn" id="btn-en-mob" onclick="setLang('en')">EN</button>
+                        <button class="lang-btn" id="btn-tr-mob" onclick="setLang('tr')">TR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-32 pb-20 relative overflow-hidden" style="background:linear-gradient(135deg,#1a1a1a 0%,#2d1810 60%,#1e3a5f 100%);">
+        <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px); background-size: 60px 60px;"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="accent-line mb-5"></div>
+            <h1 style="font-family:'Fraunces',serif;" class="text-hero text-white mb-5" data-i18n="page_title">Engineering Solutions</h1>
+            <p class="text-gray-300 text-xl max-w-2xl leading-relaxed mb-8" data-i18n="page_subtitle">Professional engineering services available for hire. From ISO certification audits to custom mechanical design and software tools — here's what I can do for you.</p>
+            <a href="contact.html" class="btn-primary px-8 py-3 text-base inline-flex items-center gap-2" data-i18n="cta_discuss">
+                Discuss Your Project
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-20 bg-surface">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-14 scroll-reveal">
+                <div class="accent-line mx-auto mb-5"></div>
+                <h2 style="font-family:'Fraunces',serif;" class="text-display text-primary mb-4" data-i18n="section_title">What I Offer</h2>
+                <p class="text-secondary text-lg max-w-2xl mx-auto" data-i18n="section_subtitle">Specialized engineering services built on real-world industrial experience. Each service is tailored to your specific needs and delivered with precision.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="services-grid">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Work With Me -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="scroll-reveal">
+                    <div class="accent-line mb-5"></div>
+                    <h2 style="font-family:'Fraunces',serif;" class="text-display text-primary mb-6" data-i18n="why_title">Why Hire an Engineer Who Also Codes?</h2>
+                    <p class="text-secondary leading-relaxed mb-5" data-i18n="why_p1">Most engineers can design parts. Most developers can write code. Very few can do both — and understand how the two connect in a real manufacturing environment.</p>
+                    <p class="text-secondary leading-relaxed mb-5" data-i18n="why_p2">I've spent years on factory floors, in quality labs, and in front of terminals. That means I can design a mechanical system and build the software to monitor it. I can run an ISO audit and automate the reporting that comes after.</p>
+                    <p class="text-secondary leading-relaxed" data-i18n="why_p3">You get one person who understands the full picture — not a handoff between departments.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-5 scroll-reveal">
+                    <div class="bg-surface rounded-2xl p-6 text-center">
+                        <div style="font-family:'Fraunces',serif; font-size:2.5rem; font-weight:700; color:#c2410c;" class="mb-2">8+</div>
+                        <p class="text-secondary text-sm" data-i18n="stat1">Years industrial experience</p>
+                    </div>
+                    <div class="bg-surface rounded-2xl p-6 text-center">
+                        <div style="font-family:'Fraunces',serif; font-size:2.5rem; font-weight:700; color:#c2410c;" class="mb-2">7</div>
+                        <p class="text-secondary text-sm" data-i18n="stat2">ISO standards certified</p>
+                    </div>
+                    <div class="bg-surface rounded-2xl p-6 text-center">
+                        <div style="font-family:'Fraunces',serif; font-size:2.5rem; font-weight:700; color:#c2410c;" class="mb-2">ITU</div>
+                        <p class="text-secondary text-sm" data-i18n="stat3">Manufacturing Engineering graduate</p>
+                    </div>
+                    <div class="bg-surface rounded-2xl p-6 text-center">
+                        <div style="font-family:'Fraunces',serif; font-size:2.5rem; font-weight:700; color:#c2410c;" class="mb-2">2x</div>
+                        <p class="text-secondary text-sm" data-i18n="stat4">Domains: Mechanical + Software</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-gray-400 py-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <a href="home.html" style="font-family:'Fraunces',serif;" class="text-xl font-bold text-white">E.Şengöz<span style="color:#c2410c;">.</span></a>
+            <p class="text-sm text-gray-500">© 2025 E.Sengoz. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/portfolio.js"></script>
+    <script src="../data/services.js"></script>
+    <script>
+        const i18n = {
+            en: {
+                nav_home: "Home", nav_about: "About", nav_projects: "Projects",
+                nav_blog: "Blog", nav_solutions: "Solutions", nav_contact: "Contact",
+                page_title: "Engineering Solutions",
+                page_subtitle: "Professional engineering services available for hire. From ISO certification audits to custom mechanical design and software tools — here's what I can do for you.",
+                cta_discuss: "Discuss Your Project",
+                section_title: "What I Offer",
+                section_subtitle: "Specialized engineering services built on real-world industrial experience. Each service is tailored to your specific needs and delivered with precision.",
+                why_title: "Why Hire an Engineer Who Also Codes?",
+                why_p1: "Most engineers can design parts. Most developers can write code. Very few can do both — and understand how the two connect in a real manufacturing environment.",
+                why_p2: "I've spent years on factory floors, in quality labs, and in front of terminals. That means I can design a mechanical system and build the software to monitor it. I can run an ISO audit and automate the reporting that comes after.",
+                why_p3: "You get one person who understands the full picture — not a handoff between departments.",
+                stat1: "Years industrial experience", stat2: "ISO standards certified",
+                stat3: "Manufacturing Engineering graduate", stat4: "Domains: Mechanical + Software",
+                view_detail: "Learn More", most_requested: "Most Requested"
+            },
+            tr: {
+                nav_home: "Ana Sayfa", nav_about: "Hakkımda", nav_projects: "Projeler",
+                nav_blog: "Blog", nav_solutions: "Çözümler", nav_contact: "İletişim",
+                page_title: "Mühendislik Çözümleri",
+                page_subtitle: "Kiralık profesyonel mühendislik hizmetleri. ISO sertifikasyon denetimlerinden özel mekanik tasarıma ve yazılım araçlarına kadar — sizin için neler yapabileceğim.",
+                cta_discuss: "Projenizi Görüşelim",
+                section_title: "Neler Sunuyorum",
+                section_subtitle: "Gerçek dünya endüstriyel deneyimine dayalı uzmanlaşmış mühendislik hizmetleri. Her hizmet özel ihtiyaçlarınıza göre uyarlanır ve hassasiyetle sunulur.",
+                why_title: "Neden Kod Yazan Bir Mühendis İşe Almalısınız?",
+                why_p1: "Çoğu mühendis parça tasarlayabilir. Çoğu geliştirici kod yazabilir. Her ikisini de yapabilen ve ikisinin gerçek bir üretim ortamında nasıl bağlandığını anlayan çok az kişi vardır.",
+                why_p2: "Yıllarımı fabrika zeminlerinde, kalite laboratuvarlarında ve terminallerin önünde geçirdim. Bu, mekanik bir sistem tasarlayabileceğim ve onu izleyecek yazılımı geliştirebileceğim anlamına gelir. ISO denetimi yapabilir ve ardından gelen raporlamayı otomatikleştirebilirim.",
+                why_p3: "Tam resmi anlayan tek bir kişi alırsınız — departmanlar arası devir teslim değil.",
+                stat1: "Yıl endüstriyel deneyim", stat2: "ISO standardı sertifikalı",
+                stat3: "İTÜ İmalat Mühendisliği mezunu", stat4: "Alan: Mekanik + Yazılım",
+                view_detail: "Daha Fazla Bilgi", most_requested: "En Çok Talep Edilen"
+            }
+        };
+
+        let currentLang = window.PortfolioApp.getLang();
+
+        window.PortfolioApp.registerPageTranslations(i18n);
+        window.PortfolioApp.onLanguageChange((lang) => {
+            currentLang = lang;
+            renderServices();
+        }, { immediate: false });
+
+        function checkSVG() {
+            return `<svg class="w-2.5 h-2.5" style="color:#c2410c;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>`;
+        }
+
+        function renderServices() {
+            const t = i18n[currentLang];
+            const grid = document.getElementById('services-grid');
+
+            grid.innerHTML = servicesData.map(service => {
+                const data = service[currentLang];
+                const badgeHTML = data.badge ? `<span class="badge ml-2" style="background:#fff3ed;color:#c2410c;">${t.most_requested}</span>` : '';
+                const colSpan = service.featured ? 'lg:col-span-2' : '';
+
+                const highlightsHTML = data.highlights.slice(0, 4).map(h => `
+                    <div class="check-item">
+                        <div class="check-dot">${checkSVG()}</div>
+                        <span class="text-secondary text-sm">${h}</span>
+                    </div>
+                `).join('');
+
+                if (service.featured) {
+                    return `
+                        <div class="service-card bg-white rounded-2xl p-8 ${colSpan} scroll-reveal" onclick="window.location.href='service-detail.html?id=${service.id}'">
+                            <div class="flex items-start gap-5 mb-6">
+                                <div class="service-icon flex-shrink-0">
+                                    <svg class="w-6 h-6" style="color:#c2410c;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${service.iconPath}"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center flex-wrap gap-2 mb-2">
+                                        <h3 style="font-family:'Fraunces',serif;" class="text-2xl font-semibold text-primary">${data.title}</h3>
+                                        ${badgeHTML}
+                                    </div>
+                                    <p class="text-secondary leading-relaxed text-sm">${data.description}</p>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-1">${highlightsHTML}</div>
+                            <span class="view-detail-btn">
+                                ${t.view_detail}
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                            </span>
+                        </div>
+                    `;
+                } else {
+                    return `
+                        <div class="service-card bg-white rounded-2xl p-8 scroll-reveal" onclick="window.location.href='service-detail.html?id=${service.id}'">
+                            <div class="service-icon mb-5">
+                                <svg class="w-6 h-6" style="color:#c2410c;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${service.iconPath}"/>
+                                </svg>
+                            </div>
+                            <h3 style="font-family:'Fraunces',serif;" class="text-xl font-semibold text-primary mb-3">${data.title}</h3>
+                            <p class="text-secondary text-sm leading-relaxed mb-5">${data.description}</p>
+                            <div class="space-y-1">${highlightsHTML}</div>
+                            <span class="view-detail-btn">
+                                ${t.view_detail}
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                            </span>
+                        </div>
+                    `;
+                }
+            }).join('');
+
+            // Scroll reveal
+            setTimeout(() => {
+                document.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('visible'));
+            }, 50);
+        }
+
+        // Mobile menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Scroll reveal observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        // Init
+        applyLang();
+        renderServices();
+
+        // Observe static elements
+        setTimeout(() => {
+            document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+        }, 100);
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

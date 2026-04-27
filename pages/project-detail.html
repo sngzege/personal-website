@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Detail — Ege Şengöz</title>
+    <meta name="description" content="Project detail page" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+    <style>
+        .accent-line { width: 48px; height: 3px; background: #c2410c; border-radius: 2px; }
+        .tag { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 500; background: #f7f7f5; color: #4a5568; border: 1px solid #e5e7eb; }
+        .lang-toggle { display: flex; align-items: center; background: #f3f4f6; border-radius: 999px; padding: 3px; gap: 2px; }
+        .lang-btn { padding: 4px 14px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; border: none; cursor: pointer; transition: all 0.2s; background: transparent; color: #6b7280; }
+        .lang-btn.active { background: #c2410c; color: white; }
+        .highlight-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+        .highlight-dot { width: 20px; height: 20px; border-radius: 50%; background: #fff3ed; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+        .back-link { display: inline-flex; align-items: center; gap: 8px; color: #6b7280; font-size: 0.9rem; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+        .back-link:hover { color: #c2410c; }
+    </style>
+  </head>
+<body class="bg-background text-text-primary" style="font-family:'DM Sans',sans-serif;">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="home.html" style="font-family:'Fraunces',serif;" class="text-xl font-bold text-primary tracking-tight">
+                    E.Şengöz<span style="color:#c2410c;">.</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="home.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_home">Home</a>
+                    <a href="about.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_about">About</a>
+                    <a href="projects.html" class="text-primary font-medium border-b-2" style="border-color:#c2410c;" data-i18n="nav_projects">Projects</a>
+                    <a href="blog.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_blog">Blog</a>
+                    <a href="engineering-solutions.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_solutions">Solutions</a>
+                    <a href="contact.html" class="btn-primary text-sm px-5 py-2" data-i18n="nav_contact">Contact</a>
+                    <div class="lang-toggle">
+                        <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+                        <button class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+                    </div>
+                </div>
+                <button class="md:hidden p-2 text-primary" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="md:hidden hidden mt-4 pb-4 border-t border-gray-100" id="mobile-menu">
+                <div class="flex flex-col space-y-4 pt-4">
+                    <a href="home.html" class="text-secondary font-medium" data-i18n="nav_home">Home</a>
+                    <a href="about.html" class="text-secondary font-medium" data-i18n="nav_about">About</a>
+                    <a href="projects.html" class="text-primary font-medium" data-i18n="nav_projects">Projects</a>
+                    <a href="blog.html" class="text-secondary font-medium" data-i18n="nav_blog">Blog</a>
+                    <a href="engineering-solutions.html" class="text-secondary font-medium" data-i18n="nav_solutions">Solutions</a>
+                    <a href="contact.html" class="text-secondary font-medium" data-i18n="nav_contact">Contact</a>
+                    <div class="lang-toggle w-fit">
+                        <button class="lang-btn" id="btn-en-mob" onclick="setLang('en')">EN</button>
+                        <button class="lang-btn" id="btn-tr-mob" onclick="setLang('tr')">TR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content will be injected here -->
+    <div id="page-content" class="pt-20"></div>
+
+    <!-- Not Found fallback (hidden by default) -->
+    <div id="not-found" class="hidden pt-40 pb-20 text-center">
+        <h2 style="font-family:'Fraunces',serif;" class="text-3xl text-primary mb-4">Project not found</h2>
+        <a href="projects.html" class="btn-primary">Back to Projects</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-gray-400 py-10 mt-20">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <a href="home.html" style="font-family:'Fraunces',serif;" class="text-xl font-bold text-white">E.Sengoz<span style="color:#c2410c;">.</span></a>
+            <p class="text-sm text-gray-500">© 2026 E.Sengoz. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/portfolio.js"></script>
+    <script src="../data/projects.js"></script>
+    <script>
+        // i18n strings
+        const i18n = {
+            en: {
+                nav_home: "Home", nav_about: "About", nav_projects: "Projects",
+                nav_blog: "Blog", nav_solutions: "Solutions", nav_contact: "Contact",
+                back: "Back to Projects", highlights: "Key Highlights",
+                tags: "Technologies & Tools", year: "Year", company: "Organization",
+                category: "Category", view_all: "View All Projects"
+            },
+            tr: {
+                nav_home: "Ana Sayfa", nav_about: "Hakkımda", nav_projects: "Projeler",
+                nav_blog: "Blog", nav_solutions: "Çözümler", nav_contact: "İletişim",
+                back: "Projelere Dön", highlights: "Öne Çıkan Noktalar",
+                tags: "Teknolojiler ve Araçlar", year: "Yıl", company: "Kuruluş",
+                category: "Kategori", view_all: "Tüm Projeleri Gör"
+            }
+        };
+
+        let currentLang = window.PortfolioApp.getLang();
+
+        window.PortfolioApp.registerPageTranslations(i18n);
+        window.PortfolioApp.onLanguageChange((lang) => {
+            currentLang = lang;
+            renderProject();
+        }, { immediate: false });
+
+        function getProjectId() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id');
+        }
+
+        function getCategoryColor(cat) {
+            const map = {
+                mechanical: { bg: 'rgba(194,65,12,0.1)', color: '#c2410c', border: 'rgba(194,65,12,0.2)' },
+                software: { bg: 'rgba(30,58,95,0.1)', color: '#1e3a5f', border: 'rgba(30,58,95,0.2)' },
+                quality: { bg: 'rgba(56,161,105,0.1)', color: '#38a169', border: 'rgba(56,161,105,0.2)' },
+                industrial: { bg: 'rgba(214,158,46,0.1)', color: '#b7791f', border: 'rgba(214,158,46,0.2)' }
+            };
+            return map[cat] || map.software;
+        }
+
+        function renderProject() {
+            const id = getProjectId();
+            const project = projectsData.find(p => p.id === id);
+            const t = i18n[currentLang];
+
+            if (!project) {
+                document.getElementById('not-found').classList.remove('hidden');
+                return;
+            }
+
+            const data = project[currentLang];
+            const colors = getCategoryColor(project.category);
+
+            const highlightsHTML = data.highlights.map(h => `
+                <div class="highlight-item">
+                    <div class="highlight-dot">
+                        <svg class="w-3 h-3" style="color:#c2410c;" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <span class="text-secondary text-sm leading-relaxed">${h}</span>
+                </div>
+            `).join('');
+
+            const tagsHTML = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+
+            document.getElementById('page-content').innerHTML = `
+                <!-- Hero -->
+                <section class="pt-12 pb-0 relative overflow-hidden" style="background:linear-gradient(135deg,#1a1a1a 0%,#2d1810 60%,#1e3a5f 100%);">
+                    <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px); background-size: 60px 60px;"></div>
+                    <div class="max-w-5xl mx-auto px-6 pt-8 pb-12 relative z-10">
+                        <a href="projects.html" class="back-link mb-8 inline-flex" style="color:rgba(255,255,255,0.6);">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                            ${t.back}
+                        </a>
+                        <div class="accent-line mb-5"></div>
+                        <span class="tag mb-4 inline-block" style="background:${colors.bg};color:${colors.color};border-color:${colors.border};">${data.categoryLabel}</span>
+                        <h1 style="font-family:'Fraunces',serif; font-size:clamp(1.8rem,4vw,3rem); line-height:1.15; color:#ffffff; font-weight:700;" class="mb-4">${data.title}</h1>
+                        <p class="text-gray-300 text-lg mb-6">${data.subtitle}</p>
+                        <div class="flex flex-wrap gap-6 text-sm text-gray-400">
+                            <div><span class="text-gray-500 uppercase text-xs tracking-widest font-mono">${t.company}</span><br/><span class="text-white font-medium">${data.company}</span></div>
+                            <div><span class="text-gray-500 uppercase text-xs tracking-widest font-mono">${t.year}</span><br/><span class="text-white font-medium">${project.year}</span></div>
+                            <div><span class="text-gray-500 uppercase text-xs tracking-widest font-mono">${t.category}</span><br/><span class="text-white font-medium">${data.categoryLabel}</span></div>
+                        </div>
+                    </div>
+                    <div class="max-w-5xl mx-auto px-6 relative z-10">
+                        <div class="rounded-t-2xl overflow-hidden" style="height:320px;">
+                            <img src="${project.image}" alt="${data.title}" class="w-full h-full object-cover" onerror="this.src='${project.fallbackImage}';this.onerror=null;" />
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Detail Content -->
+                <section class="py-16 bg-white">
+                    <div class="max-w-5xl mx-auto px-6">
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                            <!-- Main description -->
+                            <div class="lg:col-span-2">
+                                <div class="accent-line mb-5"></div>
+                                <p class="text-secondary text-lg leading-relaxed mb-8">${data.detailDescription}</p>
+                                <h3 style="font-family:'Fraunces',serif;" class="text-xl font-semibold text-primary mb-5">${t.highlights}</h3>
+                                <div>${highlightsHTML}</div>
+                            </div>
+                            <!-- Sidebar -->
+                            <div>
+                                <div class="bg-surface rounded-2xl p-6 sticky top-28">
+                                    <h4 style="font-family:'Fraunces',serif;" class="font-semibold text-primary mb-4">${t.tags}</h4>
+                                    <div class="flex flex-wrap gap-2 mb-6">${tagsHTML}</div>
+                                    <hr class="border-gray-100 mb-6"/>
+                                    <a href="projects.html" class="btn-primary w-full text-center block py-3 text-sm">${t.view_all}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+
+            document.title = `${data.title} — Ege Şengöz`;
+        }
+
+        // Init
+        renderProject();
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
