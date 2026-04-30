@@ -5,6 +5,7 @@
   "main": "index.html",
   "dependencies": {
     "@tailwindcss/forms": "^0.5.7",
+    "@vercel/analytics": "^2.0.1",
     "tailwindcss-animate": "^1.0.7",
     "tailwindcss-elevation": "^2.0.0",
     "tailwindcss-fluid-type": "^2.0.7"
