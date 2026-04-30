@@ -1,9 +1,6 @@
 .DS_Store
 node_modules
 .idea
-.vercel
-.trae
 .trae/
 .vercel/
-data/
-        
+.resume/
