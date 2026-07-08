@@ -6,8 +6,8 @@ const projectsData = [
   {
     id: "edgepulse-iot",
     category: "software",
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2940&auto=format&fit=crop",
-    fallbackImage: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=2940&auto=format&fit=crop",
+    fallbackImage: "https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     tags: ["ESP32", "Arduino", "MQTT", "IoT", "Cloud"],
     year: "2024",
     en: {
@@ -42,8 +42,8 @@ const projectsData = [
   {
     id: "ai-production-planning",
     category: "software",
-    image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2940&auto=format&fit=crop",
-    fallbackImage: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://images.unsplash.com/photo-1677444305703-61b7eefc322e?q=80&w=2940&auto=format&fit=crop",
+    fallbackImage: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     tags: ["Python", "AI", "FCFS", "SPT", "ATC", "Scheduling"],
     year: "2023",
     en: {
@@ -78,8 +78,8 @@ const projectsData = [
   {
     id: "adjustable-curved-roller",
     category: "mechanical",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2940&auto=format&fit=crop",
-    fallbackImage: "https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?q=80&w=2940&auto=format&fit=crop",
+    fallbackImage: "https://images.pexels.com/photos/159298/pexels-photo-159298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     tags: ["SolidWorks", "Ansys", "FEA", "Mechanical Design", "R&D"],
     year: "2022",
     en: {
@@ -108,8 +108,8 @@ const projectsData = [
   {
     id: "suitcase-assembly-machines",
     category: "mechanical",
-    image: "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?q=80&w=2940&auto=format&fit=crop",
-    fallbackImage: "https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2940&auto=format&fit=crop",
+    fallbackImage: "https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     tags: ["SolidWorks", "Ansys", "Assembly Line", "Thermoforming", "DFM"],
     year: "2025",
     en: {
@@ -142,8 +142,8 @@ const projectsData = [
   {
     id: "production-data-app",
     category: "software",
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2940&auto=format&fit=crop",
-    fallbackImage: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2940&auto=format&fit=crop",
+    fallbackImage: "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     tags: ["AppSheet", "Excel VBA", "Mobile App", "Production Analytics"],
     year: "2025",
     en: {
@@ -179,7 +179,7 @@ const projectsData = [
     id: "maliyetanaliiz",
     category: "software",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop",
-    fallbackImage: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    fallbackImage: "https://images.pexels.com/photos/4386369/pexels-photo-4386369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     tags: ["Excel VBA", "Sustainability", "Cost Analysis", "BOM", "Carbon Footprint"],
     year: "2024",
     en: {
@@ -215,7 +215,7 @@ const projectsData = [
     id: "hermetic-librarian",
     category: "software",
     image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=2940&auto=format&fit=crop",
-    fallbackImage: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    fallbackImage: "https://images.pexels.com/photos/2041540/pexels-photo-2041540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     tags: ["Python", "RAG", "AI", "NLP", "LangChain"],
     year: "2024",
     en: {
@@ -250,8 +250,8 @@ const projectsData = [
   {
     id: "file-organizer",
     category: "software",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2940&auto=format&fit=crop",
-    fallbackImage: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2940&auto=format&fit=crop",
+    fallbackImage: "https://images.pexels.com/photos/768109/pexels-photo-768109.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     tags: ["Python", "Google Drive API", "Enterprise", "PDF Management", "Automation"],
     year: "2024",
     en: {
@@ -287,7 +287,7 @@ const projectsData = [
     id: "drive-assist",
     category: "software",
     image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=2940&auto=format&fit=crop",
-    fallbackImage: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    fallbackImage: "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     tags: ["Python", "LangChain", "LangGraph", "AES Encryption", "Local AI"],
     year: "2024",
     en: {
@@ -323,7 +323,7 @@ const projectsData = [
     id: "arge-kanban",
     category: "software",
     image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=2940&auto=format&fit=crop",
-    fallbackImage: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    fallbackImage: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     tags: ["Python", "Flask", "Kanban", "R&D", "Enterprise"],
     year: "2023",
     en: {
@@ -359,7 +359,7 @@ const projectsData = [
     id: "synccore",
     category: "software",
     image: "https://images.unsplash.com/photo-1555949963-aa9d8c4a9fb4?q=80&w=2940&auto=format&fit=crop",
-    fallbackImage: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    fallbackImage: "https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     tags: ["Python", "OpenCV", "SHA-256", "Version Control", "Manufacturing"],
     year: "2023",
     en: {
@@ -395,7 +395,7 @@ const projectsData = [
     id: "ai-erp-assistant",
     category: "software",
     image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2940&auto=format&fit=crop",
-    fallbackImage: "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    fallbackImage: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     tags: ["FastAPI", "Python", "Odoo", "OneDrive", "Docker", "AI"],
     year: "2023",
     en: {
