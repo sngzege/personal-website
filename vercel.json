@@ -3,6 +3,10 @@
   "outputDirectory": ".",
   "rewrites": [
     {
+      "source": "/resume",
+      "destination": "/pages/resume.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

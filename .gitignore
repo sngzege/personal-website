@@ -5,3 +5,8 @@ node_modules
 .vercel/
 .resume/
 .vercel
+*.pdf
+*.docx
+CV/
+cv/
+resume-source/

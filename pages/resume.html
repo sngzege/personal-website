@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ege Sengoz — Resume</title>
+    <meta name="description" content="Resume of Ege Sengoz — Manufacturing Engineer & Digital Solutions" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --brand: #c2410c;
+            --brand-light: #ea580c;
+            --brand-bg: #fff3ed;
+            --navy: #1e3a5f;
+            --dark: #0f0f0f;
+            --surface: #f7f7f5;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6b7280;
+            --text-muted: #9ca3af;
+            --border: #e5e7eb;
+            --white: #ffffff;
+            --font-serif: 'Fraunces', serif;
+            --font-sans: 'DM Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-primary);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 30%, #1e3a5f 70%, #2d1810 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 80px 24px 60px;
+            min-height: auto;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.04;
+            background-image: linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 860px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .hero-name {
+            font-family: var(--font-serif);
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+        .hero-name span { color: var(--brand); }
+        .hero-title {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+        }
+        .hero-contact {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px 28px;
+            margin-bottom: 24px;
+        }
+        .hero-contact a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 0.88rem;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            transition: color 0.2s;
+        }
+        .hero-contact a:hover { color: var(--brand-light); }
+        .hero-contact svg { width: 15px; height: 15px; opacity: 0.7; }
+        .lang-row {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 20px;
+        }
+        .lang-btn {
+            padding: 5px 16px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: transparent;
+            color: #6b7280;
+            font-family: var(--font-sans);
+        }
+        .lang-btn.active {
+            background: var(--brand);
+            color: #0b0d10;
+            box-shadow: 0 6px 18px rgba(194,65,12,0.3);
+        }
+
+        /* ── Download / Print button ── */
+        .print-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: var(--font-sans);
+            border: 1.5px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.06);
+            color: #e5e7eb;
+            cursor: pointer;
+            transition: all 0.25s;
+            margin-top: 18px;
+            backdrop-filter: blur(8px);
+        }
+        .print-btn:hover {
+            border-color: var(--brand);
+            color: var(--white);
+            background: rgba(194,65,12,0.15);
+        }
+
+        /* ── Sections ── */
+        .section {
+            padding: 72px 24px;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .section--alt {
+            background: var(--surface);
+            max-width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .section--alt .section-inner {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .accent-bar {
+            width: 40px;
+            height: 3px;
+            background: var(--brand);
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* ── Summary ── */
+        .summary-text {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            max-width: 720px;
+        }
+
+        /* ── Experience Timeline ── */
+        .timeline { position: relative; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--brand), var(--border));
+        }
+        .tl-item {
+            position: relative;
+            padding-left: 56px;
+            margin-bottom: 44px;
+        }
+        .tl-item:last-child { margin-bottom: 0; }
+        .tl-dot {
+            position: absolute;
+            left: 8px;
+            top: 4px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--brand-bg);
+            border: 2px solid var(--brand);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+        .tl-dot svg { width: 11px; height: 11px; color: var(--brand); }
+
+        .exp-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 28px 30px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .exp-card:hover {
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+        .exp-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .exp-role {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .exp-company {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--brand);
+            margin-top: 2px;
+        }
+        .exp-date {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            background: var(--surface);
+            padding: 4px 12px;
+            border-radius: 999px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .exp-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .exp-bullets li {
+            position: relative;
+            padding-left: 18px;
+            font-size: 0.88rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        .exp-bullets li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--brand);
+            opacity: 0.5;
+        }
+
+        /* ── Projects - Alternating Layout ── */
+        .projects-list { display: flex; flex-direction: column; gap: 32px; }
+        .proj-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--white);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .proj-card:hover {
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+        .proj-card:nth-child(even) { direction: rtl; }
+        .proj-card:nth-child(even) > * { direction: ltr; }
+        .proj-visual {
+            position: relative;
+            min-height: 240px;
+            overflow: hidden;
+        }
+        .proj-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+        }
+        .proj-card:hover .proj-visual img { transform: scale(1.05); }
+        .proj-visual .proj-cat {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 999px;
+            backdrop-filter: blur(10px);
+            font-weight: 600;
+        }
+        .proj-cat--mech { background: rgba(194,65,12,0.2); color: #fca97a; }
+        .proj-cat--soft { background: rgba(30,58,95,0.25); color: #93c5fd; }
+        .proj-body {
+            padding: 28px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .proj-title {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        .proj-subtitle {
+            font-size: 0.82rem;
+            color: var(--brand);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .proj-desc {
+            font-size: 0.85rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        .proj-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .proj-tag {
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: var(--surface);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+
+        /* ── Skills Grid ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 32px;
+        }
+        .skill-group h4 {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        .skill-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 14px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            border: 1.5px solid var(--border);
+            background: var(--white);
+            color: #374151;
+            margin: 0 6px 8px 0;
+            transition: all 0.2s;
+        }
+        .skill-pill:hover {
+            border-color: var(--brand);
+            color: var(--brand);
+            background: var(--brand-bg);
+        }
+
+        /* ── Certs & Education ── */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+        .cert-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 18px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--white);
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .cert-item:hover {
+            border-color: var(--brand);
+            transform: translateY(-1px);
+        }
+        .cert-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .cert-icon svg { width: 18px; height: 18px; }
+        .cert-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+        .cert-meta {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        /* ── Education ── */
+        .edu-card {
+            display: flex;
+            gap: 16px;
+            padding: 22px 26px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: var(--white);
+            margin-bottom: 14px;
+            transition: box-shadow 0.2s;
+        }
+        .edu-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+        .edu-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: #f0f0ec;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .edu-icon svg { width: 18px; height: 18px; color: var(--text-muted); }
+        .edu-title {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .edu-school {
+            font-size: 0.85rem;
+            color: var(--brand);
+            font-weight: 500;
+        }
+        .edu-date {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+        .edu-note {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* ── Languages ── */
+        .lang-grid {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .lang-card {
+            flex: 1;
+            min-width: 180px;
+            padding: 20px 24px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: var(--white);
+            text-align: center;
+        }
+        .lang-name {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .lang-level {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* ── Back to Website CTA ── */
+        .cta-back {
+            background: linear-gradient(135deg, #1e3a5f 0%, #1a1a1a 60%, #2d1810 100%);
+            padding: 72px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-back::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.04;
+            background-image: linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        .cta-back-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+        .cta-back h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+        .cta-back p {
+            color: #9ca3af;
+            font-size: 0.95rem;
+            margin-bottom: 28px;
+        }
+        .cta-back a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 10px;
+            background: var(--brand);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.25s;
+            box-shadow: 0 4px 16px rgba(194,65,12,0.3);
+            font-family: var(--font-sans);
+        }
+        .cta-back a:hover {
+            background: var(--brand-light);
+            box-shadow: 0 6px 24px rgba(194,65,12,0.4);
+            transform: translateY(-1px);
+        }
+        .cta-back a svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.2s;
+        }
+        .cta-back a:hover svg { transform: translateX(3px); }
+
+        /* ── Scroll Animations ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1),
+                        transform 0.7s cubic-bezier(0.4,0,0.2,1);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1),
+                        transform 0.7s cubic-bezier(0.4,0,0.2,1);
+        }
+        .reveal-left.visible { opacity: 1; transform: translateX(0); }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1),
+                        transform 0.7s cubic-bezier(0.4,0,0.2,1);
+        }
+        .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .hero { padding: 64px 20px 48px; }
+            .section { padding: 48px 20px; }
+            .proj-card {
+                grid-template-columns: 1fr;
+            }
+            .proj-card:nth-child(even) { direction: ltr; }
+            .proj-visual { min-height: 180px; }
+            .exp-card { padding: 20px 22px; }
+            .timeline::before { left: 13px; }
+            .tl-item { padding-left: 44px; }
+            .tl-dot { left: 2px; width: 22px; height: 22px; }
+            .exp-header { flex-direction: column; }
+            .certs-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .skills-grid { grid-template-columns: 1fr; }
+            .lang-grid { flex-direction: column; }
+        }
+
+        /* ── Print ── */
+        @media print {
+            .hero { padding: 32px 20px 24px; min-height: auto; }
+            .hero::before, .hero::after { display: none; }
+            .lang-row, .print-btn { display: none !important; }
+            .section { padding: 24px 20px; break-inside: avoid; }
+            .section--alt { background: none; }
+            .exp-card, .cert-item, .edu-card, .proj-card, .skill-pill, .lang-card {
+                box-shadow: none;
+                border-color: #ccc;
+            }
+            .exp-card:hover, .proj-card:hover, .cert-item:hover { transform: none; }
+            .reveal, .reveal-left, .reveal-right {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+            .cta-back { padding: 32px 20px; }
+            body { font-size: 10pt; }
+            .proj-card { break-inside: avoid; }
+            a { text-decoration: none; color: inherit; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero">
+    <div class="hero-inner">
+        <div class="hero-name">Ege Sengoz<span>.</span></div>
+        <div class="hero-title" data-i18n="r_title">Manufacturing Engineer & Digital Solutions</div>
+        <div class="hero-contact">
+            <a href="mailto:egengoz@outlook.com">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                egengoz@outlook.com
+            </a>
+            <a href="tel:+905011560375">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                +90 501 156 03 75
+            </a>
+            <a href="https://linkedin.com/in/ege-sengoz-a92713226/" target="_blank" rel="noopener">
+                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+            </a>
+            <a href="https://github.com/sngzege" target="_blank" rel="noopener">
+                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+            </a>
+            <a href="https://www.egesengoz.com" target="_blank">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
+                egesengoz.com
+            </a>
+        </div>
+        <button class="print-btn" onclick="window.print()">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+            <span data-i18n="r_download">Download PDF</span>
+        </button>
+        <div class="lang-row">
+            <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+            <button class="lang-btn" id="btn-tr" onclick="setLang('tr')">TR</button>
+        </div>
+    </div>
+</header>
+
+<!-- ═══════════ SUMMARY ═══════════ -->
+<section class="section">
+    <div class="section-header reveal">
+        <div class="accent-bar"></div>
+        <h2 class="section-title" data-i18n="r_summary_title">Summary</h2>
+    </div>
+    <p class="summary-text reveal" data-i18n="r_summary">
+        Detail-oriented Manufacturing Engineer with extensive experience in production planning, process improvement, and automation. Proven ability to reduce production delays by 57% and decrease costs by 30% through AI-based scheduling and lean techniques. Skilled in SolidWorks, ANSYS, and IoT systems, with a strong background in quality management including ISO and IATF certifications.
+    </p>
+</section>
+
+<!-- ═══════════ EXPERIENCE ═══════════ -->
+<section class="section section--alt">
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="accent-bar"></div>
+            <h2 class="section-title" data-i18n="r_experience_title">Work Experience</h2>
+        </div>
+        <div class="timeline">
+
+            <!-- Job 1 -->
+            <div class="tl-item reveal-left">
+                <div class="tl-dot">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role" data-i18n="r_role_1">R&D & Design Engineer</div>
+                            <div class="exp-company" data-i18n="r_comp_1">Vegavizyon City Furniture</div>
+                        </div>
+                        <span class="exp-date">12/2025 — Present</span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li data-i18n="r_b1_1">Conceptualize bespoke furniture products and refine mechanical systems to meet client specifications, managing the entire project lifecycle from ideation through production handover.</li>
+                        <li data-i18n="r_b1_2">Develop an IoT-based condition monitoring system utilizing ESP32 microcontrollers and current transformers for real-time machine data acquisition, with live efficiency dashboards accessible via a cloud interface (prototype phase).</li>
+                        <li data-i18n="r_b1_3">Establish a scalable database infrastructure (self-hosted PostgreSQL) to streamline multi-user internal workflows, achieving an approximate 40% reduction in document retrieval times.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Job 2 -->
+            <div class="tl-item reveal-right">
+                <div class="tl-dot">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role" data-i18n="r_role_2">R&D Engineer</div>
+                            <div class="exp-company" data-i18n="r_comp_2">Uyar Luggage</div>
+                        </div>
+                        <span class="exp-date">09/2025 — 12/2025</span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li data-i18n="r_b2_1">Designed three mechanical systems for suitcase assembly and thermoforming lines using SolidWorks and ANSYS, targeting a 12–18% reduction in labor time (currently in prototype phase).</li>
+                        <li data-i18n="r_b2_2">Constructed a mobile production monitoring prototype with AppSheet and Excel-based logic, delivering real-time graphical reports on daily output, scrap rates, and efficiency metrics — now actively utilized on the production floor.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Job 3 -->
+            <div class="tl-item reveal-left">
+                <div class="tl-dot">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role" data-i18n="r_role_3">Manufacturing Manager</div>
+                            <div class="exp-company" data-i18n="r_comp_3">Alfa Roller</div>
+                        </div>
+                        <span class="exp-date">01/2023 — 09/2025</span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li data-i18n="r_b3_1">Directed a production team of 8 operators, implementing lean scheduling techniques that decreased efficiency losses by 12%.</li>
+                        <li data-i18n="r_b3_2">Implemented an AI-based hybrid scheduling system (FCFS, SPT, ATC algorithms), reducing average production delay from 3.25 days to 1.4 days — a 57% improvement — and cutting delay-related costs by 30%.</li>
+                        <li data-i18n="r_b3_3">Oversaw daily manufacturing operations including CNC turning, milling, and assembly, ensuring punctual delivery across a varied product range.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Job 4 -->
+            <div class="tl-item reveal-right">
+                <div class="tl-dot">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role" data-i18n="r_role_4">R&D Engineer</div>
+                            <div class="exp-company" data-i18n="r_comp_4">Alfa Roller</div>
+                        </div>
+                        <span class="exp-date">01/2022 — 01/2023</span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li data-i18n="r_b4_1">Engineered Turkey's first adjustable curved roller using SolidWorks and ANSYS, boosting production line efficiency by 25% and reducing setup time by 30% with a 15% decrease in material expenditures.</li>
+                        <li data-i18n="r_b4_2">Established a new production line centered around an original air shaft design, managing the process from concept through commissioning and full-scale production.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Job 5 -->
+            <div class="tl-item reveal-left">
+                <div class="tl-dot" style="border-color: #9ca3af; background: #f9fafb;">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color:#9ca3af;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <div class="exp-card" style="background: var(--surface);">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role" data-i18n="r_role_5">CNC & Manual Lathe Operator</div>
+                            <div class="exp-company" data-i18n="r_comp_5">Alfa Roller</div>
+                        </div>
+                        <span class="exp-date">01/2021 — 01/2022</span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li data-i18n="r_b5_1">Fabricated precision components on Fanuc-controlled CNC lathes, adhering to strict tolerances (±0.01 mm) for industrial roller applications.</li>
+                        <li data-i18n="r_b5_2">Machined plastic extrusion molds utilizing CAM on vertical machining centers, acquiring in-depth practical knowledge of manufacturing processes.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ KEY PROJECTS ═══════════ -->
+<section class="section">
+    <div class="section-header reveal">
+        <div class="accent-bar"></div>
+        <h2 class="section-title" data-i18n="r_projects_title">Key Projects</h2>
+    </div>
+    <div class="projects-list">
+
+        <!-- Project 1 -->
+        <div class="proj-card reveal-left">
+            <div class="proj-visual">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop" alt="IoT Monitoring" loading="lazy" onerror="this.style.display='none'"/>
+                <span class="proj-cat proj-cat--soft">IoT / Software</span>
+            </div>
+            <div class="proj-body">
+                <div class="proj-title" data-i18n="r_proj1_title">EdgePulse: IoT Non-Invasive Machine Monitoring</div>
+                <div class="proj-subtitle" data-i18n="r_proj1_sub">Real-time machine efficiency monitoring via cloud</div>
+                <div class="proj-desc" data-i18n="r_proj1_desc">Designed a system using ESP32/Arduino and current transformers to monitor machine energy consumption without any hardware modification. Sensor data transmitted via MQTT/HTTP to a cloud interface for real-time cycle time digitalization and efficiency tracking.</div>
+                <div class="proj-tags">
+                    <span class="proj-tag">ESP32</span><span class="proj-tag">MQTT</span><span class="proj-tag">IoT</span><span class="proj-tag">Cloud</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="proj-card reveal-right">
+            <div class="proj-visual">
+                <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=1200&auto=format&fit=crop" alt="AI Planning" loading="lazy" onerror="this.style.display='none'"/>
+                <span class="proj-cat proj-cat--soft">AI / Industrial</span>
+            </div>
+            <div class="proj-body">
+                <div class="proj-title" data-i18n="r_proj2_title">AI-Based Production Planning System</div>
+                <div class="proj-subtitle" data-i18n="r_proj2_sub">Hybrid scheduling reducing delays by 57%</div>
+                <div class="proj-desc" data-i18n="r_proj2_desc">Hybrid scheduling combining FCFS, SPT, and ATC algorithms for dynamic job scheduling. Reduced average delay from 3.25 to 1.4 days and cut delay costs by 30%.</div>
+                <div class="proj-tags">
+                    <span class="proj-tag">Python</span><span class="proj-tag">AI</span><span class="proj-tag">Scheduling</span><span class="proj-tag">Lean</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="proj-card reveal-left">
+            <div class="proj-visual">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop" alt="Mechanical Design" loading="lazy" onerror="this.style.display='none'"/>
+                <span class="proj-cat proj-cat--mech">Mechanical Design</span>
+            </div>
+            <div class="proj-body">
+                <div class="proj-title" data-i18n="r_proj3_title">Adjustable Curved Roller Design</div>
+                <div class="proj-subtitle" data-i18n="r_proj3_sub">Turkey's first original adjustable curved roller</div>
+                <div class="proj-desc" data-i18n="r_proj3_desc">Engineered using SolidWorks and ANSYS FEA. Boosted production line efficiency by 25%, reduced setup time by 30%, and achieved a 15% decrease in material expenditures.</div>
+                <div class="proj-tags">
+                    <span class="proj-tag">SolidWorks</span><span class="proj-tag">ANSYS</span><span class="proj-tag">FEA</span><span class="proj-tag">R&D</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="proj-card reveal-right">
+            <div class="proj-visual">
+                <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=1200&auto=format&fit=crop" alt="PostgreSQL" loading="lazy" onerror="this.style.display='none'"/>
+                <span class="proj-cat proj-cat--soft">Database / Infra</span>
+            </div>
+            <div class="proj-body">
+                <div class="proj-title" data-i18n="r_proj4_title">Scalable PostgreSQL Infrastructure</div>
+                <div class="proj-subtitle" data-i18n="r_proj4_sub">40% faster document retrieval</div>
+                <div class="proj-desc" data-i18n="r_proj4_desc">Established a self-hosted PostgreSQL infrastructure to streamline multi-user internal workflows, achieving an approximate 40% reduction in document retrieval times for multi-user internal operations.</div>
+                <div class="proj-tags">
+                    <span class="proj-tag">PostgreSQL</span><span class="proj-tag">Docker</span><span class="proj-tag">SQL</span><span class="proj-tag">Infrastructure</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ SKILLS ═══════════ -->
+<section class="section section--alt">
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="accent-bar"></div>
+            <h2 class="section-title" data-i18n="r_skills_title">Technical Skills</h2>
+        </div>
+        <div class="skills-grid reveal">
+            <div class="skill-group">
+                <h4 data-i18n="r_sk_eng">Engineering & Design</h4>
+                <span class="skill-pill">SolidWorks</span>
+                <span class="skill-pill">AutoCAD</span>
+                <span class="skill-pill">ANSYS</span>
+                <span class="skill-pill">FEA</span>
+                <span class="skill-pill">GD&T</span>
+                <span class="skill-pill">DFM</span>
+                <span class="skill-pill">CAM</span>
+            </div>
+            <div class="skill-group">
+                <h4 data-i18n="r_sk_prod">Production & Quality</h4>
+                <span class="skill-pill">Lean Manufacturing</span>
+                <span class="skill-pill">Six Sigma</span>
+                <span class="skill-pill">ISO 9001</span>
+                <span class="skill-pill">IATF 16949</span>
+                <span class="skill-pill">FMEA</span>
+                <span class="skill-pill">SPC</span>
+                <span class="skill-pill">VSM</span>
+            </div>
+            <div class="skill-group">
+                <h4 data-i18n="r_sk_sw">Software & Automation</h4>
+                <span class="skill-pill">Python</span>
+                <span class="skill-pill">SQL</span>
+                <span class="skill-pill">Docker</span>
+                <span class="skill-pill">Java</span>
+                <span class="skill-pill">Flask</span>
+                <span class="skill-pill">Pandas</span>
+                <span class="skill-pill">AppSheet</span>
+                <span class="skill-pill">HTML/CSS</span>
+            </div>
+            <div class="skill-group">
+                <h4 data-i18n="r_sk_emerging">Emerging & IoT</h4>
+                <span class="skill-pill">IoT Systems</span>
+                <span class="skill-pill">ESP32</span>
+                <span class="skill-pill">MQTT</span>
+                <span class="skill-pill">RAG</span>
+                <span class="skill-pill">LangChain</span>
+                <span class="skill-pill">AI Scheduling</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ CERTIFICATIONS ═══════════ -->
+<section class="section">
+    <div class="section-header reveal">
+        <div class="accent-bar"></div>
+        <h2 class="section-title" data-i18n="r_certs_title">Certifications</h2>
+    </div>
+    <div class="certs-grid reveal">
+        <div class="cert-item">
+            <div class="cert-icon" style="background:#fff3ed;">
+                <svg style="color:#c2410c;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            </div>
+            <div>
+                <div class="cert-name" data-i18n="r_cert1">ISO International Lead Auditor</div>
+                <div class="cert-meta">9001, 14001, 45001, 50001, 22000, 27001</div>
+            </div>
+        </div>
+        <div class="cert-item">
+            <div class="cert-icon" style="background:#f0fdf4;">
+                <svg style="color:#16a34a;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            </div>
+            <div>
+                <div class="cert-name">IATF 16949</div>
+                <div class="cert-meta" data-i18n="r_cert2_meta">Automotive Quality Management System</div>
+            </div>
+        </div>
+        <div class="cert-item">
+            <div class="cert-icon" style="background:#eff6ff;">
+                <svg style="color:#2563eb;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <div>
+                <div class="cert-name">ISO 14064-1</div>
+                <div class="cert-meta" data-i18n="r_cert3_meta">Carbon Footprint Verification</div>
+            </div>
+        </div>
+        <div class="cert-item">
+            <div class="cert-icon" style="background:#fef3c7;">
+                <svg style="color:#d97706;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+            </div>
+            <div>
+                <div class="cert-name">ISO 14046</div>
+                <div class="cert-meta" data-i18n="r_cert4_meta">Water Footprint Assessment</div>
+            </div>
+        </div>
+        <div class="cert-item">
+            <div class="cert-icon" style="background:#fdf4ff;">
+                <svg style="color:#9333ea;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            </div>
+            <div>
+                <div class="cert-name" data-i18n="r_cert5">Manufacturing & Planning Management</div>
+                <div class="cert-meta" data-i18n="r_cert5_meta">Professional Certificate</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ EDUCATION ═══════════ -->
+<section class="section section--alt">
+    <div class="section-inner">
+        <div class="section-header reveal">
+            <div class="accent-bar"></div>
+            <h2 class="section-title" data-i18n="r_edu_title">Education</h2>
+        </div>
+        <div class="reveal">
+            <div class="edu-card">
+                <div class="edu-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                </div>
+                <div>
+                    <div class="edu-title" data-i18n="r_edu1_title">B.Sc. Manufacturing Engineering</div>
+                    <div class="edu-school">Istanbul Technical University (ITU)</div>
+                    <div class="edu-date">2019 — 2025</div>
+                </div>
+            </div>
+            <div class="edu-card">
+                <div class="edu-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                </div>
+                <div>
+                    <div class="edu-title" data-i18n="r_edu2_title">Mechanical Engineering</div>
+                    <div class="edu-school">Yildiz Technical University</div>
+                    <div class="edu-date">2016 — 2019</div>
+                    <div class="edu-note" data-i18n="r_edu2_note">Transferred to ITU</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ LANGUAGES ═══════════ -->
+<section class="section">
+    <div class="section-header reveal">
+        <div class="accent-bar"></div>
+        <h2 class="section-title" data-i18n="r_lang_title">Languages</h2>
+    </div>
+    <div class="lang-grid reveal">
+        <div class="lang-card">
+            <div class="lang-name" data-i18n="r_lang_en">English</div>
+            <div class="lang-level">IELTS 7.5</div>
+        </div>
+        <div class="lang-card">
+            <div class="lang-name" data-i18n="r_lang_tr">Turkish</div>
+            <div class="lang-level" data-i18n="r_lang_native">Native</div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ BACK TO WEBSITE CTA ═══════════ -->
+<section class="cta-back">
+    <div class="cta-back-inner">
+        <h2 data-i18n="r_cta_title">Want to see more?</h2>
+        <p data-i18n="r_cta_desc">Browse my full portfolio with detailed project breakdowns, engineering solutions, and blog posts.</p>
+        <a href="https://www.egesengoz.com">
+            <span data-i18n="r_cta_btn">Visit My Website</span>
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+    </div>
+</section>
+
+<!-- ═══════════ i18n Script ═══════════ -->
+<script>
+(function(){
+    const STORAGE_KEY = "portfolio_lang";
+    let currentLang = localStorage.getItem(STORAGE_KEY) === "tr" ? "tr" : "en";
+
+    const translations = {
+        en: {
+            r_title: "Manufacturing Engineer & Digital Solutions",
+            r_download: "Download PDF",
+            r_summary_title: "Summary",
+            r_summary: "Detail-oriented Manufacturing Engineer with extensive experience in production planning, process improvement, and automation. Proven ability to reduce production delays by 57% and decrease costs by 30% through AI-based scheduling and lean techniques. Skilled in SolidWorks, ANSYS, and IoT systems, with a strong background in quality management including ISO and IATF certifications.",
+            r_experience_title: "Work Experience",
+            r_role_1: "R&D & Design Engineer",
+            r_comp_1: "Vegavizyon City Furniture",
+            r_b1_1: "Conceptualize bespoke furniture products and refine mechanical systems to meet client specifications, managing the entire project lifecycle from ideation through production handover.",
+            r_b1_2: "Develop an IoT-based condition monitoring system utilizing ESP32 microcontrollers and current transformers for real-time machine data acquisition, with live efficiency dashboards accessible via a cloud interface (prototype phase).",
+            r_b1_3: "Establish a scalable database infrastructure (self-hosted PostgreSQL) to streamline multi-user internal workflows, achieving an approximate 40% reduction in document retrieval times.",
+            r_role_2: "R&D Engineer",
+            r_comp_2: "Uyar Luggage",
+            r_b2_1: "Designed three mechanical systems for suitcase assembly and thermoforming lines using SolidWorks and ANSYS, targeting a 12–18% reduction in labor time (currently in prototype phase).",
+            r_b2_2: "Constructed a mobile production monitoring prototype with AppSheet and Excel-based logic, delivering real-time graphical reports on daily output, scrap rates, and efficiency metrics — now actively utilized on the production floor.",
+            r_role_3: "Manufacturing Manager",
+            r_comp_3: "Alfa Roller",
+            r_b3_1: "Directed a production team of 8 operators, implementing lean scheduling techniques that decreased efficiency losses by 12%.",
+            r_b3_2: "Implemented an AI-based hybrid scheduling system (FCFS, SPT, ATC algorithms), reducing average production delay from 3.25 days to 1.4 days — a 57% improvement — and cutting delay-related costs by 30%.",
+            r_b3_3: "Oversaw daily manufacturing operations including CNC turning, milling, and assembly, ensuring punctual delivery across a varied product range.",
+            r_role_4: "R&D Engineer",
+            r_comp_4: "Alfa Roller",
+            r_b4_1: "Engineered Turkey's first adjustable curved roller using SolidWorks and ANSYS, boosting production line efficiency by 25% and reducing setup time by 30% with a 15% decrease in material expenditures.",
+            r_b4_2: "Established a new production line centered around an original air shaft design, managing the process from concept through commissioning and full-scale production.",
+            r_role_5: "CNC & Manual Lathe Operator",
+            r_comp_5: "Alfa Roller",
+            r_b5_1: "Fabricated precision components on Fanuc-controlled CNC lathes, adhering to strict tolerances (±0.01 mm) for industrial roller applications.",
+            r_b5_2: "Machined plastic extrusion molds utilizing CAM on vertical machining centers, acquiring in-depth practical knowledge of manufacturing processes.",
+            r_projects_title: "Key Projects",
+            r_proj1_title: "EdgePulse: IoT Non-Invasive Machine Monitoring",
+            r_proj1_sub: "Real-time machine efficiency monitoring via cloud",
+            r_proj1_desc: "Designed a system using ESP32/Arduino and current transformers to monitor machine energy consumption without any hardware modification. Sensor data transmitted via MQTT/HTTP to a cloud interface for real-time cycle time digitalization and efficiency tracking.",
+            r_proj2_title: "AI-Based Production Planning System",
+            r_proj2_sub: "Hybrid scheduling reducing delays by 57%",
+            r_proj2_desc: "Hybrid scheduling combining FCFS, SPT, and ATC algorithms for dynamic job scheduling. Reduced average delay from 3.25 to 1.4 days and cut delay costs by 30%.",
+            r_proj3_title: "Adjustable Curved Roller Design",
+            r_proj3_sub: "Turkey's first original adjustable curved roller",
+            r_proj3_desc: "Engineered using SolidWorks and ANSYS FEA. Boosted production line efficiency by 25%, reduced setup time by 30%, and achieved a 15% decrease in material expenditures.",
+            r_proj4_title: "Scalable PostgreSQL Infrastructure",
+            r_proj4_sub: "40% faster document retrieval",
+            r_proj4_desc: "Established a self-hosted PostgreSQL infrastructure to streamline multi-user internal workflows, achieving an approximate 40% reduction in document retrieval times for multi-user internal operations.",
+            r_skills_title: "Technical Skills",
+            r_sk_eng: "Engineering & Design",
+            r_sk_prod: "Production & Quality",
+            r_sk_sw: "Software & Automation",
+            r_sk_emerging: "Emerging & IoT",
+            r_certs_title: "Certifications",
+            r_cert1: "ISO International Lead Auditor",
+            r_cert2_meta: "Automotive Quality Management System",
+            r_cert3_meta: "Carbon Footprint Verification",
+            r_cert4_meta: "Water Footprint Assessment",
+            r_cert5: "Manufacturing & Planning Management",
+            r_cert5_meta: "Professional Certificate",
+            r_edu_title: "Education",
+            r_edu1_title: "B.Sc. Manufacturing Engineering",
+            r_edu2_title: "Mechanical Engineering",
+            r_edu2_note: "Transferred to ITU",
+            r_lang_title: "Languages",
+            r_lang_en: "English",
+            r_lang_tr: "Turkish",
+            r_lang_native: "Native",
+            r_cta_title: "Want to see more?",
+            r_cta_desc: "Browse my full portfolio with detailed project breakdowns, engineering solutions, and blog posts.",
+            r_cta_btn: "Visit My Website"
+        },
+        tr: {
+            r_title: "İmalat Mühendisi & Dijital Çözümler",
+            r_download: "PDF İndir",
+            r_summary_title: "Özet",
+            r_summary: "Üretim planlama, süreç iyileştirme ve otomasyon konularında kapsamlı deneyime sahip, detay odaklı İmalat Mühendisi. Yapay zeka tabanlı çizelgeleme ve yalın tekniklerle üretim gecikmelerini %57 azaltma ve maliyetleri %30 düşürme başarısı. SolidWorks, ANSYS ve IoT sistemlerinde yetkin, ISO ve IATF sertifikaları dahil güçlü kalite yönetimi altyapısı.",
+            r_experience_title: "İş Deneyimi",
+            r_role_1: "Ar-Ge ve Tasarım Mühendisi",
+            r_comp_1: "Vegavizyon Şehir Mobilyaları",
+            r_b1_1: "Müşteri taleplerine uygun özel mobilya ürünleri tasarlar ve mekanik sistemleri iyileştirir, projenin fikir aşamasından üretime teslimine kadar tüm yaşam döngüsünü yönetir.",
+            r_b1_2: "ESP32 mikrodenetleyiciler ve akım transformatörleri kullanarak gerçek zamanlı makine verisi toplayan, bulut arayüzü üzerinden canlı verimlilik panoları sunan IoT tabanlı durum izleme sistemi geliştirir (prototip aşamasında).",
+            r_b1_3: "Çok kullanıcılı dahili iş akışlarını kolaylaştırmak için ölçeklenebilir veritabanı altyapısı (self-hosted PostgreSQL) kurar, belge erişim sürelerinde yaklaşık %40 azalma sağlar.",
+            r_role_2: "Ar-Ge Mühendisi",
+            r_comp_2: "Uyar Bavul",
+            r_b2_1: "SolidWorks ve ANSYS kullanarak bavul montaj ve termoform hatları için üç mekanik sistem tasarladı, işçilik süresinde %12-18 azalma hedefledi (prototip aşamasında).",
+            r_b2_2: "AppSheet ve Excel tabanlı mantıkla mobil üretim izleme prototipi oluşturdu, günlük üretim, hurda oranları ve verimlilik metrikleri hakkında gerçek zamanlı grafiksel raporlar sunar — şu anda üretim katında aktif kullanımda.",
+            r_role_3: "Üretim Müdürü",
+            r_comp_3: "Alfa Roller",
+            r_b3_1: "8 operatörlük üretim ekibini yönlendirerek, verimlilik kayıplarını %12 azaltan yalın çizelgeleme teknikleri uyguladı.",
+            r_b3_2: "Yapay zeka tabanlı hibrit çizelgeleme sistemi (FCFS, SPT, ATC algoritmaları) uygulayarak ortalama üretim gecikmesini 3,25 günden 1,4 güne düşürdü — %57 iyileşme — ve gecikme maliyetlerini %30 azalttı.",
+            r_b3_3: "CNC torna, freze ve montaj dahil günlük üretim operasyonlarını denetleyerek çeşitli ürün yelpazesinde zamanında teslimat sağladı.",
+            r_role_4: "Ar-Ge Mühendisi",
+            r_comp_4: "Alfa Roller",
+            r_b4_1: "SolidWorks ve ANSYS kullanarak Türkiye'nin ilk ayarlanabilir kavisli merdanesini tasarladı, üretim hattı verimliliğini %25 artırdı, kurulum süresini %30 azalttı ve malzeme giderlerinde %15 düşüş sağladı.",
+            r_b4_2: "Orijinal bir havalı şaft tasarımı etrafında yeni bir üretim hattı kurdu, süreçten konseptten devreye alma ve tam ölçekli üretime kadar yönetti.",
+            r_role_5: "CNC ve Manuel Torna Operatörü",
+            r_comp_5: "Alfa Roller",
+            r_b5_1: "Fanuc kontrollü CNC tornalarda hassas bileşenler üretti, endüstriyel merdane uygulamaları için sıkı toleranslara (±0,01 mm) uydu.",
+            r_b5_2: "Dikey işleme merkezlerinde CAM kullanarak plastik ekstrüzyon kalıpları işledi, üretim süreçleri hakkında derin pratik bilgi edindi.",
+            r_projects_title: "Öne Çıkan Projeler",
+            r_proj1_title: "EdgePulse: IoT Müdahalesiz Makine İzleme",
+            r_proj1_sub: "Bulut üzerinden gerçek zamanlı makine verimliliği izleme",
+            r_proj1_desc: "ESP32/Arduino ve akım transformatörleri kullanarak herhangi bir donanım değişikliği yapmadan makine enerji tüketimini izleyen bir sistem tasarlandı. Sensör verileri MQTT/HTTP aracılığıyla bulut arayüzüne iletilerek gerçek zamanlı çevrim süresi dijitalleştirme ve verimlilik takibi sağlanır.",
+            r_proj2_title: "Yapay Zeka Tabanlı Üretim Planlama Sistemi",
+            r_proj2_sub: "Gecikmeleri %55 azaltan hibrit çizelgeleme",
+            r_proj2_desc: "Dinamik iş çizelgeleme için FCFS, SPT ve ATC algoritmalarını birleştiren hibrit çizelgeleme. Ortalama gecikmeyi 3,25'ten 1,4 güne düşürdü ve gecikme maliyetlerini %30 azalttı.",
+            r_proj3_title: "Ayarlanabilir Açıcı Merdane Tasarımı",
+            r_proj3_sub: "Türkiye'nin ilk orijinal ayarlanabilir kavisli merdanesi",
+            r_proj3_desc: "SolidWorks ve Ansys FEA ile tasarlandı. Üretim hattı verimliliğini %25 artırdı, kurulum süresini %30 azalttı ve malzeme giderlerinde %15 düşüş sağladı.",
+            r_proj4_title: "Ölçeklenebilir PostgreSQL Altyapısı",
+            r_proj4_sub: "%40 daha hızlı belge erişimi",
+            r_proj4_desc: "Çok kullanıcılı dahili iş akışlarını kolaylaştırmak için self-hosted PostgreSQL altyapısı kuruldu, belge erişim sürelerinde yaklaşık %40 azalma sağlandı.",
+            r_skills_title: "Teknik Beceriler",
+            r_sk_eng: "Mühendislik ve Tasarım",
+            r_sk_prod: "Üretim ve Kalite",
+            r_sk_sw: "Yazılım ve Otomasyon",
+            r_sk_emerging: "Gelişen Teknolojiler ve IoT",
+            r_certs_title: "Sertifikalar",
+            r_cert1: "ISO Uluslararası Baş Denetçi",
+            r_cert2_meta: "Otomotiv Kalite Yönetim Sistemi",
+            r_cert3_meta: "Karbon Ayak İzi Doğrulama",
+            r_cert4_meta: "Su Ayak İzi Değerlendirmesi",
+            r_cert5: "Üretim ve Planlama Yönetimi",
+            r_cert5_meta: "Profesyonel Sertifika",
+            r_edu_title: "Eğitim",
+            r_edu1_title: "Lisans - İmalat Mühendisliği",
+            r_edu2_title: "Makine Mühendisliği",
+            r_edu2_note: "ITU'ye yatay geçiş",
+            r_lang_title: "Diller",
+            r_lang_en: "İngilizce",
+            r_lang_tr: "Türkçe",
+            r_lang_native: "Ana Dil",
+            r_cta_title: "Daha fazlasını görmek ister misiniz?",
+            r_cta_desc: "Detaylı proje açıklamaları, mühendislik çözümleri ve blog yazılarıma göz atın.",
+            r_cta_btn: "Websitemi Ziyaret Et"
+        }
+    };
+
+    function applyLang(lang) {
+        const t = translations[lang] || translations.en;
+        document.documentElement.lang = lang;
+
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+            const key = el.getAttribute("data-i18n");
+            if (t[key]) el.textContent = t[key];
+        });
+
+        document.querySelectorAll("[data-i18n-html]").forEach(el => {
+            const key = el.getAttribute("data-i18n-html");
+            if (t[key]) el.innerHTML = t[key];
+        });
+
+        // Language buttons
+        ["btn-en","btn-tr"].forEach(id => {
+            const btn = document.getElementById(id);
+            if (!btn) return;
+            const isActive = id.includes(lang);
+            btn.classList.toggle("active", isActive);
+        });
+
+        localStorage.setItem(STORAGE_KEY, lang);
+        currentLang = lang;
+    }
+
+    window.setLang = function(lang) { applyLang(lang); };
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add("visible"), i * 60);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
+
+    // Init
+    applyLang(currentLang);
+})();
+</script>
+</body>
+</html>
