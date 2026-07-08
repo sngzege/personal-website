@@ -13,16 +13,16 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --brand: #c2410c;
-            --brand-light: #ea580c;
+            --brand: #c34613;
+            --brand-light: #e05a2a;
             --brand-bg: #fff3ed;
-            --navy: #1e3a5f;
-            --dark: #1a1a1a;
-            --surface: #f7f7f5;
+            --navy: #1f3757;
+            --dark: #1f3757;
+            --surface: #1f3757;
             --text-primary: #1a1a1a;
             --text-secondary: #6b7280;
-            --text-muted: #9ca3af;
-            --border: #e5e7eb;
+            --text-muted: #8ba3c0;
+            --border: #c34613;
             --card: #ffffff;
             --white: #ffffff;
             --font-serif: 'Fraunces', serif;
@@ -34,14 +34,14 @@
         body {
             font-family: var(--font-sans);
             color: var(--text-primary);
-            background: var(--white);
+            background: #1f3757;
             -webkit-font-smoothing: antialiased;
             line-height: 1.6;
         }
 
         /* ── Hero ── */
         .hero {
-            background: linear-gradient(135deg, #1e3a5f 0%, #1a1a1a 50%, #2d1810 100%);
+            background: linear-gradient(135deg, #1f3757 0%, #152a45 50%, #1f3757 100%);
             position: relative;
             overflow: hidden;
             padding: 80px 24px 60px;
@@ -162,7 +162,7 @@
             margin: 0 auto;
         }
         .section--alt {
-            background: var(--surface);
+            background: #1f3757;
             max-width: 100%;
             padding-left: 0;
             padding-right: 0;
@@ -181,7 +181,7 @@
         .accent-bar {
             width: 40px;
             height: 3px;
-            background: var(--brand);
+            background: #c34613;
             border-radius: 2px;
             flex-shrink: 0;
         }
@@ -189,7 +189,7 @@
             font-family: var(--font-serif);
             font-size: clamp(1.5rem, 3vw, 2rem);
             font-weight: 600;
-            color: var(--text-primary);
+            color: #ffffff;
             letter-spacing: -0.01em;
         }
         .section-label {
@@ -204,7 +204,7 @@
         .summary-text {
             font-size: 1.05rem;
             line-height: 1.75;
-            color: var(--text-secondary);
+            color: #cbd5e1;
             max-width: 720px;
         }
 
@@ -233,7 +233,7 @@
             height: 24px;
             border-radius: 50%;
             background: var(--brand-bg);
-            border: 2px solid var(--brand);
+            border: 2px solid #c34613;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -242,10 +242,10 @@
         .tl-dot svg { width: 11px; height: 11px; color: var(--brand); }
 
         .exp-card {
-            background: var(--white);
+            background: #ffffff;
             border-radius: 16px;
             padding: 28px 30px;
-            border: 1px solid var(--border);
+            border: 1.5px solid #c34613;
             box-shadow: 0 2px 12px rgba(0,0,0,0.04);
             transition: box-shadow 0.3s, transform 0.3s;
         }
@@ -270,7 +270,7 @@
         .exp-company {
             font-size: 0.9rem;
             font-weight: 600;
-            color: var(--brand);
+            color: #c34613;
             margin-top: 2px;
         }
         .exp-date {
@@ -305,7 +305,7 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background: var(--brand);
+            background: #c34613;
             opacity: 0.5;
         }
 
@@ -318,7 +318,7 @@
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid var(--border);
-            background: var(--white);
+            background: #ffffff;
             box-shadow: 0 2px 12px rgba(0,0,0,0.04);
             transition: box-shadow 0.3s, transform 0.3s;
         }
@@ -371,7 +371,7 @@
         }
         .proj-subtitle {
             font-size: 0.82rem;
-            color: var(--brand);
+            color: #c34613;
             font-weight: 600;
             margin-bottom: 14px;
         }
@@ -417,8 +417,8 @@
             border-radius: 999px;
             font-size: 0.78rem;
             font-weight: 500;
-            border: 1.5px solid var(--border);
-            background: var(--white);
+            border: 1.5px solid #c34613;
+            background: #ffffff;
             color: #374151;
             margin: 0 6px 8px 0;
             transition: all 0.2s;
@@ -441,8 +441,8 @@
             gap: 14px;
             padding: 18px 20px;
             border-radius: 12px;
-            border: 1px solid var(--border);
-            background: var(--white);
+            border: 1.5px solid #c34613;
+            background: #ffffff;
             transition: border-color 0.2s, transform 0.2s;
         }
         .cert-item:hover {
@@ -477,8 +477,8 @@
             gap: 16px;
             padding: 22px 26px;
             border-radius: 14px;
-            border: 1px solid var(--border);
-            background: var(--white);
+            border: 1.5px solid #c34613;
+            background: #ffffff;
             margin-bottom: 14px;
             transition: box-shadow 0.2s;
         }
@@ -487,7 +487,7 @@
             width: 40px;
             height: 40px;
             border-radius: 10px;
-            background: #f0f0ec;
+            background: #fff3ed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -528,8 +528,8 @@
             min-width: 180px;
             padding: 20px 24px;
             border-radius: 14px;
-            border: 1px solid var(--border);
-            background: var(--white);
+            border: 1.5px solid #c34613;
+            background: #ffffff;
             text-align: center;
         }
         .lang-name {
@@ -546,7 +546,7 @@
 
         /* ── Back to Website CTA ── */
         .cta-back {
-            background: linear-gradient(135deg, #1e3a5f 0%, #1a1a1a 100%);
+            background: linear-gradient(135deg, #1f3757 0%, #152a45 100%);
             padding: 72px 24px;
             text-align: center;
             position: relative;
@@ -658,6 +658,7 @@
             .lang-row, .print-btn { display: none !important; }
             .section { padding: 24px 20px; break-inside: avoid; }
             .section--alt { background: none; }
+            body { background: #fff !important; }
             .exp-card, .cert-item, .edu-card, .proj-card, .skill-pill, .lang-card {
                 box-shadow: none;
                 border-color: #ccc;
