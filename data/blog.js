@@ -60,8 +60,8 @@ const blogPosts = [
   {
     id: "scheduling-heuristics",
     category: "idea",
-    image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=2940&auto=format&fit=crop",
-    fallbackImage: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2940&auto=format&fit=crop",
+    fallbackImage: "https://images.pexels.com/photos/1181296/pexels-photo-1181296.jpeg",
     date: "Feb 2026",
     readTime: { en: "6 min read", tr: "6 dk" },
     status: { en: "Idea", tr: "Fikir" },
