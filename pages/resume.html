@@ -17,7 +17,8 @@
             --brand-light: #ea580c;
             --brand-bg: #fff3ed;
             --navy: #1e3a5f;
-            --dark: #0f0f0f;
+            --navy-deep: #152a45;
+            --warm: #2d1810;
             --surface: #f7f7f5;
             --text-primary: #1a1a1a;
             --text-secondary: #6b7280;
@@ -38,29 +39,47 @@
             line-height: 1.6;
         }
 
-        /* ── Hero ── */
+        /* ── Hero ──
+           The hero gradient runs from dark navy at the top,
+           through warm orange tones, and fades to white at
+           the bottom — no hard cut between header and body. */
         .hero {
-            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 30%, #1e3a5f 70%, #2d1810 100%);
             position: relative;
             overflow: hidden;
-            padding: 80px 24px 60px;
+            padding: 80px 24px 140px;
             min-height: auto;
+            background:
+                linear-gradient(180deg,
+                    #0f1a2e 0%,
+                    #1e3a5f 18%,
+                    #2a4a6f 32%,
+                    #3d5a7a 44%,
+                    #5a6e7e 55%,
+                    #8a8b80 65%,
+                    #bfb8a8 74%,
+                    #ddd8cc 82%,
+                    #eeeae2 90%,
+                    #f5f3ef 96%,
+                    var(--white) 100%
+                );
         }
+        /* Warm orange glow layered on top of the navy base */
         .hero::before {
             content: '';
             position: absolute;
             inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            background:
+                radial-gradient(ellipse 120% 60% at 20% 40%, rgba(194,65,12,0.25) 0%, transparent 60%),
+                radial-gradient(ellipse 80% 50% at 80% 30%, rgba(45,24,16,0.2) 0%, transparent 55%);
             pointer-events: none;
         }
+        /* Subtle noise texture */
         .hero::after {
             content: '';
             position: absolute;
             inset: 0;
-            opacity: 0.04;
-            background-image: linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px);
-            background-size: 60px 60px;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
             pointer-events: none;
         }
         .hero-inner {
@@ -74,18 +93,19 @@
             font-family: var(--font-serif);
             font-size: clamp(2.4rem, 5vw, 3.6rem);
             font-weight: 700;
-            color: var(--white);
+            color: #ffffff;
             letter-spacing: -0.02em;
             line-height: 1.1;
             margin-bottom: 10px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
         }
-        .hero-name span { color: var(--brand); }
+        .hero-name span { color: var(--brand-light); }
         .hero-title {
             font-family: var(--font-mono);
             font-size: 0.78rem;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: var(--text-muted);
+            color: rgba(255,255,255,0.6);
             margin-bottom: 28px;
         }
         .hero-contact {
@@ -96,7 +116,7 @@
             margin-bottom: 24px;
         }
         .hero-contact a {
-            color: #d1d5db;
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
             font-size: 0.88rem;
             display: flex;
@@ -104,8 +124,8 @@
             gap: 7px;
             transition: color 0.2s;
         }
-        .hero-contact a:hover { color: var(--brand-light); }
-        .hero-contact svg { width: 15px; height: 15px; opacity: 0.7; }
+        .hero-contact a:hover { color: #ffffff; }
+        .hero-contact svg { width: 15px; height: 15px; opacity: 0.6; }
         .lang-row {
             display: flex;
             justify-content: center;
@@ -121,13 +141,13 @@
             cursor: pointer;
             transition: all 0.2s;
             background: transparent;
-            color: #6b7280;
+            color: rgba(255,255,255,0.5);
             font-family: var(--font-sans);
         }
         .lang-btn.active {
             background: var(--brand);
-            color: #0b0d10;
-            box-shadow: 0 6px 18px rgba(194,65,12,0.3);
+            color: #ffffff;
+            box-shadow: 0 6px 18px rgba(194,65,12,0.35);
         }
 
         /* ── Download / Print button ── */
@@ -141,17 +161,40 @@
             font-weight: 600;
             font-family: var(--font-sans);
             border: 1.5px solid rgba(255,255,255,0.2);
-            background: rgba(255,255,255,0.06);
-            color: #e5e7eb;
+            background: rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.8);
             cursor: pointer;
             transition: all 0.25s;
             margin-top: 18px;
             backdrop-filter: blur(8px);
         }
         .print-btn:hover {
-            border-color: var(--brand);
-            color: var(--white);
-            background: rgba(194,65,12,0.15);
+            border-color: var(--brand-light);
+            color: #ffffff;
+            background: rgba(194,65,12,0.2);
+        }
+
+        /* ── Section Divider ──
+           A thin horizontal line between sections, using
+           the brand orange fading to transparent at edges. */
+        .section-divider {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+        }
+        .section-divider::after {
+            content: '';
+            display: block;
+            height: 1px;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                var(--border) 15%,
+                var(--brand) 50%,
+                var(--border) 85%,
+                transparent 100%
+            );
+            opacity: 0.6;
         }
 
         /* ── Sections ── */
@@ -545,7 +588,7 @@
 
         /* ── Back to Website CTA ── */
         .cta-back {
-            background: linear-gradient(135deg, #1e3a5f 0%, #1a1a1a 60%, #2d1810 100%);
+            background: linear-gradient(135deg, #1e3a5f 0%, #1a1a1a 100%);
             padding: 72px 24px;
             text-align: center;
             position: relative;
@@ -630,7 +673,7 @@
 
         /* ── Responsive ── */
         @media (max-width: 768px) {
-            .hero { padding: 64px 20px 48px; }
+            .hero { padding: 64px 20px 100px; }
             .section { padding: 48px 20px; }
             .proj-card {
                 grid-template-columns: 1fr;
@@ -652,9 +695,14 @@
 
         /* ── Print ── */
         @media print {
-            .hero { padding: 32px 20px 24px; min-height: auto; }
+            .hero {
+                padding: 32px 20px 24px;
+                min-height: auto;
+                background: #1e3a5f !important;
+            }
             .hero::before, .hero::after { display: none; }
             .lang-row, .print-btn { display: none !important; }
+            .section-divider { display: none; }
             .section { padding: 24px 20px; break-inside: avoid; }
             .section--alt { background: none; }
             .exp-card, .cert-item, .edu-card, .proj-card, .skill-pill, .lang-card {
@@ -713,6 +761,9 @@
     </div>
 </header>
 
+<!-- ═══════════ DIVIDER ═══════════ -->
+<div class="section-divider"></div>
+
 <!-- ═══════════ SUMMARY ═══════════ -->
 <section class="section">
     <div class="section-header reveal">
@@ -723,6 +774,9 @@
         Detail-oriented Manufacturing Engineer with extensive experience in production planning, process improvement, and automation. Proven ability to reduce production delays by 57% and decrease costs by 30% through AI-based scheduling and lean techniques. Skilled in SolidWorks, ANSYS, and IoT systems, with a strong background in quality management including ISO and IATF certifications.
     </p>
 </section>
+
+<!-- ═══════════ DIVIDER ═══════════ -->
+<div class="section-divider"></div>
 
 <!-- ═══════════ EXPERIENCE ═══════════ -->
 <section class="section section--alt">
@@ -838,6 +892,9 @@
     </div>
 </section>
 
+<!-- ═══════════ DIVIDER ═══════════ -->
+<div class="section-divider"></div>
+
 <!-- ═══════════ KEY PROJECTS ═══════════ -->
 <section class="section">
     <div class="section-header reveal">
@@ -912,6 +969,9 @@
     </div>
 </section>
 
+<!-- ═══════════ DIVIDER ═══════════ -->
+<div class="section-divider"></div>
+
 <!-- ═══════════ SKILLS ═══════════ -->
 <section class="section section--alt">
     <div class="section-inner">
@@ -963,6 +1023,9 @@
         </div>
     </div>
 </section>
+
+<!-- ═══════════ DIVIDER ═══════════ -->
+<div class="section-divider"></div>
 
 <!-- ═══════════ CERTIFICATIONS ═══════════ -->
 <section class="section">
@@ -1019,6 +1082,9 @@
     </div>
 </section>
 
+<!-- ═══════════ DIVIDER ═══════════ -->
+<div class="section-divider"></div>
+
 <!-- ═══════════ EDUCATION ═══════════ -->
 <section class="section section--alt">
     <div class="section-inner">
@@ -1051,6 +1117,9 @@
         </div>
     </div>
 </section>
+
+<!-- ═══════════ DIVIDER ═══════════ -->
+<div class="section-divider"></div>
 
 <!-- ═══════════ LANGUAGES ═══════════ -->
 <section class="section">
@@ -1235,7 +1304,6 @@
             if (t[key]) el.innerHTML = t[key];
         });
 
-        // Language buttons
         ["btn-en","btn-tr"].forEach(id => {
             const btn = document.getElementById(id);
             if (!btn) return;
