@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Engineering Solutions — Ege Şengöz</title>
-    <meta name="description" content="Professional engineering services: ISO certification audits, mechanical design, software development, manufacturing consulting, and more." />
+    <title data-i18n="engsol_meta_title">Engineering Solutions — Ege Şengöz</title>
+    <meta name="description" content="Professional engineering services: ISO certification audits, mechanical design, software development, manufacturing consulting, and more." data-i18n-content="engsol_meta_desc" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -113,28 +113,28 @@
             
             <form id="request-form">
                 <div class="mb-4">
-                    <label for="request-name" class="block text-sm font-medium text-primary mb-2">Your Name</label>
+                    <label for="request-name" class="block text-sm font-medium text-primary mb-2" data-i18n="engsol_form_name_label">Your Name</label>
                     <input type="text" id="request-name" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" placeholder="Enter your name" data-i18n-placeholder="engsol_form_name_placeholder" required />
                 </div>
                 
                 <div class="mb-4">
-                    <label for="request-email" class="block text-sm font-medium text-primary mb-2">Email Address</label>
+                    <label for="request-email" class="block text-sm font-medium text-primary mb-2" data-i18n="engsol_form_email_label">Email Address</label>
                     <input type="email" id="request-email" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" placeholder="your@email.com" data-i18n-placeholder="engsol_form_email_placeholder" required />
                 </div>
                 
                 <div class="mb-4">
-                    <label for="request-subject" class="block text-sm font-medium text-primary mb-2">Subject</label>
+                    <label for="request-subject" class="block text-sm font-medium text-primary mb-2" data-i18n="engsol_form_subject_label">Subject</label>
                     <input type="text" id="request-subject" class="w-full px-4 py-3 rounded-lg border border-gray-200 bg-gray-50 text-gray-600" readonly />
                 </div>
                 
                 <div class="mb-6">
-                    <label for="request-message" class="block text-sm font-medium text-primary mb-2">Additional Details</label>
+                    <label for="request-message" class="block text-sm font-medium text-primary mb-2" data-i18n="engsol_form_details_label">Additional Details</label>
                     <textarea id="request-message" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" placeholder="Tell me more about your requirements..." data-i18n-placeholder="engsol_form_message_placeholder"></textarea>
                 </div>
                 
                 <div class="flex gap-3">
-                    <button type="button" class="flex-1 px-6 py-3 border border-gray-200 rounded-lg text-secondary hover:bg-gray-50 transition-colors" id="modal-cancel">Cancel</button>
-                    <button type="submit" class="flex-1 px-6 py-3 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors">Send Request</button>
+                    <button type="button" class="flex-1 px-6 py-3 border border-gray-200 rounded-lg text-secondary hover:bg-gray-50 transition-colors" id="modal-cancel" data-i18n="engsol_form_cancel">Cancel</button>
+                    <button type="submit" class="flex-1 px-6 py-3 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors" data-i18n="engsol_form_submit">Send Request</button>
                 </div>
             </form>
         </div>
@@ -177,7 +177,7 @@
     <footer class="bg-primary text-gray-400 py-10">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
             <a href="home.html" style="font-family:'Fraunces',serif;" class="text-xl font-bold text-white">E.Şengöz<span style="color:#c2410c;">.</span></a>
-            <p class="text-sm text-gray-500">© 2025 E.Şengöz. All rights reserved.</p>
+            <p class="text-sm text-gray-500" data-i18n="engsol_footer_rights">© 2026 E.Şengöz. All rights reserved.</p>
         </div>
     </footer>
 
@@ -203,7 +203,16 @@
                 request_title: "Request Service", request_desc: "Fill in the details below and I'll get back to you.",
                 engsol_form_name_placeholder: "Enter your name",
                 engsol_form_email_placeholder: "your@email.com",
-                engsol_form_message_placeholder: "Tell me more about your requirements..."
+                engsol_form_message_placeholder: "Tell me more about your requirements...",
+                engsol_form_name_label: "Your Name",
+                engsol_form_email_label: "Email Address",
+                engsol_form_subject_label: "Subject",
+                engsol_form_details_label: "Additional Details",
+                engsol_form_cancel: "Cancel",
+                engsol_form_submit: "Send Request",
+                engsol_footer_rights: "© 2026 E.Şengöz. All rights reserved.",
+                engsol_meta_title: "Engineering Solutions — Ege Şengöz",
+                engsol_meta_desc: "Professional engineering services: ISO certification audits, mechanical design, software development, manufacturing consulting, and more."
             },
             tr: {
                 nav_home: "Ana Sayfa", nav_about: "Hakkımda", nav_projects: "Projeler",
@@ -223,7 +232,16 @@
                 request_title: "Hizmet Talebi", request_desc: "Aşağıdaki bilgileri doldurun, en kısa sürede size geri döneceğim.",
                 engsol_form_name_placeholder: "Adınızı girin",
                 engsol_form_email_placeholder: "eposta@adiniz.com",
-                engsol_form_message_placeholder: "Gereksinimleriniz hakkında daha fazla bilgi verin..."
+                engsol_form_message_placeholder: "Gereksinimleriniz hakkında daha fazla bilgi verin...",
+                engsol_form_name_label: "Adınız",
+                engsol_form_email_label: "E-posta Adresi",
+                engsol_form_subject_label: "Konu",
+                engsol_form_details_label: "Ek Detaylar",
+                engsol_form_cancel: "İptal",
+                engsol_form_submit: "Talep Gönder",
+                engsol_footer_rights: "© 2026 E.Şengöz. Tüm hakları saklıdır.",
+                engsol_meta_title: "Mühendislik Çözümleri — Ege Şengöz",
+                engsol_meta_desc: "Profesyonel mühendislik hizmetleri: ISO sertifikasyon denetimleri, mekanik tasarım, yazılım geliştirme, üretim danışmanlığı ve daha fazlası."
             }
         };
 
