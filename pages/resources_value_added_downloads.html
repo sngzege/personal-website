@@ -408,11 +408,11 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                         <label for="request-name" class="block text-sm font-medium text-primary mb-2">Your Name</label>
-                        <input type="text" id="request-name" class="form-input" placeholder="Enter your name" required />
+                        <input type="text" id="request-name" class="form-input" placeholder="Enter your name" data-i18n-placeholder="resources_req_name_placeholder" required />
                     </div>
                     <div>
                         <label for="request-email" class="block text-sm font-medium text-primary mb-2">Email Address</label>
-                        <input type="email" id="request-email" class="form-input" placeholder="your@email.com" required />
+                        <input type="email" id="request-email" class="form-input" placeholder="your@email.com" data-i18n-placeholder="resources_req_email_placeholder" required />
                     </div>
                 </div>
                 
@@ -430,12 +430,12 @@
                 
                 <div class="mb-6">
                     <label for="request-description" class="block text-sm font-medium text-primary mb-2">Resource Description</label>
-                    <textarea id="request-description" rows="4" class="form-input" placeholder="Describe the resource you'd like to see..." required></textarea>
+                    <textarea id="request-description" rows="4" class="form-input" placeholder="Describe the resource you'd like to see..." data-i18n-placeholder="resources_req_desc_placeholder" required></textarea>
                 </div>
                 
                 <div class="mb-6">
                     <label for="use-case" class="block text-sm font-medium text-primary mb-2">How would you use this resource?</label>
-                    <textarea id="use-case" rows="3" class="form-input" placeholder="Tell us about your use case..."></textarea>
+                    <textarea id="use-case" rows="3" class="form-input" placeholder="Tell us about your use case..." data-i18n-placeholder="resources_req_use_case_placeholder"></textarea>
                 </div>
                 
                 <button type="submit" class="btn-primary w-full md:w-auto px-8 py-3">
@@ -468,7 +468,7 @@
             <form id="download-form">
                 <div class="mb-4">
                     <label for="download-email" class="block text-sm font-medium text-primary mb-2">Email Address</label>
-                    <input type="email" id="download-email" class="form-input" placeholder="your@email.com" required />
+                    <input type="email" id="download-email" class="form-input" placeholder="your@email.com" data-i18n-placeholder="resources_dl_email_placeholder" required />
                 </div>
                 
                 <div class="mb-6">
@@ -511,7 +511,12 @@
                 resources_modal_desc_premium: "Enter your email to access this premium resource",
                 resources_alert_download: "Thank you! Your download for \"{name}\" will begin shortly. Check your email for the download link.",
                 resources_alert_request: "Thank you for your resource request! We'll review it and get back to you soon.",
-                resources_alert_newsletter: "Thank you for subscribing! You'll receive new resources directly in your inbox."
+                resources_alert_newsletter: "Thank you for subscribing! You'll receive new resources directly in your inbox.",
+                resources_req_name_placeholder: "Enter your name",
+                resources_req_email_placeholder: "your@email.com",
+                resources_req_desc_placeholder: "Describe the resource you'd like to see...",
+                resources_req_use_case_placeholder: "Tell us about your use case...",
+                resources_dl_email_placeholder: "your@email.com"
             },
             tr: {
                 resources_meta_title: "Kaynaklar — Ege Şengöz",
@@ -535,7 +540,12 @@
                 resources_modal_desc_premium: "Bu premium kaynağa erişmek için e-posta adresini gir",
                 resources_alert_download: "Teşekkürler! \"{name}\" için indirme işlemin başlatılıyor. İndirme bağlantısı için e-postanı kontrol et.",
                 resources_alert_request: "Talebin için teşekkürler! İnceleyip en kısa sürede dönüş yapacağız.",
-                resources_alert_newsletter: "Aboneliğin için teşekkürler! Yeni kaynakları e-posta ile göndereceğiz."
+                resources_alert_newsletter: "Aboneliğin için teşekkürler! Yeni kaynakları e-posta ile göndereceğiz.",
+                resources_req_name_placeholder: "Adınızı girin",
+                resources_req_email_placeholder: "eposta@adiniz.com",
+                resources_req_desc_placeholder: "Görmek istediğiniz kaynağı açıklayın...",
+                resources_req_use_case_placeholder: "Kullanım amacınızı anlatın...",
+                resources_dl_email_placeholder: "eposta@adiniz.com"
             }
         });
 

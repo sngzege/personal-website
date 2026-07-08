@@ -114,12 +114,12 @@
             <form id="request-form">
                 <div class="mb-4">
                     <label for="request-name" class="block text-sm font-medium text-primary mb-2">Your Name</label>
-                    <input type="text" id="request-name" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" placeholder="Enter your name" required />
+                    <input type="text" id="request-name" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" placeholder="Enter your name" data-i18n-placeholder="engsol_form_name_placeholder" required />
                 </div>
                 
                 <div class="mb-4">
                     <label for="request-email" class="block text-sm font-medium text-primary mb-2">Email Address</label>
-                    <input type="email" id="request-email" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" placeholder="your@email.com" required />
+                    <input type="email" id="request-email" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" placeholder="your@email.com" data-i18n-placeholder="engsol_form_email_placeholder" required />
                 </div>
                 
                 <div class="mb-4">
@@ -129,7 +129,7 @@
                 
                 <div class="mb-6">
                     <label for="request-message" class="block text-sm font-medium text-primary mb-2">Additional Details</label>
-                    <textarea id="request-message" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" placeholder="Tell me more about your requirements..."></textarea>
+                    <textarea id="request-message" rows="3" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" placeholder="Tell me more about your requirements..." data-i18n-placeholder="engsol_form_message_placeholder"></textarea>
                 </div>
                 
                 <div class="flex gap-3">
@@ -200,7 +200,10 @@
                 stat1: "Years industrial experience", stat2: "ISO standards certified",
                 stat3: "Manufacturing Engineering graduate", stat4: "Domains: Mechanical + Software",
                 view_detail: "Learn More", most_requested: "Most Requested", send_request: "Send a Request",
-                request_title: "Request Service", request_desc: "Fill in the details below and I'll get back to you."
+                request_title: "Request Service", request_desc: "Fill in the details below and I'll get back to you.",
+                engsol_form_name_placeholder: "Enter your name",
+                engsol_form_email_placeholder: "your@email.com",
+                engsol_form_message_placeholder: "Tell me more about your requirements..."
             },
             tr: {
                 nav_home: "Ana Sayfa", nav_about: "Hakkımda", nav_projects: "Projeler",
@@ -217,7 +220,10 @@
                 stat1: "Yıl endüstriyel deneyim", stat2: "ISO standardı sertifikalı",
                 stat3: "İTÜ İmalat Mühendisliği mezunu", stat4: "Alan: Mekanik + Yazılım",
                 view_detail: "Daha Fazla Bilgi", most_requested: "En Çok Talep Edilen", send_request: "Talep Gönder",
-                request_title: "Hizmet Talebi", request_desc: "Aşağıdaki bilgileri doldurun, en kısa sürede size geri döneceğim."
+                request_title: "Hizmet Talebi", request_desc: "Aşağıdaki bilgileri doldurun, en kısa sürede size geri döneceğim.",
+                engsol_form_name_placeholder: "Adınızı girin",
+                engsol_form_email_placeholder: "eposta@adiniz.com",
+                engsol_form_message_placeholder: "Gereksinimleriniz hakkında daha fazla bilgi verin..."
             }
         };
 
