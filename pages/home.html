@@ -2,353 +2,414 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="home_title">Ege Şengöz — Manufacturing Engineering & Digital Solutions</title>
-    <meta name="description" data-i18n="home_meta_desc" data-i18n-content="home_meta_desc" content="Manufacturing engineer with software development expertise. Specializing in mechanical design, manufacturing systems, and practical digital tools." />
-    <link rel="stylesheet" href="../css/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Ege Şengöz — Manufacturing Engineer</title>
+    <meta name="description" data-i18n-content="home_meta_desc" content="Manufacturing engineer with five years on the production line. Mechanical design, production planning, industrial IoT and the software that ties them together." />
+    <meta name="theme-color" content="#0e1013" />
+    <link rel="icon" href="../public/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
-    <style>
-        .nav-link { transition: color 0.2s; }
-        .hero-bg {
-            background: linear-gradient(135deg, #1e3a5f 0%, #1a1a1a 50%, #2d1810 100%);
-        }
-        .grain-overlay {
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-        }
-        .stat-card { border-left: 3px solid #c2410c; }
-        .bento-tall { grid-row: span 2; }
-        .scroll-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1); }
-        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
-        .tag { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 500; background: #f7f7f5; color: #4a5568; border: 1px solid #e5e7eb; }
-        .accent-line { width: 48px; height: 3px; background: #c2410c; border-radius: 2px; }
-    </style>
-  </head>
-<body class="bg-background text-text-primary" style="font-family:'DM Sans',sans-serif;">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" />
+    <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body class="site" data-page="home" data-title-key="home_title" id="top">
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <a href="home.html" style="font-family:'Fraunces',serif;" class="text-xl font-bold text-primary tracking-tight">
-                    E.Şengöz<span style="color:#c2410c;">.</span>
-                </a>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="home.html" class="nav-link text-primary font-medium border-b-2" style="border-color:#c2410c;" data-i18n="nav_home">Home</a>
-                    <a href="about.html" class="nav-link text-secondary font-medium hover:text-primary" data-i18n="nav_about">About</a>
-                    <a href="projects.html" class="nav-link text-secondary font-medium hover:text-primary" data-i18n="nav_projects">Projects</a>
-                    <a href="blog.html" class="nav-link text-secondary font-medium hover:text-primary" data-i18n="nav_blog">Blog</a>
-                    <a href="engineering-solutions.html" class="nav-link text-secondary font-medium hover:text-primary" data-i18n="nav_solutions">Solutions</a>
-                    <a href="contact.html" class="btn-primary text-sm px-5 py-2" data-i18n="nav_contact">Contact</a>
-                    <div class="lang-toggle" style="display:flex;align-items:center;background:#f3f4f6;border-radius:999px;padding:3px;gap:2px;">
-                        <button class="lang-btn" id="btn-en" onclick="setLang('en')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;transition:all 0.2s;background:transparent;color:#6b7280;">EN</button>
-                        <button class="lang-btn" id="btn-tr" onclick="setLang('tr')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;transition:all 0.2s;background:transparent;color:#6b7280;">TR</button>
-                    </div>
-                </div>
-                <button class="md:hidden p-2 text-primary" id="mobile-menu-btn">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="md:hidden hidden mt-4 pb-4 border-t border-gray-100" id="mobile-menu">
-                <div class="flex flex-col space-y-4 pt-4">
-                    <a href="home.html" class="text-primary font-medium" data-i18n="nav_home">Home</a>
-                    <a href="about.html" class="text-secondary font-medium" data-i18n="nav_about">About</a>
-                    <a href="projects.html" class="text-secondary font-medium" data-i18n="nav_projects">Projects</a>
-                    <a href="blog.html" class="text-secondary font-medium" data-i18n="nav_blog">Blog</a>
-                    <a href="engineering-solutions.html" class="text-secondary font-medium" data-i18n="nav_solutions">Solutions</a>
-                    <a href="contact.html" class="text-secondary font-medium" data-i18n="nav_contact">Contact</a>
-                    <div style="display:flex;align-items:center;background:#f3f4f6;border-radius:999px;padding:3px;gap:2px;width:fit-content;">
-                        <button class="lang-btn" id="btn-en-mob" onclick="setLang('en')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;background:transparent;color:#6b7280;">EN</button>
-                        <button class="lang-btn" id="btn-tr-mob" onclick="setLang('tr')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;background:transparent;color:#6b7280;">TR</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <header data-site-header></header>
 
-    <!-- Hero Section -->
-    <section class="hero-bg relative min-h-screen flex items-center overflow-hidden pt-20">
-        <div class="grain-overlay absolute inset-0 pointer-events-none"></div>
-        <!-- Decorative grid lines -->
-        <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px); background-size: 60px 60px;"></div>
-        
-        <div class="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <!-- Left: Text -->
-                <div>
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="accent-line"></div>
-                        <span class="text-sm font-mono text-gray-400 tracking-widest uppercase" style="font-family:'JetBrains Mono',monospace;" data-i18n="home_badge">CONSULTANT & DEVELOPER</span>
-                    </div>
-                    <h1 style="font-family:'Fraunces',serif; font-size:clamp(2.5rem,5vw,4rem); line-height:1.1; color:#ffffff; font-weight:700;" class="mb-6">
-                        <span data-i18n-html="home_hero_h1">Engineering<br/><span style="color:#c2410c;">Precision</span> Into<br/>Every Process</span>
-                    </h1>
-                    <p class="text-gray-300 text-lg leading-relaxed mb-8 max-w-lg" data-i18n="home_hero_p">Experienced Manufacturing Engineering Consultant & Software Developer. Specializing in mechanical design, IoT integration, and enterprise-grade digital transformations for industrial production lines.</p>
-                    <div class="flex flex-wrap gap-4">
-                        <a href="projects.html" class="btn-primary px-7 py-3 text-base" data-i18n="home_cta_projects">View Projects</a>
-                        <a href="engineering-solutions.html" class="px-7 py-3 text-base font-semibold border border-white/30 text-white rounded-lg hover:bg-white/10 transition-all duration-300" data-i18n="home_cta_services">My Services</a>
+    <main>
+        <!-- Hero ------------------------------------------------------- -->
+        <section class="hero drafting">
+            <div class="wrap hero__grid">
+                <div class="hero__copy">
+                    <span class="eyebrow rise" data-i18n="home_eyebrow">Manufacturing engineer · R&amp;D · Industrial software</span>
+                    <h1 class="display rise rise--2" data-i18n-html="home_h1">From the lathe <em>to the data layer.</em></h1>
+                    <p class="lead rise rise--3" data-i18n="home_lead">I'm Ege Şengöz. I spent five years on the production line as CNC operator, R&amp;D engineer and manufacturing manager. Today I design mechanical systems and build the scheduling, IoT and data tools that production teams use every day.</p>
+                    <div class="hero__actions rise rise--4">
+                        <a class="btn btn--primary" href="projects.html">
+                            <span data-i18n="home_cta_projects">See projects</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                        </a>
+                        <a class="btn btn--ghost" href="resume.html" data-i18n="home_cta_resume">View résumé</a>
                     </div>
                 </div>
 
-                <!-- Right: Stats bento -->
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="stat-card bg-white/8 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-                        <div style="font-family:'Fraunces',serif; font-size:2.5rem; font-weight:700; color:#c2410c;">5+</div>
-                        <div class="text-gray-300 text-sm mt-1" data-i18n="home_stat_1">Proven Industry Experience</div>
-                    </div>
-                    <div class="stat-card bg-white/8 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-                        <div style="font-family:'Fraunces',serif; font-size:2.5rem; font-weight:700; color:#c2410c;">E2E</div>
-                        <div class="text-gray-300 text-sm mt-1" data-i18n="home_stat_2">End-to-End Engineering</div>
-                    </div>
-                    <div class="stat-card bg-white/8 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-                        <div style="font-family:'Fraunces',serif; font-size:2.5rem; font-weight:700; color:#c2410c;" data-i18n="home_stat_3_title">ISO</div>
-                        <div class="text-gray-300 text-sm mt-1" data-i18n="home_stat_3">Quality systems & audit practice</div>
-                    </div>
-                    <div class="stat-card bg-white/8 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-                        <div style="font-family:'Fraunces',serif; font-size:2.5rem; font-weight:700; color:#c2410c;" data-i18n="home_stat_4_title">Multi-Disciplinary</div>
-                        <div class="text-gray-300 text-sm mt-1" data-i18n="home_stat_4">Mechanics | Industry | Software</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 animate-bounce">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-            </svg>
-        </div>
-    </section>
-
-    <!-- About Strip -->
-    <section class="py-20 bg-surface">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="scroll-reveal">
-                    <div class="accent-line mb-5"></div>
-                    <h2 style="font-family:'Fraunces',serif;" class="text-display text-primary mb-6" data-i18n="home_about_h2">Where Metal Meets Code</h2>
-                    <p class="text-secondary text-lg leading-relaxed mb-5" data-i18n="home_about_p1">I bring hands-on experience from the shop floor — CNC operation and precision machining — that evolved into R&D engineering and manufacturing management. This foundation drives my approach to software solutions that address real industrial challenges.</p>
-                    <p class="text-secondary leading-relaxed" data-i18n="home_about_p2">Today I work at the intersection of manufacturing engineering and software development: designing CAD-driven mechanical systems, implementing IoT solutions for machine monitoring, and building enterprise-grade tools that streamline production operations and decision-making.</p>
-                </div>
-                <div class="scroll-reveal grid grid-cols-2 gap-4">
-                    <div class="bg-white rounded-xl p-5 shadow-soft">
-                        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background:#fff3ed;">
-                            <svg class="w-5 h-5" style="color:#c2410c;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <aside class="title-block rise rise--3" aria-label="Profile summary">
+                    <div class="tb-row">
+                        <div class="tb-cell tb-cell--wide">
+                            <span class="tb-label" data-i18n="tb_engineer">Engineer</span>
+                            <span class="tb-value tb-value--title">Ege Şengöz</span>
                         </div>
-                        <h3 style="font-family:'Fraunces',serif;" class="font-semibold text-primary mb-1" data-i18n="home_cap_1_title">Software & Automation</h3>
-                        <p class="text-secondary text-sm" data-i18n="home_cap_1_desc">Python, data workflows, internal tools, and pragmatic automation</p>
                     </div>
-                    <div class="bg-white rounded-xl p-5 shadow-soft">
-                        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background:#fff3ed;">
-                            <svg class="w-5 h-5" style="color:#c2410c;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <div class="tb-row">
+                        <div class="tb-cell">
+                            <span class="tb-label" data-i18n="tb_role">Current role</span>
+                            <span class="tb-value" data-i18n="tb_role_v">R&amp;D and Design Engineer</span>
                         </div>
-                        <h3 style="font-family:'Fraunces',serif;" class="font-semibold text-primary mb-1" data-i18n="home_cap_2_title">Quality Systems</h3>
-                        <p class="text-secondary text-sm" data-i18n="home_cap_2_desc">Audit-ready processes, documentation, and continuous improvement mindset</p>
-                    </div>
-                    <div class="bg-white rounded-xl p-5 shadow-soft">
-                        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background:#fff3ed;">
-                            <svg class="w-5 h-5" style="color:#c2410c;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        <div class="tb-cell">
+                            <span class="tb-label" data-i18n="tb_org">Organisation</span>
+                            <span class="tb-value">Vegavizyon City Furniture</span>
                         </div>
-                        <h3 style="font-family:'Fraunces',serif;" class="font-semibold text-primary mb-1" data-i18n="home_cap_3_title">Mechanical Design</h3>
-                        <p class="text-secondary text-sm" data-i18n="home_cap_3_desc">CAD, simulation-oriented thinking, DFM, and robust assemblies</p>
                     </div>
-                    <div class="bg-white rounded-xl p-5 shadow-soft">
-                        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-3" style="background:#fff3ed;">
-                            <svg class="w-5 h-5" style="color:#c2410c;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                    <div class="tb-row">
+                        <div class="tb-cell">
+                            <span class="tb-label" data-i18n="tb_based">Based in</span>
+                            <span class="tb-value" data-i18n="tb_based_v">Istanbul, Türkiye</span>
                         </div>
-                        <h3 style="font-family:'Fraunces',serif;" class="font-semibold text-primary mb-1" data-i18n="home_cap_4_title">Manufacturing Systems</h3>
-                        <p class="text-secondary text-sm" data-i18n="home_cap_4_desc">Lean practice, process design, and reliable production planning</p>
+                        <div class="tb-cell">
+                            <span class="tb-label" data-i18n="tb_status">Status</span>
+                            <span class="tb-value"><span class="status-dot" aria-hidden="true"></span><span data-i18n="tb_status_v">Open to relocation</span></span>
+                        </div>
+                    </div>
+                    <div class="tb-row">
+                        <div class="tb-cell">
+                            <span class="tb-label" data-i18n="tb_exp">Experience</span>
+                            <span class="tb-value num" data-i18n="tb_exp_v">5 years · since 2021</span>
+                        </div>
+                        <div class="tb-cell">
+                            <span class="tb-label" data-i18n="tb_edu">Education</span>
+                            <span class="tb-value" data-i18n="tb_edu_v">B.Sc. Manufacturing Eng., ITU</span>
+                        </div>
+                    </div>
+                    <div class="tb-row">
+                        <div class="tb-cell">
+                            <span class="tb-label" data-i18n="tb_tol">Tolerance</span>
+                            <span class="tb-value tb-value--mono">±0.01 mm</span>
+                        </div>
+                        <div class="tb-cell">
+                            <span class="tb-label" data-i18n="tb_sheet">Sheet · Rev</span>
+                            <span class="tb-value tb-value--mono">1/1 · 2026.10</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Measured results ------------------------------------------- -->
+        <section class="section section--flush" style="padding-top:0;padding-bottom:clamp(40px,6vw,72px)" aria-labelledby="results-title">
+            <div class="wrap stack">
+                <h2 class="sr-only" id="results-title" data-i18n="results_title">Measured results</h2>
+                <div class="dims">
+                    <div class="dim">
+                        <span class="dim__value">−57%</span>
+                        <span class="dim__rule" aria-hidden="true"></span>
+                        <p class="dim__label"><span data-i18n="dim1">Average production delay</span><span class="mono num" data-i18n="dim1_note">3.25 → 1.4 days · hybrid scheduler</span></p>
+                    </div>
+                    <div class="dim">
+                        <span class="dim__value">+25%</span>
+                        <span class="dim__rule" aria-hidden="true"></span>
+                        <p class="dim__label"><span data-i18n="dim2">Line efficiency</span><span class="mono" data-i18n="dim2_note">adjustable curved roller</span></p>
+                    </div>
+                    <div class="dim">
+                        <span class="dim__value">−40%</span>
+                        <span class="dim__rule" aria-hidden="true"></span>
+                        <p class="dim__label"><span data-i18n="dim3">Document retrieval time</span><span class="mono" data-i18n="dim3_note">approx. · self-hosted PostgreSQL</span></p>
+                    </div>
+                    <div class="dim">
+                        <span class="dim__value">6</span>
+                        <span class="dim__rule" aria-hidden="true"></span>
+                        <p class="dim__label"><span data-i18n="dim4">ISO standards, lead auditor</span><span class="mono" data-i18n="dim4_note">IRCA-accredited</span></p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Featured Projects Preview -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-end justify-between mb-12 scroll-reveal">
-                <div>
-                    <div class="accent-line mb-4"></div>
-                    <h2 style="font-family:'Fraunces',serif;" class="text-display text-primary" data-i18n="home_work_h2">Selected Work</h2>
+        <!-- Career path ------------------------------------------------ -->
+        <section class="section" aria-labelledby="path-title">
+            <div class="wrap split">
+                <div class="stack split__aside">
+                    <span class="eyebrow" data-i18n="path_eyebrow">Career path</span>
+                    <h2 class="h-section" id="path-title" data-i18n="path_title">Every step kept one foot on the shop floor.</h2>
+                    <p class="muted" data-i18n="path_p">I learned tolerances on a Fanuc lathe before I learned them in a lecture hall. That order still shapes how I work: designs have to be buildable, and software has to survive a real shift.</p>
+                    <div><a class="link-arrow" href="about.html"><span data-i18n="path_more">More about me</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
                 </div>
-                <a href="projects.html" class="hidden md:flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all duration-300">
-                    <span data-i18n="home_work_all">All Projects</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-                </a>
+                <ol class="path">
+                    <li class="path__item path__item--now">
+                        <span class="path__when" data-i18n="p1_when">Dec 2025 – now</span>
+                        <div class="path__body">
+                            <h3 class="path__role" data-i18n="p1_role">R&amp;D and Design Engineer</h3>
+                            <span class="path__org">Vegavizyon City Furniture</span>
+                            <p class="path__note" data-i18n="p1_note">Urban furniture from concept to production handover. Building an IoT condition-monitoring prototype and a self-hosted PostgreSQL data layer.</p>
+                        </div>
+                    </li>
+                    <li class="path__item">
+                        <span class="path__when" data-i18n="p2_when">Sep – Dec 2025</span>
+                        <div class="path__body">
+                            <h3 class="path__role" data-i18n="p2_role">R&amp;D Engineer</h3>
+                            <span class="path__org" data-i18n="p2_org">Uyar Luggage</span>
+                            <p class="path__note" data-i18n="p2_note">Three mechanical systems for suitcase assembly and thermoforming lines, and a production-monitoring app still in daily use.</p>
+                        </div>
+                    </li>
+                    <li class="path__item">
+                        <span class="path__when">2023 – 2025</span>
+                        <div class="path__body">
+                            <h3 class="path__role" data-i18n="p3_role">Manufacturing Manager</h3>
+                            <span class="path__org">Alfa Roller</span>
+                            <p class="path__note" data-i18n="p3_note">Led a team of eight operators. Lean scheduling cut line efficiency losses by 12%; a hybrid AI scheduler cut average delay by 57%.</p>
+                        </div>
+                    </li>
+                    <li class="path__item">
+                        <span class="path__when">2022 – 2023</span>
+                        <div class="path__body">
+                            <h3 class="path__role" data-i18n="p4_role">R&amp;D Engineer</h3>
+                            <span class="path__org">Alfa Roller</span>
+                            <p class="path__note" data-i18n="p4_note">Designed Türkiye's first adjustable curved roller and commissioned a new line around an original air-shaft design.</p>
+                        </div>
+                    </li>
+                    <li class="path__item">
+                        <span class="path__when">2021 – 2022</span>
+                        <div class="path__body">
+                            <h3 class="path__role" data-i18n="p5_role">CNC &amp; Manual Lathe Operator</h3>
+                            <span class="path__org">Alfa Roller</span>
+                            <p class="path__note" data-i18n="p5_note">Precision parts on Fanuc CNC lathes to ±0.01 mm, and extrusion moulds programmed in CAM.</p>
+                        </div>
+                    </li>
+                </ol>
             </div>
+        </section>
 
-            <!-- Bento grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Large card -->
-                <div class="md:col-span-2 group relative overflow-hidden rounded-2xl bg-gray-900 min-h-64 scroll-reveal" style="min-height:320px;">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2940&auto=format&fit=crop" alt="Mechanical design project" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-500" loading="lazy" onerror="this.src='https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';this.onerror=null;" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-7">
-                        <span class="tag mb-3 inline-block" style="background:rgba(194,65,12,0.2);color:#fca97a;border-color:rgba(194,65,12,0.3);" data-i18n="home_proj1_tag">Mechanical Design</span>
-                        <h3 style="font-family:'Fraunces',serif;" class="text-2xl font-semibold text-white mb-2" data-i18n="home_proj1_title">EdgePulse: Non-Invasive Machine Monitoring</h3>
-                        <p class="text-gray-300 text-sm" data-i18n="home_proj1_desc">A practical IoT concept for tracking machine status and energy signals without intrusive wiring changes, backed by a simple dashboard pipeline for visibility and maintenance decisions.</p>
+        <!-- Selected work --------------------------------------------- -->
+        <section class="section" aria-labelledby="work-title">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="section-head__text">
+                        <span class="eyebrow" data-i18n="work_eyebrow">Selected work</span>
+                        <h2 class="h-section" id="work-title" data-i18n="work_title">Projects with a number attached.</h2>
+                    </div>
+                    <a class="link-arrow" href="projects.html"><span id="work-all">All projects</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                </div>
+                <div class="project-grid project-grid--two" id="featured-grid"></div>
+            </div>
+        </section>
+
+        <!-- Disciplines ------------------------------------------------ -->
+        <section class="section" aria-labelledby="disc-title">
+            <div class="wrap split">
+                <div class="stack split__aside">
+                    <span class="eyebrow" data-i18n="disc_eyebrow">Disciplines</span>
+                    <h2 class="h-section" id="disc-title" data-i18n="disc_title">Four disciplines, one production line.</h2>
+                    <p class="muted" data-i18n="disc_p">Most factory problems cross the line between mechanics, process and software. I work on all three sides, so a fix doesn't stop at the edge of one department.</p>
+                </div>
+                <div class="disciplines">
+                    <div class="discipline">
+                        <h3 class="h-card" data-i18n="d1_title">Manufacturing &amp; quality</h3>
+                        <span class="discipline__code">Lean · Kaizen · ISO · IATF 16949</span>
+                        <p data-i18n="d1_p">Production planning and scheduling, line balancing, audit-ready management systems and team leadership.</p>
+                    </div>
+                    <div class="discipline">
+                        <h3 class="h-card" data-i18n="d2_title">Mechanical design &amp; analysis</h3>
+                        <span class="discipline__code">SolidWorks · ANSYS · AutoCAD · CAM</span>
+                        <p data-i18n="d2_p">Machines and assemblies designed for manufacture, validated with FEA and modal analysis.</p>
+                    </div>
+                    <div class="discipline">
+                        <h3 class="h-card" data-i18n="d3_title">Industrial IoT &amp; data</h3>
+                        <span class="discipline__code">ESP32 · CT sensors · UDP/MQTT · PostgreSQL</span>
+                        <p data-i18n="d3_p">Machine signals captured without rewiring, streamed to OEE dashboards and stored where people can query them.</p>
+                    </div>
+                    <div class="discipline">
+                        <h3 class="h-card" data-i18n="d4_title">Software &amp; AI</h3>
+                        <span class="discipline__code">Python · FastAPI · Docker · LangGraph · Odoo</span>
+                        <p data-i18n="d4_p">Schedulers, ERP integrations, RAG assistants and internal tools, shipped as maintainable services.</p>
                     </div>
                 </div>
-                <!-- Small card -->
-                <div class="group relative overflow-hidden rounded-2xl bg-gray-900 scroll-reveal" style="min-height:320px;">
-                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2940&auto=format&fit=crop" alt="Software engineering project" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-500" loading="lazy" onerror="this.src='https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';this.onerror=null;" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-7">
-                        <span class="tag mb-3 inline-block" style="background:rgba(30,58,95,0.3);color:#93c5fd;border-color:rgba(30,58,95,0.4);" data-i18n="home_proj2_tag">Software</span>
-                        <h3 style="font-family:'Fraunces',serif;" class="text-xl font-semibold text-white mb-2" data-i18n="home_proj2_title">Internal Production Toolkit</h3>
-                        <p class="text-gray-300 text-sm" data-i18n="home_proj2_desc">Lightweight apps and dashboards for daily production visibility: shift reporting, issue tracking, and decision-ready summaries.</p>
-                    </div>
+            </div>
+        </section>
+
+        <!-- Credentials ------------------------------------------------ -->
+        <section class="section" aria-labelledby="cred-title">
+            <div class="wrap split">
+                <div class="stack split__aside">
+                    <span class="eyebrow" data-i18n="cred_eyebrow">Certifications</span>
+                    <h2 class="h-section" id="cred-title" data-i18n="cred_title">Lead auditor across six ISO standards.</h2>
+                    <p class="muted" data-i18n="cred_p">IRCA-accredited lead auditor training, plus automotive quality and environmental footprint standards.</p>
                 </div>
-                <!-- Small card -->
-                <div class="group relative overflow-hidden rounded-2xl bg-gray-900 scroll-reveal" style="min-height:260px;">
-                    <img src="https://images.unsplash.com/photo-1554226655-8c97d0c05e52?q=80&w=2940&auto=format&fit=crop" alt="Quality audit project" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-500" loading="lazy" onerror="this.src='https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';this.onerror=null;" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-7">
-                        <span class="tag mb-3 inline-block" style="background:rgba(56,161,105,0.2);color:#6ee7b7;border-color:rgba(56,161,105,0.3);" data-i18n="home_proj3_tag">Quality</span>
-                        <h3 style="font-family:'Fraunces',serif;" class="text-xl font-semibold text-white mb-2" data-i18n="home_proj3_title">Planning & Scheduling Experiments</h3>
-                        <p class="text-gray-300 text-sm" data-i18n="home_proj3_desc">A set of scheduling models and heuristics explored for more predictable lead times and cleaner production planning.</p>
-                    </div>
+                <div class="stack-lg">
+                    <div class="iso-row" id="iso-row"></div>
+                    <ul class="cred-list" id="cred-list"></ul>
                 </div>
-                <!-- Medium card -->
-                <div class="md:col-span-2 group relative overflow-hidden rounded-2xl bg-gray-900 scroll-reveal" style="min-height:260px;">
-                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2940&auto=format&fit=crop" alt="Automation project" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 group-hover:scale-105 transition-all duration-500" loading="lazy" onerror="this.src='https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';this.onerror=null;" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-7">
-                        <span class="tag mb-3 inline-block" style="background:rgba(194,65,12,0.2);color:#fca97a;border-color:rgba(194,65,12,0.3);" data-i18n="home_proj4_tag">Automation</span>
-                        <h3 style="font-family:'Fraunces',serif;" class="text-2xl font-semibold text-white mb-2" data-i18n="home_proj4_title">Lean Operations Templates</h3>
-                        <p class="text-gray-300 text-sm" data-i18n="home_proj4_desc">Reusable templates for reporting, KPIs, and standard work — designed to be adapted to different teams and factories.</p>
+            </div>
+        </section>
+
+        <!-- CTA -------------------------------------------------------- -->
+        <section class="section">
+            <div class="wrap">
+                <div class="cta">
+                    <div class="stack-sm">
+                        <h2 class="h-section" data-i18n="cta_title">Have a production problem that needs engineering and software?</h2>
+                        <p class="muted" data-i18n="cta_p">Machine monitoring, scheduling, ERP integration or a mechanical redesign. Tell me what the line is doing and what it should do.</p>
+                    </div>
+                    <div class="cta__actions">
+                        <a class="btn btn--primary" href="contact.html" data-i18n="cta_contact">Get in touch</a>
+                        <a class="btn btn--ghost" href="engineering-solutions.html" data-i18n="cta_services">See services</a>
                     </div>
                 </div>
             </div>
+        </section>
+    </main>
 
-            <div class="mt-8 text-center md:hidden scroll-reveal">
-                <a href="projects.html" class="btn-primary" data-i18n="home_work_all_mobile">View All Projects</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Strip -->
-    <section class="py-16" style="background:linear-gradient(135deg,#1e3a5f,#1a1a1a);">
-        <div class="max-w-4xl mx-auto px-6 text-center scroll-reveal">
-            <h2 style="font-family:'Fraunces',serif;" class="text-3xl font-bold text-white mb-4" data-i18n="home_cta_h2">Need Engineering Expertise?</h2>
-            <p class="text-gray-300 mb-8 text-lg" data-i18n="home_cta_p">From quality systems to mechanical design and digital tooling — I help teams build reliable engineering operations.</p>
-            <div class="flex flex-wrap gap-4 justify-center">
-                <a href="engineering-solutions.html" class="btn-primary px-8 py-3" data-i18n="home_cta_services_2">See My Services</a>
-                <a href="contact.html" class="px-8 py-3 font-semibold border border-white/30 text-white rounded-lg hover:bg-white/10 transition-all duration-300" data-i18n="home_cta_contact">Get in Touch</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-primary text-gray-400 py-10">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <a href="home.html" style="font-family:'Fraunces',serif;" class="text-xl font-bold text-white">E.Şengöz<span style="color:#c2410c;">.</span></a>
-            <p class="text-sm text-gray-500" data-i18n="home_footer_rights">© 2026 E.Şengöz. All rights reserved.</p>
-        </div>
-    </footer>
+    <footer data-site-footer></footer>
 
     <script src="../js/portfolio.js"></script>
+    <script src="../data/projects.js"></script>
+    <script src="../data/credentials.js"></script>
     <script>
         PortfolioApp.registerPageTranslations({
             en: {
-                home_title: "Ege Şengöz — Manufacturing Engineering & Digital Solutions",
-                home_meta_desc: "Manufacturing engineer with software development expertise. Specializing in mechanical design, manufacturing systems, and practical digital tools.",
-                home_badge: "CONSULTANT & DEVELOPER",
-                home_hero_h1: "Engineering<br/><span style=\"color:#c2410c;\">Precision</span> Into<br/>Every Process",
-                home_hero_p: "Experienced Manufacturing Engineering Consultant & Software Developer. Specializing in mechanical design, IoT integration, and enterprise-grade digital transformations for industrial production lines.",
-                home_cta_projects: "View Projects",
-                home_cta_services: "My Services",
-                home_stat_1: "Proven Industry Experience",
-                home_stat_2: "End-to-End Engineering",
-                home_stat_3_title: "ISO",
-                home_stat_3: "Quality systems & audit practice",
-                home_stat_4_title: "Hybrid Eng.",
-                home_stat_4: "Mechanics | Industry | Software",
-                home_about_h2: "Where Metal Meets Code",
-                home_about_p1: "I bring hands-on experience from the shop floor — CNC operation and precision machining — that evolved into R&D engineering and manufacturing management. This foundation drives my approach to software solutions that address real industrial challenges.",
-                home_about_p2: "Today I work at the intersection of manufacturing engineering and software development: designing CAD-driven mechanical systems, implementing IoT solutions for machine monitoring, and building enterprise-grade tools that streamline production operations and decision-making.",
-                home_cap_1_title: "Software & Automation",
-                home_cap_1_desc: "Python, data workflows, internal tools, and pragmatic automation",
-                home_cap_2_title: "Quality Systems",
-                home_cap_2_desc: "Audit-ready processes, documentation, and continuous improvement mindset",
-                home_cap_3_title: "Mechanical Design",
-                home_cap_3_desc: "CAD, simulation-oriented thinking, DFM, and robust assemblies",
-                home_cap_4_title: "Manufacturing Systems",
-                home_cap_4_desc: "Lean practice, process design, and reliable production planning",
-                home_work_h2: "Selected Work",
-                home_work_all: "All Projects",
-                home_proj1_tag: "Mechanical Design",
-                home_proj1_title: "EdgePulse: Non-Invasive Machine Monitoring",
-                home_proj1_desc: "A practical IoT concept for tracking machine status and energy signals without intrusive wiring changes, backed by a simple dashboard pipeline for visibility and maintenance decisions.",
-                home_proj2_title: "Internal Production Toolkit",
-                home_proj2_tag: "Software",
-                home_proj2_desc: "Lightweight apps and dashboards for daily production visibility: shift reporting, issue tracking, and decision-ready summaries.",
-                home_proj3_tag: "Quality",
-                home_proj3_title: "Planning & Scheduling Experiments",
-                home_proj3_desc: "A set of scheduling models and heuristics explored for more predictable lead times and cleaner production planning.",
-                home_proj4_title: "Lean Operations Templates",
-                home_proj4_tag: "Automation",
-                home_proj4_desc: "Reusable templates for reporting, KPIs, and standard work — designed to be adapted to different teams and factories.",
-                home_work_all_mobile: "View All Projects",
-                home_cta_h2: "Need Engineering Expertise?",
-                home_cta_p: "From quality systems to mechanical design and digital tooling — I help teams build reliable engineering operations.",
-                home_cta_services_2: "See My Services",
-                home_cta_contact: "Get in Touch",
-                home_footer_rights: "© 2026 E.Şengöz. All rights reserved."
+                home_title: "Ege Şengöz — Manufacturing Engineer",
+                home_meta_desc: "Manufacturing engineer with five years on the production line. Mechanical design, production planning, industrial IoT and the software that ties them together.",
+                home_eyebrow: "Manufacturing engineer · R&D · Industrial software",
+                home_h1: "From the lathe <em>to the data layer.</em>",
+                home_lead: "I'm Ege Şengöz. I spent five years on the production line as CNC operator, R&D engineer and manufacturing manager. Today I design mechanical systems and build the scheduling, IoT and data tools that production teams use every day.",
+                home_cta_projects: "See projects",
+                home_cta_resume: "View résumé",
+                tb_engineer: "Engineer",
+                tb_role: "Current role",
+                tb_role_v: "R&D and Design Engineer",
+                tb_org: "Organisation",
+                tb_based: "Based in",
+                tb_based_v: "Istanbul, Türkiye",
+                tb_status: "Status",
+                tb_status_v: "Open to relocation",
+                tb_exp: "Experience",
+                tb_exp_v: "5 years · since 2021",
+                tb_edu: "Education",
+                tb_edu_v: "B.Sc. Manufacturing Eng., ITU",
+                tb_tol: "Tolerance",
+                tb_sheet: "Sheet · Rev",
+                results_title: "Measured results",
+                dim1: "Average production delay",
+                dim1_note: "3.25 → 1.4 days · hybrid scheduler",
+                dim2: "Line efficiency",
+                dim2_note: "adjustable curved roller",
+                dim3: "Document retrieval time",
+                dim3_note: "approx. · self-hosted PostgreSQL",
+                dim4: "ISO standards, lead auditor",
+                dim4_note: "IRCA-accredited",
+                path_eyebrow: "Career path",
+                path_title: "Every step kept one foot on the shop floor.",
+                path_p: "I learned tolerances on a Fanuc lathe before I learned them in a lecture hall. That order still shapes how I work: designs have to be buildable, and software has to survive a real shift.",
+                path_more: "More about me",
+                p1_when: "Dec 2025 – now",
+                p1_role: "R&D and Design Engineer",
+                p1_note: "Urban furniture from concept to production handover. Building an IoT condition-monitoring prototype and a self-hosted PostgreSQL data layer.",
+                p2_when: "Sep – Dec 2025",
+                p2_role: "R&D Engineer",
+                p2_org: "Uyar Luggage",
+                p2_note: "Three mechanical systems for suitcase assembly and thermoforming lines, and a production-monitoring app still in daily use.",
+                p3_role: "Manufacturing Manager",
+                p3_note: "Led a team of eight operators. Lean scheduling cut line efficiency losses by 12%; a hybrid AI scheduler cut average delay by 57%.",
+                p4_role: "R&D Engineer",
+                p4_note: "Designed Türkiye's first adjustable curved roller and commissioned a new line around an original air-shaft design.",
+                p5_role: "CNC & Manual Lathe Operator",
+                p5_note: "Precision parts on Fanuc CNC lathes to ±0.01 mm, and extrusion moulds programmed in CAM.",
+                work_eyebrow: "Selected work",
+                work_title: "Projects with a number attached.",
+                work_all: "All projects",
+                disc_eyebrow: "Disciplines",
+                disc_title: "Four disciplines, one production line.",
+                disc_p: "Most factory problems cross the line between mechanics, process and software. I work on all three sides, so a fix doesn't stop at the edge of one department.",
+                d1_title: "Manufacturing & quality",
+                d1_p: "Production planning and scheduling, line balancing, audit-ready management systems and team leadership.",
+                d2_title: "Mechanical design & analysis",
+                d2_p: "Machines and assemblies designed for manufacture, validated with FEA and modal analysis.",
+                d3_title: "Industrial IoT & data",
+                d3_p: "Machine signals captured without rewiring, streamed to OEE dashboards and stored where people can query them.",
+                d4_title: "Software & AI",
+                d4_p: "Schedulers, ERP integrations, RAG assistants and internal tools, shipped as maintainable services.",
+                cred_eyebrow: "Certifications",
+                cred_title: "Lead auditor across six ISO standards.",
+                cred_p: "IRCA-accredited lead auditor training, plus automotive quality and environmental footprint standards.",
+                cta_title: "Have a production problem that needs engineering and software?",
+                cta_p: "Machine monitoring, scheduling, ERP integration or a mechanical redesign. Tell me what the line is doing and what it should do.",
+                cta_contact: "Get in touch",
+                cta_services: "See services"
             },
             tr: {
-                home_title: "Ege Şengöz — İmalat Mühendisliği ve Dijital Çözümler",
-                home_meta_desc: "Yazılım geliştirme bakış açısına sahip imalat mühendisi. Mekanik tasarım, üretim sistemleri ve pratik dijital araçlarda uzmanlaşma.",
-                home_badge: "İMALAT MÜHENDİSİ",
-                home_hero_h1: "Her Sürece<br/><span style=\"color:#c2410c;\">Faydad</span><br/>Katan Mühendislik",
-                home_hero_p: "Deneyimli İmalat Mühendisliği Danışmanı ve Yazılım Geliştiricisi. Mekanik tasarım, IoT entegrasyonu ve endüstriyel üretim hatları için kurumsal düzeyde dijital dönüşüm uzmanı.",
-                home_cta_projects: "Projeleri Gör",
-                home_cta_services: "Hizmetlerim",
-                home_stat_1: "Kıdemli Sanayi Deneyimi",
-                home_stat_2: "Uçtan Uca Mühendislik",
-                home_stat_3_title: "ISO",
-                home_stat_3: "Kalite sistemleri ve denetim pratiği",
-                home_stat_4_title: "Hibrit Mühendislik",
-                home_stat_4: "Mekanik · üretim · yazılım",
-                home_about_h2: "Metal ile Kodun Kesişimi",
-                home_about_p1: "Sahadan — CNC operatörlüğü ve hassas imalat — başlayıp Ar-Ge mühendisliği ve üretim yönetimine evrilen deneyimim, yazılım çözümlerime gerçek sanayi sorunlarına hitap eden bir yaklaşım kazandırıyor.",
-                home_about_p2: "Bugün imalat mühendisliği ve yazılım geliştirmenin kesişiminde çalışıyorum: CAD tabanlı mekanik sistemler tasarlama, makine izleme için IoT çözümleri uygulama ve üretim operasyonlarını ve karar süreçlerini kolaylaştıran kurumsal düzeyde araçlar geliştirme.",
-                home_cap_1_title: "Yazılım ve Otomasyon",
-                home_cap_1_desc: "Python, veri akışları, iç araçlar ve pratik otomasyon",
-                home_cap_2_title: "Kalite Sistemleri",
-                home_cap_2_desc: "Denetime hazır süreçler, dokümantasyon ve iyileştirme kültürü",
-                home_cap_3_title: "Mekanik Tasarım",
-                home_cap_3_desc: "CAD, simülasyon odaklı düşünme, DFM ve sağlam montajlar",
-                home_cap_4_title: "Üretim Sistemleri",
-                home_cap_4_desc: "Yalın uygulamalar, süreç tasarımı ve planlama yaklaşımı",
-                home_work_h2: "Seçili Çalışmalar",
-                home_work_all: "Tüm Projeler",
-                home_proj1_tag: "Mekanik Tasarım",
-                home_proj1_title: "EdgePulse: Müdahalesiz Makine İzleme",
-                home_proj1_desc: "Kablo/saha altyapısına minimum müdahaleyle makine durumu ve enerji sinyallerini izlemeyi hedefleyen, basit bir pano akışıyla görünürlük sağlayan IoT konsepti.",
-                home_proj2_title: "İç Üretim Araç Seti",
-                home_proj2_tag: "Yazılım",
-                home_proj2_desc: "Günlük üretim görünürlüğü için hafif uygulamalar: vardiya raporu, konu takibi ve karar odaklı özetler.",
-                home_proj3_tag: "Kalite",
-                home_proj3_title: "Planlama ve Çizelgeleme Denemeleri",
-                home_proj3_desc: "Daha öngörülebilir terminler ve daha temiz planlama için incelenen çizelgeleme modelleri ve sezgisel yöntemler.",
-                home_proj4_title: "Yalın Operasyon Şablonları",
-                home_proj4_tag: "Otomasyon",
-                home_proj4_desc: "Raporlama, KPI ve standart iş için tekrar kullanılabilir şablonlar — farklı ekip ve fabrikalara uyarlanabilir şekilde tasarlandı.",
-                home_work_all_mobile: "Tüm Projeleri Gör",
-                home_cta_h2: "Mühendislik Desteği Gerekli mi?",
-                home_cta_p: "Kalite sistemlerinden mekanik tasarıma ve dijital araçlara kadar — ekiplerin güvenilir mühendislik operasyonları kurmasına destek oluyorum.",
-                home_cta_services_2: "Hizmetlerime Bak",
-                home_cta_contact: "İletişime Geç",
-                home_footer_rights: "© 2026 E.Şengöz. Tüm hakları saklıdır."
+                home_title: "Ege Şengöz — İmalat Mühendisi",
+                home_meta_desc: "Üretim hattında beş yıl geçirmiş imalat mühendisi. Mekanik tasarım, üretim planlama, endüstriyel IoT ve bunları birbirine bağlayan yazılım.",
+                home_eyebrow: "İmalat mühendisi · Ar-Ge · Endüstriyel yazılım",
+                home_h1: "Torna tezgâhından <em>veri katmanına.</em>",
+                home_lead: "Ben Ege Şengöz. Üretim hattında CNC operatörü, Ar-Ge mühendisi ve üretim müdürü olarak beş yıl geçirdim. Bugün mekanik sistemler tasarlıyor; üretim ekiplerinin her gün kullandığı çizelgeleme, IoT ve veri araçlarını geliştiriyorum.",
+                home_cta_projects: "Projeleri gör",
+                home_cta_resume: "Özgeçmişi incele",
+                tb_engineer: "Mühendis",
+                tb_role: "Mevcut görev",
+                tb_role_v: "Ar-Ge ve Tasarım Mühendisi",
+                tb_org: "Kurum",
+                tb_based: "Konum",
+                tb_based_v: "İstanbul, Türkiye",
+                tb_status: "Durum",
+                tb_status_v: "Yer değişikliğine açık",
+                tb_exp: "Deneyim",
+                tb_exp_v: "5 yıl · 2021'den beri",
+                tb_edu: "Eğitim",
+                tb_edu_v: "Lisans, İmalat Müh., İTÜ",
+                tb_tol: "Tolerans",
+                tb_sheet: "Pafta · Rev",
+                results_title: "Ölçülen sonuçlar",
+                dim1: "Ortalama üretim gecikmesi",
+                dim1_note: "3,25 → 1,4 gün · hibrit çizelgeleyici",
+                dim2: "Hat verimliliği",
+                dim2_note: "ayarlanabilir kavisli merdane",
+                dim3: "Doküman erişim süresi",
+                dim3_note: "yaklaşık · şirket içi PostgreSQL",
+                dim4: "ISO standardında baş denetçi",
+                dim4_note: "IRCA akrediteli",
+                path_eyebrow: "Kariyer çizgisi",
+                path_title: "Her adımda bir ayağım sahadaydı.",
+                path_p: "Toleransı amfide öğrenmeden önce Fanuc torna tezgâhında öğrendim. Bu sıra hâlâ çalışma şeklimi belirliyor: tasarım üretilebilir olmalı, yazılım gerçek bir vardiyayı kaldırmalı.",
+                path_more: "Hakkımda daha fazlası",
+                p1_when: "Ara 2025 – bugün",
+                p1_role: "Ar-Ge ve Tasarım Mühendisi",
+                p1_note: "Kent mobilyalarını konseptten üretime devre kadar yürütüyorum. IoT tabanlı durum izleme prototipi ve şirket içi PostgreSQL veri katmanı geliştiriyorum.",
+                p2_when: "Eyl – Ara 2025",
+                p2_role: "Ar-Ge Mühendisi",
+                p2_org: "Uyar Bavul",
+                p2_note: "Bavul montaj ve termoform hatları için üç mekanik sistem; sahada hâlâ her gün kullanılan bir üretim izleme uygulaması.",
+                p3_role: "Üretim Müdürü",
+                p3_note: "Sekiz kişilik operatör ekibini yönettim. Yalın çizelgeleme hat verimlilik kayıplarını %12, hibrit AI çizelgeleyici ortalama gecikmeyi %57 azalttı.",
+                p4_role: "Ar-Ge Mühendisi",
+                p4_note: "Türkiye'nin ilk ayarlanabilir kavisli merdanesini tasarladım; özgün bir hava mili tasarımı etrafında yeni bir hattı devreye aldım.",
+                p5_role: "CNC ve Üniversal Torna Operatörü",
+                p5_note: "Fanuc CNC tornalarda ±0,01 mm toleransla hassas parçalar; CAM ile programlanan ekstrüzyon kalıpları.",
+                work_eyebrow: "Seçili çalışmalar",
+                work_title: "Arkasında bir sayı olan projeler.",
+                work_all: "Tüm projeler",
+                disc_eyebrow: "Disiplinler",
+                disc_title: "Dört disiplin, tek üretim hattı.",
+                disc_p: "Fabrikadaki sorunların çoğu mekanik, süreç ve yazılım arasındaki sınırı aşar. Üç tarafta da çalıştığım için çözüm tek bir departmanın kapısında durmuyor.",
+                d1_title: "İmalat ve kalite",
+                d1_p: "Üretim planlama ve çizelgeleme, hat dengeleme, denetime hazır yönetim sistemleri ve ekip liderliği.",
+                d2_title: "Mekanik tasarım ve analiz",
+                d2_p: "Üretilebilirliğe göre tasarlanmış makine ve montajlar; FEA ve modal analizle doğrulama.",
+                d3_title: "Endüstriyel IoT ve veri",
+                d3_p: "Kablolamaya dokunmadan alınan makine sinyalleri, OEE panolarına akan ve sorgulanabilir şekilde saklanan veri.",
+                d4_title: "Yazılım ve yapay zeka",
+                d4_p: "Çizelgeleyiciler, ERP entegrasyonları, RAG asistanları ve iç araçlar; bakımı kolay servisler olarak.",
+                cred_eyebrow: "Sertifikalar",
+                cred_title: "Altı ISO standardında baş denetçi.",
+                cred_p: "IRCA akrediteli baş denetçi eğitimleri; ayrıca otomotiv kalite ve çevresel ayak izi standartları.",
+                cta_title: "Mühendislik ve yazılım gerektiren bir üretim sorununuz mu var?",
+                cta_p: "Makine izleme, çizelgeleme, ERP entegrasyonu ya da mekanik yeniden tasarım. Hattın bugün ne yaptığını ve ne yapması gerektiğini anlatın.",
+                cta_contact: "İletişime geç",
+                cta_services: "Hizmetleri gör"
             }
         });
-        PortfolioApp.setupScrollReveal({ threshold: 0.12, stagger: 80 });
-    </script>
 
+        function renderHome(lang) {
+            const featured = projectsData.filter((p) => p.featured).slice(0, 4);
+            document.getElementById("featured-grid").innerHTML = featured.map((p) => PortfolioApp.projectCard(p, lang)).join("");
+            const all = PortfolioApp.getTranslations().work_all;
+            document.getElementById("work-all").textContent = `${all} (${projectsData.length})`;
+
+            document.getElementById("iso-row").innerHTML = isoLeadAuditor.map((iso) =>
+                `<div class="iso"><span class="iso__code">ISO ${iso.code}</span><span class="iso__area">${PortfolioApp.escapeHtml(iso[lang])}</span></div>`
+            ).join("");
+            document.getElementById("cred-list").innerHTML = credentials.map((c) => {
+                const d = c[lang] || c.en;
+                return `<li class="cred"><span class="cred__name">${PortfolioApp.escapeHtml(d.name)}</span><span class="cred__std">${PortfolioApp.escapeHtml(c.standard)}</span>${d.note ? `<span class="cred__note">${PortfolioApp.escapeHtml(d.note)}</span>` : ""}</li>`;
+            }).join("");
+        }
+        PortfolioApp.onLanguageChange(renderHome);
+    </script>
 </body>
 </html>

@@ -5,6 +5,11 @@
 const projectsData = [
   {
     id: "edgepulse-iot",
+    domain: "production",
+    glyph: "wave",
+    featured: true,
+    order: 1,
+    metric: { value: "OEE", en: "live, from current transformers — no rewiring", tr: "canlı, akım trafolarından — kablo değişikliği yok" },
     category: "software",
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=2940&auto=format&fit=crop",
     fallbackImage: "https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -13,7 +18,7 @@ const projectsData = [
     en: {
       title: "EdgePulse: IoT-Based Non-Invasive Current Monitoring",
       subtitle: "Real-time machine efficiency monitoring via cloud",
-      company: "-",
+      company: "Independent",
       description: "Designed a system using ESP32/Arduino and current transformers to monitor machine energy consumption and operational status without any hardware modification to existing equipment. Sensor data is transmitted to a cloud interface via MQTT/HTTP protocols, enabling real-time cycle time digitalization and efficiency tracking.",
       highlights: [
         "Non-invasive current sensing — no machine modification required",
@@ -27,7 +32,7 @@ const projectsData = [
     tr: {
       title: "EdgePulse: IoT Tabanlı İnvazif Olmayan Akım İzleme",
       subtitle: "Bulut üzerinden gerçek zamanlı makine verimliliği izleme",
-      company: "-",
+      company: "Bağımsız",
       description: "Mevcut ekipmanlarda herhangi bir donanım değişikliği yapmadan makine enerji tüketimini ve çalışma durumunu izlemek için ESP32/Arduino ve akım transformatörleri kullanılarak tasarlanmış bir sistem. Sensör verileri MQTT/HTTP protokolleri aracılığıyla bulut arayüzüne iletilerek gerçek zamanlı çevrim süresi dijitalleştirmesi ve verimlilik takibi sağlanmaktadır.",
       highlights: [
         "İnvazif olmayan akım ölçümü — makine değişikliği gerektirmez",
@@ -41,6 +46,11 @@ const projectsData = [
   },
   {
     id: "ai-production-planning",
+    domain: "production",
+    glyph: "gantt",
+    featured: true,
+    order: 2,
+    metric: { value: "−57%", en: "average delay, 3.25 → 1.4 days", tr: "ortalama gecikme, 3,25 → 1,4 gün" },
     category: "software",
     image: "https://images.unsplash.com/photo-1677444305703-61b7eefc322e?q=80&w=2940&auto=format&fit=crop",
     fallbackImage: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -48,12 +58,11 @@ const projectsData = [
     year: "2023",
     en: {
       title: "AI-Based Production Planning System",
-      subtitle: "Hybrid scheduling algorithm reducing delays by 55%",
-      company: "-",
-      description: "Created a hybrid production scheduling system combining FCFS (First Come First Serve), SPT (Shortest Processing Time), and ATC (Apparent Tardiness Cost) algorithms for dynamic job scheduling. Deployed at the production line, achieving a 55% improvement in delay times and reducing average delay from 3.25 days to 1.4 days. Delay costs were reduced by 30%.",
+      subtitle: "Hybrid scheduling algorithm reducing delays by 57%",
+      company: "Alfa Roller · ITU capstone",
+      description: "Created a hybrid production scheduling system combining FCFS (First Come First Serve), SPT (Shortest Processing Time), and ATC (Apparent Tardiness Cost) algorithms for dynamic job scheduling. Deployed at the production line, cutting average delay by 57% and reducing average delay from 3.25 days to 1.4 days. Delay costs were reduced by 30%.",
       highlights: [
         "Hybrid FCFS + SPT + ATC scheduling algorithm",
-        "55% improvement in production delay times",
         "Average delay reduced from 3.25 days to 1.4 days",
         "30% reduction in delay-related costs",
         "Dynamic real-time rescheduling capability"
@@ -62,12 +71,11 @@ const projectsData = [
     },
     tr: {
       title: "Yapay Zeka Tabanlı Üretim Planlama Sistemi",
-      subtitle: "Gecikmeleri %55 azaltan hibrit çizelgeleme algoritması",
-      company: "-",
-      description: "Dinamik iş çizelgeleme için FCFS (İlk Gelen İlk Hizmet), SPT (En Kısa İşlem Süresi) ve ATC (Görünür Gecikme Maliyeti) algoritmalarını birleştiren hibrit bir üretim çizelgeleme sistemi oluşturuldu. Üretim hattında devreye alınan sistem, gecikme sürelerinde %55 iyileşme sağladı ve ortalama gecikmeyi 3,25 günden 1,4 güne düşürdü. Gecikme maliyetleri %30 azaltıldı.",
+      subtitle: "Gecikmeleri %57 azaltan hibrit çizelgeleme algoritması",
+      company: "Alfa Roller · İTÜ bitirme projesi",
+      description: "Dinamik iş çizelgeleme için FCFS (İlk Gelen İlk Hizmet), SPT (En Kısa İşlem Süresi) ve ATC (Görünür Gecikme Maliyeti) algoritmalarını birleştiren hibrit bir üretim çizelgeleme sistemi oluşturuldu. Üretim hattında devreye alınan sistem, ortalama gecikmeyi %57 azalttı ve ortalama gecikmeyi 3,25 günden 1,4 güne düşürdü. Gecikme maliyetleri %30 azaltıldı.",
       highlights: [
         "Hibrit FCFS + SPT + ATC çizelgeleme algoritması",
-        "Üretim gecikme sürelerinde %55 iyileşme",
         "Ortalama gecikme 3,25 günden 1,4 güne düşürüldü",
         "Gecikme kaynaklı maliyetlerde %30 azalma",
         "Dinamik gerçek zamanlı yeniden çizelgeleme kapasitesi"
@@ -77,6 +85,11 @@ const projectsData = [
   },
   {
     id: "adjustable-curved-roller",
+    domain: "mechanical",
+    glyph: "roller",
+    featured: true,
+    order: 3,
+    metric: { value: "+25%", en: "line efficiency, −30% setup time", tr: "hat verimliliği, −%30 ayar süresi" },
     category: "mechanical",
     image: "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?q=80&w=2940&auto=format&fit=crop",
     fallbackImage: "https://images.pexels.com/photos/159298/pexels-photo-159298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -85,28 +98,39 @@ const projectsData = [
     en: {
       title: "Adjustable Curved Roller Design",
       subtitle: "Turkey's first original adjustable curved roller / sprinkle remover",
-      company: "-",
-      description: "Developed Turkey's first original adjustable curved roller design using SolidWorks and Ansys FEA. The design provided an innovative solution by reducing the need of spare parts in the plastic film industry ",
+      company: "Alfa Roller",
+      description: "Developed Turkey's first original adjustable curved roller design using SolidWorks and Ansys FEA. The adjustable curvature reduces the need for spare rollers in plastic film lines, and the design went into production with measurable gains in line efficiency, setup time and material cost.",
       highlights: [
         "First original design of its kind in Turkey",
         "SolidWorks 3D modeling + Ansys FEA validation",
+        "25% higher line efficiency",
+        "30% shorter setup time",
+        "15% lower material cost"
       ],
       categoryLabel: "Mechanical Design"
     },
     tr: {
       title: "Ayarlanabilir Açıcı Merdane Tasarımı",
-      subtitle: "Özgün Tasarıma sahip ayarlanabilir ",
-      company: "-",
-      description: "SolidWorks ve Ansys FEA kullanılarak Türkiye'de ilk orijinal ayarlanabilir kavisli merdane tasarımı geliştirildi. Tasarım, plastik film sektöründe yedek parça ihtiyacını azaltarak yenilikçi bir çözüm sağladı.",
+      subtitle: "Türkiye'nin ilk özgün ayarlanabilir açıcı merdanesi",
+      company: "Alfa Roller",
+      description: "SolidWorks ve Ansys FEA kullanılarak Türkiye'nin ilk özgün ayarlanabilir kavisli merdane tasarımı geliştirildi. Ayarlanabilir eğrilik, plastik film hatlarında yedek merdane ihtiyacını azaltıyor; tasarım üretime alındı ve hat verimliliği, ayar süresi ve malzeme maliyetinde ölçülebilir kazanç sağladı.",
       highlights: [
-        "Türkiye'de türünün ilk orijinal tasarımı",
+        "Türkiye'de türünün ilk özgün tasarımı",
         "SolidWorks 3D modelleme + Ansys FEA doğrulama",
+        "Hat verimliliğinde %25 artış",
+        "Ayar süresinde %30 azalma",
+        "Malzeme maliyetinde %15 azalma"
       ],
       categoryLabel: "Mekanik Tasarım"
     }
   },
   {
     id: "suitcase-assembly-machines",
+    domain: "mechanical",
+    glyph: "gear",
+    featured: false,
+    order: 5,
+    metric: { value: "12–18%", en: "projected labour-time cut", tr: "öngörülen işçilik süresi azalması" },
     category: "mechanical",
     image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2940&auto=format&fit=crop",
     fallbackImage: "https://images.pexels.com/photos/209251/pexels-photo-209251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -115,7 +139,7 @@ const projectsData = [
     en: {
       title: "Custom Machine Designs for Suitcase Assembly Line",
       subtitle: "3 mechanical systems targeting 12–18% labor time reduction",
-      company: "-",
+      company: "Uyar Luggage",
       description: "Designed 3 different mechanical systems specifically for suitcase assembly and thermoforming production lines. All designs were developed using SolidWorks and validated with Ansys FEA. The systems are currently in prototype testing phase, targeting a 12–18% reduction in labor time across the assembly process.",
       highlights: [
         "3 custom mechanical system designs",
@@ -129,7 +153,7 @@ const projectsData = [
     tr: {
       title: "Montaj Hattı için Özel Makine Tasarımları",
       subtitle: "İşçilik süresini %12–18 azaltmayı sağlayan mekanik sistemler",
-      company: "-",
+      company: "Uyar Bavul",
       description: "Montaj ve termoform üretim hatları için özel olarak 3 farklı mekanik sistem tasarlandı. Tüm tasarımlar SolidWorks kullanılarak geliştirildi ve Ansys FEA ile doğrulandı. Sistemler şu anda prototip test aşamasında olup montaj sürecinde %12–18 işçilik süresi azaltımı hedeflenmektedir.",
       highlights: [
         "3 özel mekanik sistem tasarımı",
@@ -141,6 +165,11 @@ const projectsData = [
   },
   {
     id: "production-data-app",
+    domain: "production",
+    glyph: "bars",
+    featured: false,
+    order: 6,
+    metric: { value: "Daily", en: "output, scrap and efficiency on the floor", tr: "sahada çıktı, fire ve verimlilik" },
     category: "software",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2940&auto=format&fit=crop",
     fallbackImage: "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -149,7 +178,7 @@ const projectsData = [
     en: {
       title: "Daily Production Data Analysis & Reporting Mobile App",
       subtitle: "AppSheet-based mobile app for real-time production analytics",
-      company: "-",
+      company: "Uyar Luggage",
       description: "Developed a prototype mobile application using AppSheet and Excel-based logic for daily production data analysis and reporting. The app provides real-time graphical reports for daily production output, scrap rates, and efficiency metrics. Currently in active use; future updates will include logistics tracking and production planning modules.",
       highlights: [
         "AppSheet + Excel VBA mobile application",
@@ -163,7 +192,7 @@ const projectsData = [
     tr: {
       title: "Günlük Üretim Verisi Analiz ve Raporlama Mobil Uygulaması",
       subtitle: "Gerçek zamanlı üretim analitiği için AppSheet tabanlı mobil uygulama",
-      company: "-",
+      company: "Uyar Bavul",
       description: "Günlük üretim verisi analizi ve raporlaması için AppSheet ve Excel tabanlı mantık kullanılarak prototip bir mobil uygulama geliştirildi. Uygulama, günlük üretim çıktısı, hurda oranları ve verimlilik metrikleri için gerçek zamanlı grafiksel raporlar sunmaktadır. Şu anda aktif kullanımda; gelecek güncellemeler lojistik takip ve üretim planlama modüllerini içerecek.",
       highlights: [
         "AppSheet + Excel VBA mobil uygulaması",
@@ -177,6 +206,11 @@ const projectsData = [
   },
   {
     id: "maliyetanaliiz",
+    domain: "production",
+    glyph: "stack",
+    featured: false,
+    order: 8,
+    metric: { value: "BOM", en: "cost and carbon footprint per project", tr: "proje bazında maliyet ve karbon ayak izi" },
     category: "software",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2940&auto=format&fit=crop",
     fallbackImage: "https://images.pexels.com/photos/4386369/pexels-photo-4386369.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -185,7 +219,7 @@ const projectsData = [
     en: {
       title: "BOM-Based Costing & Sustainability App (MaliyetAnaliz)",
       subtitle: "Automated project costing and carbon footprint tracking",
-      company: "-",
+      company: "",
       description: "Calculates total project and subcontractor costs by systematically extracting and processing components directly from BOM (Bill of Materials) lists. Analyzes and reports on raw material weight percentages and project carbon footprints to actively support sustainable manufacturing practices.",
       highlights: [
         "BOM-based automatic cost extraction",
@@ -199,7 +233,7 @@ const projectsData = [
     tr: {
       title: "BOM Tabanlı Maliyet & Sürdürülebilirlik Uygulaması (MaliyetAnaliz)",
       subtitle: "Otomatik proje maliyetlendirme ve karbon ayak izi takibi",
-      company: "-",
+      company: "",
       description: "BOM (Malzeme Listesi) listelerinden bileşenleri sistematik olarak çıkararak ve işleyerek toplam proje ve alt yüklenici maliyetlerini hesaplar. Ham madde ağırlık yüzdelerini ve proje karbon ayak izlerini analiz ederek sürdürülebilir imalat uygulamalarını aktif olarak destekler.",
       highlights: [
         "BOM tabanlı otomatik maliyet çıkarımı",
@@ -213,6 +247,11 @@ const projectsData = [
   },
   {
     id: "hermetic-librarian",
+    domain: "software",
+    glyph: "graph",
+    featured: false,
+    order: 12,
+    metric: { value: "RAG", en: "persona grounded in classical texts", tr: "klasik metinlere dayalı persona" },
     category: "software",
     image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=2940&auto=format&fit=crop",
     fallbackImage: "https://images.pexels.com/photos/2041540/pexels-photo-2041540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -221,7 +260,7 @@ const projectsData = [
     en: {
       title: "RAG-Powered Historical AI Persona (Hermetic Librarian)",
       subtitle: "Philosophical text processing AI chatbot",
-      company: "-",
+      company: "",
       description: "Utilizes Retrieval-Augmented Generation (RAG) models to accurately emulate the conversational styles and philosophies of historical writers and thinkers. Processes complex philosophical texts to provide in-depth, persona-driven responses to user inquiries.",
       highlights: [
         "RAG-based historical persona emulation",
@@ -235,7 +274,7 @@ const projectsData = [
     tr: {
       title: "RAG Destekli Tarihsel Yapay Zeka Kişiliği (Hermetic Librarian)",
       subtitle: "Felsefi metin işleme AI sohbet robotu",
-      company: "-",
+      company: "",
       description: "Tarihsel yazarların ve düşünürlerin konuşma tarzlarını ve felsefelerini doğru bir şekilde taklit etmek için Retrieval-Augmented Generation (RAG) modellerini kullanır. Kullanıcı sorularına kişilik odaklı derin yanıtlar sağlamak için karmaşık felsefi metinleri işler.",
       highlights: [
         "RAG tabanlı tarihsel kişilik taklidi",
@@ -249,6 +288,11 @@ const projectsData = [
   },
   {
     id: "file-organizer",
+    domain: "software",
+    glyph: "doc",
+    featured: false,
+    order: 11,
+    metric: { value: "PDF", en: "sorted across local disk and Drive", tr: "yerel disk ve Drive genelinde sınıflandırma" },
     category: "software",
     image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2940&auto=format&fit=crop",
     fallbackImage: "https://images.pexels.com/photos/768109/pexels-photo-768109.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -257,7 +301,7 @@ const projectsData = [
     en: {
       title: "Enterprise PDF & File Organization System (FileOrganizer)",
       subtitle: "Automated enterprise document management",
-      company: "-",
+      company: "",
       description: "Manages and organizes PDF files across local directories and cloud-based Google Drive environments at an enterprise scale. Automates document sorting and categorization to significantly streamline corporate file management workflows.",
       highlights: [
         "Local + Google Drive integration",
@@ -271,7 +315,7 @@ const projectsData = [
     tr: {
       title: "Kurumsal PDF & Dosya Organizasyon Sistemi (FileOrganizer)",
       subtitle: "Otomatik kurumsal doküman yönetimi",
-      company: "-",
+      company: "",
       description: "Kurumsal ölçekte yerel dizinlerde ve bulut tabanlı Google Drive ortamlarında PDF dosyalarını yönetir ve düzenler. Doküman sınıflandırma ve kategorilendirmeyi otomatikleştirerek kurumsal dosya yönetimi iş akışlarını önemli ölçüde kolaylaştırır.",
       highlights: [
         "Yerel + Google Drive entegrasyonu",
@@ -285,6 +329,11 @@ const projectsData = [
   },
   {
     id: "drive-assist",
+    domain: "software",
+    glyph: "lock",
+    featured: false,
+    order: 10,
+    metric: { value: "AES", en: "local-only, encrypted at rest", tr: "yalnızca yerel, şifreli depolama" },
     category: "software",
     image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?q=80&w=2940&auto=format&fit=crop",
     fallbackImage: "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -293,7 +342,7 @@ const projectsData = [
     en: {
       title: "AI-Powered Secure Local File Organization (Drive Assist)",
       subtitle: "Privacy-first intelligent file management",
-      company: "-",
+      company: "",
       description: "Leverages LangChain and LangGraph for natural language-driven file and folder organization locally, ensuring complete privacy with no cloud dependency. Features AES encryption at rest, secure audit logging, and a stateful architecture requiring strict human-in-the-loop approval for destructive operations.",
       highlights: [
         "LangChain + LangGraph integration",
@@ -307,7 +356,7 @@ const projectsData = [
     tr: {
       title: "Yapay Zeka Destekli Güvenli Yerel Dosya Organizasyonu (Drive Assist)",
       subtitle: "Gizlilik öncelikli akıllı dosya yönetimi",
-      company: "-",
+      company: "",
       description: "Yerel olarak doğal dil tabanlı dosya ve klasör organizasyonu için LangChain ve LangGraph'u kullanır, bulut bağımlılığı olmadan tam gizlilik sağlar. AES şifreleme, güvenli denetim günlüğü ve yıkıcı işlemler için katı insan-döngü onayı gerektiren durumlu mimari özellikleri içerir.",
       highlights: [
         "LangChain + LangGraph entegrasyonu",
@@ -321,6 +370,11 @@ const projectsData = [
   },
   {
     id: "arge-kanban",
+    domain: "production",
+    glyph: "kanban",
+    featured: false,
+    order: 9,
+    metric: { value: "Kanban", en: "self-hosted R&D workload board", tr: "şirket içi Ar-Ge iş yükü panosu" },
     category: "software",
     image: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?q=80&w=2940&auto=format&fit=crop",
     fallbackImage: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -329,7 +383,7 @@ const projectsData = [
     en: {
       title: "Enterprise R&D Task Distribution (ArGe Kanban)",
       subtitle: "Engineering team workload management",
-      company: "-",
+      company: "",
       description: "Local-hosted Kanban application designed specifically for enterprise-level tracking and management of internal R&D team workloads. Facilitates transparent task assignment, workflow observation, and agile project execution for engineering teams.",
       highlights: [
         "Local-hosted enterprise Kanban",
@@ -343,7 +397,7 @@ const projectsData = [
     tr: {
       title: "Kurumsal Ar-Ge Görev Dağılımı (ArGe Kanban)",
       subtitle: "Mühendislik ekibi iş yükü yönetimi",
-      company: "-",
+      company: "",
       description: "Dahili Ar-Ge ekibi iş yüklerinin kurumsal düzeyde izlenmesi ve yönetimi için özel olarak tasarlanmış yerel barındırılan Kanban uygulaması. Mühendislik ekipleri için şeffaf görev ataması, iş akışı gözlemi ve çevik proje yürütmesini kolaylaştırır.",
       highlights: [
         "Yerel barındırılan kurumsal Kanban",
@@ -357,6 +411,11 @@ const projectsData = [
   },
   {
     id: "synccore",
+    domain: "software",
+    glyph: "diff",
+    featured: false,
+    order: 7,
+    metric: { value: "SHA-256", en: "plus pixel diff for revision checks", tr: "ve piksel karşılaştırmalı revizyon kontrolü" },
     category: "software",
     image: "https://images.unsplash.com/photo-1555949963-aa9d8c4a9fb4?q=80&w=2940&auto=format&fit=crop",
     fallbackImage: "https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -365,7 +424,7 @@ const projectsData = [
     en: {
       title: "Manufacturing Revision Control Engine (SyncCore)",
       subtitle: "Visual version verification for production",
-      company: "-",
+      company: "Independent",
       description: "Addresses enterprise data discrepancies by comparing files via SHA-256 hash identity and OpenCV/PyMuPDF visual pixel-to-pixel analysis. Operates under a strict human-in-the-loop constraint, identifying version clusters and visually highlighting discrepancies with red bounding boxes.",
       highlights: [
         "SHA-256 hash-based comparison",
@@ -379,7 +438,7 @@ const projectsData = [
     tr: {
       title: "İmalat Revizyon Kontrol Motoru (SyncCore)",
       subtitle: "Üretim için görsel sürüm doğrulama",
-      company: "-",
+      company: "Bağımsız",
       description: "Dosyaları SHA-256 karma kimlik ve OpenCV/PyMuPDF görsel piksel-piksel analiz ile karşılaştırarak kurumsal veri tutarsızlıklarını giderir. Sürüm kümelerini belirleyen ve tutarsızlıkları kırmızı sınırlayıcı kutularla görsel olarak vurgulayan katı insan-döngü kısıtlaması altında çalışır.",
       highlights: [
         "SHA-256 karma tabanlı karşılaştırma",
@@ -393,6 +452,11 @@ const projectsData = [
   },
   {
     id: "ai-erp-assistant",
+    domain: "software",
+    glyph: "link",
+    featured: true,
+    order: 4,
+    metric: { value: "Odoo", en: "ERP + OneDrive behind one AI assistant", tr: "ERP + OneDrive tek bir AI asistanında" },
     category: "software",
     image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2940&auto=format&fit=crop",
     fallbackImage: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -401,7 +465,7 @@ const projectsData = [
     en: {
       title: "Enterprise AI Assistant & ERP Integration",
       subtitle: "AI-powered business process automation",
-      company: "-",
+      company: "Independent",
       description: "An advanced AI assistant built on FastAPI, integrating Odoo (via XML-RPC), Microsoft OneDrive, and PageIndex (Vectorless RAG). Features a fully dockerized architecture, allowing for seamless deployment, environment consistency, and hot-reloading.",
       highlights: [
         "FastAPI-based AI assistant",
@@ -415,7 +479,7 @@ const projectsData = [
     tr: {
       title: "Kurumsal Yapay Zeka Asistanı & ERP Entegrasyonu",
       subtitle: "AI destekli iş süreci otomasyonu",
-      company: "-",
+      company: "Bağımsız",
       description: "Odoo (XML-RPC aracılığıyla), Microsoft OneDrive ve PageIndex (Vectorless RAG) entegrasyonu ile FastAPI üzerine inşa edilmiş gelişmiş bir AI asistanı. Sorunsuz dağıtım, ortam tutarlılığı ve hot-reloading'e izin veren tam dockerize mimari özellikleri içerir.",
       highlights: [
         "FastAPI tabanlı AI asistanı",
@@ -428,3 +492,14 @@ const projectsData = [
     }
   }
 ];
+
+// Domain labels used for filters and card captions.
+const projectDomains = {
+  mechanical: { en: "Mechanical design", tr: "Mekanik tasarım" },
+  production: { en: "Production systems & IoT", tr: "Üretim sistemleri ve IoT" },
+  software: { en: "Software & AI", tr: "Yazılım ve yapay zeka" }
+};
+
+projectsData.sort((a, b) => (a.order || 99) - (b.order || 99));
+window.projectsData = projectsData;
+window.projectDomains = projectDomains;
