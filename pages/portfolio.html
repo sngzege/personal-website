@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Portfolio — Ege Şengöz</title>
+    <meta name="description" data-i18n-content="pf_meta" content="Projects, certifications and open-source repositories by Ege Şengöz: mechanical design, production systems, industrial IoT and software." />
+    <meta name="theme-color" content="#0e1013" />
+    <link rel="icon" href="../public/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" />
+    <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body class="site" data-page="portfolio" data-title-key="pf_title" id="top">
+
+    <header data-site-header></header>
+
+    <main>
+        <section class="hero drafting" style="padding-bottom:clamp(32px,4vw,48px)">
+            <div class="wrap stack">
+                <span class="eyebrow" data-i18n="pf_eyebrow">Portfolio</span>
+                <h1 class="h-page" data-i18n="pf_h1">Projects, certifications and code.</h1>
+                <p class="lead" data-i18n="pf_lead">Mechanical designs that went into production, scheduling and monitoring systems running on real lines, the standards I audit against, and the repositories behind the software.</p>
+                <nav class="jump" aria-label="Sections">
+                    <a href="#projects"><span data-i18n="pf_projects">Projects</span><span class="num" id="n-projects"></span></a>
+                    <a href="#certifications"><span data-i18n="pf_certs">Certifications</span><span class="num" id="n-certs"></span></a>
+                    <a href="#github"><span>GitHub</span><span class="num" id="n-repos"></span></a>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="anchor" id="projects" style="padding-bottom:clamp(64px,9vw,112px)">
+            <div class="wrap stack-lg">
+                <div class="section-head" style="margin-bottom:0">
+                    <div class="section-head__text">
+                        <span class="eyebrow" data-i18n="pf_projects">Projects</span>
+                        <h2 class="h-section" data-i18n="pf_projects_title">Engineering and software projects</h2>
+                    </div>
+                </div>
+                <div class="section-head" style="margin-bottom:0">
+                    <div class="filters" id="filters" role="group" data-i18n-aria="filter_label" aria-label="Filter projects"></div>
+                    <span class="mono small muted num" id="result-count" aria-live="polite"></span>
+                </div>
+                <div class="project-grid" id="projects-grid"></div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="section anchor" id="certifications" aria-labelledby="cert-title">
+            <div class="wrap stack-lg">
+                <div class="section-head" style="margin-bottom:0">
+                    <div class="section-head__text">
+                        <span class="eyebrow" data-i18n="pf_certs">Certifications</span>
+                        <h2 class="h-section" id="cert-title" data-i18n="pf_certs_title">Lead auditor across six ISO management systems.</h2>
+                    </div>
+                </div>
+                <div class="iso-row" id="iso-row"></div>
+                <div class="cred-groups" id="cred-groups"></div>
+            </div>
+        </section>
+
+        <!-- GitHub -->
+        <section class="section anchor" id="github" aria-labelledby="gh-title">
+            <div class="wrap stack-lg">
+                <div class="section-head" style="margin-bottom:0">
+                    <div class="section-head__text">
+                        <span class="eyebrow">GitHub</span>
+                        <h2 class="h-section" id="gh-title" data-i18n="pf_gh_title">Public repositories</h2>
+                        <p class="muted" data-i18n="pf_gh_p">Tools, experiments and integrations. Client and employer work stays private.</p>
+                    </div>
+                    <a class="link-arrow" href="https://github.com/sngzege" target="_blank" rel="noopener noreferrer"><span data-i18n="pf_gh_profile">GitHub profile</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+                </div>
+                <div class="repo-grid" id="repo-grid"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer data-site-footer></footer>
+
+    <script src="../js/portfolio.js"></script>
+    <script src="../data/projects.js"></script>
+    <script src="../data/credentials.js"></script>
+    <script src="../data/github.js"></script>
+    <script>
+        const i18n = {
+            en: {
+                pf_title: "Portfolio — Ege Şengöz",
+                pf_meta: "Projects, certifications and open-source repositories by Ege Şengöz: mechanical design, production systems, industrial IoT and software.",
+                pf_eyebrow: "Portfolio",
+                pf_h1: "Projects, certifications and code.",
+                pf_lead: "Mechanical designs that went into production, scheduling and monitoring systems running on real lines, the standards I audit against, and the repositories behind the software.",
+                pf_projects: "Projects",
+                pf_projects_title: "Engineering and software projects",
+                pf_certs: "Certifications",
+                pf_certs_title: "Lead auditor across six ISO management systems.",
+                pf_gh_title: "Public repositories",
+                pf_gh_p: "Tools, experiments and integrations. Client and employer work stays private.",
+                pf_gh_profile: "GitHub profile",
+                filter_label: "Filter projects",
+                filter_all: "All",
+                count_one: "1 project",
+                count_many: "{n} projects",
+                updated: "updated",
+                no_desc: "No description",
+                empty: "No projects in this category yet."
+            },
+            tr: {
+                pf_title: "Portföy — Ege Şengöz",
+                pf_meta: "Ege Şengöz'ün projeleri, sertifikaları ve açık kaynak repoları: mekanik tasarım, üretim sistemleri, endüstriyel IoT ve yazılım.",
+                pf_eyebrow: "Portföy",
+                pf_h1: "Projeler, sertifikalar ve kod.",
+                pf_lead: "Üretime giren mekanik tasarımlar, gerçek hatlarda çalışan çizelgeleme ve izleme sistemleri, denetlediğim standartlar ve yazılımların arkasındaki repolar.",
+                pf_projects: "Projeler",
+                pf_projects_title: "Mühendislik ve yazılım projeleri",
+                pf_certs: "Sertifikalar",
+                pf_certs_title: "Altı ISO yönetim sisteminde baş denetçi.",
+                pf_gh_title: "Açık repolar",
+                pf_gh_p: "Araçlar, denemeler ve entegrasyonlar. Müşteri ve işveren işleri gizli kalıyor.",
+                pf_gh_profile: "GitHub profili",
+                filter_label: "Projeleri filtrele",
+                filter_all: "Tümü",
+                count_one: "1 proje",
+                count_many: "{n} proje",
+                updated: "güncelleme",
+                no_desc: "Açıklama yok",
+                empty: "Bu kategoride henüz proje yok."
+            }
+        };
+        const esc = PortfolioApp.escapeHtml;
+        const DOMAIN_ORDER = ["mechanical", "production", "software"];
+        let currentFilter = "all";
+        let repos = null; // null = loading, [] = none
+
+        function renderProjects(lang) {
+            const t = i18n[lang];
+            const items = [{ key: "all", label: t.filter_all, n: projectsData.length }].concat(
+                DOMAIN_ORDER.map((d) => ({ key: d, label: projectDomains[d][lang], n: projectsData.filter((p) => p.domain === d).length }))
+            );
+            document.getElementById("filters").innerHTML = items.map((f) =>
+                `<button type="button" class="filter" data-filter="${f.key}" aria-pressed="${f.key === currentFilter}">${esc(f.label)} <span class="filter__count">${f.n}</span></button>`
+            ).join("");
+            const list = currentFilter === "all" ? projectsData : projectsData.filter((p) => p.domain === currentFilter);
+            document.getElementById("projects-grid").innerHTML = list.length
+                ? list.map((p) => PortfolioApp.projectCard(p, lang)).join("")
+                : `<p class="empty">${t.empty}</p>`;
+            document.getElementById("result-count").textContent = list.length === 1 ? t.count_one : t.count_many.replace("{n}", list.length);
+        }
+
+        function fmtDate(iso, lang) {
+            try { return new Date(iso).toLocaleDateString(lang === "tr" ? "tr-TR" : "en-GB", { month: "short", year: "numeric" }); }
+            catch (e) { return ""; }
+        }
+
+        function renderRepos(lang) {
+            const t = i18n[lang];
+            const list = repos || githubConfig.fallback;
+            document.getElementById("repo-grid").innerHTML = list.map((r) => {
+                const meta = [
+                    r.language ? `<span class="repo__lang">${esc(r.language)}</span>` : "",
+                    r.stars ? `<span>★ ${r.stars}</span>` : "",
+                    r.pushed ? `<span>${t.updated} ${esc(fmtDate(r.pushed, lang))}</span>` : ""
+                ].join("");
+                return `
+                    <a class="repo" href="https://github.com/${esc(githubConfig.user)}/${encodeURIComponent(r.name)}" target="_blank" rel="noopener noreferrer">
+                        <span class="repo__name">${esc(r.name)}</span>
+                        <span class="repo__desc${r.description ? "" : " repo__desc--empty"}">${esc(r.description || t.no_desc)}</span>
+                        <span class="repo__meta">${meta}</span>
+                    </a>`;
+            }).join("");
+            document.getElementById("n-repos").textContent = list.length;
+        }
+
+        function render(lang) {
+            renderProjects(lang);
+            renderCredentials(document.getElementById("iso-row"), null, lang);
+            renderCredentialGroups(document.getElementById("cred-groups"), lang);
+            renderRepos(lang);
+            document.getElementById("n-projects").textContent = projectsData.length;
+            document.getElementById("n-certs").textContent = isoLeadAuditor.length + credentials.length;
+        }
+
+        async function loadRepos() {
+            try {
+                const res = await fetch(`https://api.github.com/users/${githubConfig.user}/repos?per_page=100&sort=pushed`, { headers: { Accept: "application/vnd.github+json" } });
+                if (!res.ok) throw new Error(res.status);
+                const data = await res.json();
+                const live = data
+                    .filter((r) => !r.fork && !r.private && !r.archived && !githubConfig.exclude.includes(r.name))
+                    .map((r) => {
+                        const fb = githubConfig.fallback.find((f) => f.name === r.name) || {};
+                        return { name: r.name, description: r.description || fb.description || "", language: r.language || fb.language || "", stars: r.stargazers_count, pushed: r.pushed_at };
+                    });
+                if (live.length) {
+                    repos = live;
+                    renderRepos(PortfolioApp.getLang());
+                }
+            } catch (e) { /* keep fallback list */ }
+        }
+
+        document.getElementById("filters").addEventListener("click", (e) => {
+            const btn = e.target.closest("[data-filter]");
+            if (!btn) return;
+            currentFilter = btn.getAttribute("data-filter");
+            renderProjects(PortfolioApp.getLang());
+        });
+
+        PortfolioApp.registerPageTranslations(i18n);
+        PortfolioApp.onLanguageChange(render);
+        loadRepos();
+    </script>
+</body>
+</html>

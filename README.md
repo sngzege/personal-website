@@ -14,12 +14,13 @@ npm run build:css  # one-off CSS build (commit css/main.css)
 
 ```
 index.html            redirect to pages/home.html
+pages/resume.html     only reachable at /resume (not linked from the site)
 pages/                one HTML file per page (EN/TR strings live at the bottom of each)
 js/portfolio.js       language switching, shared header/footer, project cards, mail forms
 data/projects.js      projects (metric, domain, glyph, featured, order)
 data/services.js      services on the Solutions page
 data/credentials.js   ISO lead-auditor list and other certifications
-data/blog.js          notes
+data/github.js        public repos on the portfolio page (live from GitHub API, with fallback)
 data/resources.js     templates (set status "ready" and a file path to enable download)
 css/tailwind.css      design tokens and components -> compiled to css/main.css
 ```

@@ -14,7 +14,7 @@ const projectsData = [
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=2940&auto=format&fit=crop",
     fallbackImage: "https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     tags: ["ESP32", "Arduino", "MQTT", "IoT", "Cloud"],
-    year: "2024",
+    year: "2025–2026",
     en: {
       title: "EdgePulse: IoT-Based Non-Invasive Current Monitoring",
       subtitle: "Real-time machine efficiency monitoring via cloud",
@@ -55,11 +55,11 @@ const projectsData = [
     image: "https://images.unsplash.com/photo-1677444305703-61b7eefc322e?q=80&w=2940&auto=format&fit=crop",
     fallbackImage: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     tags: ["Python", "AI", "FCFS", "SPT", "ATC", "Scheduling"],
-    year: "2023",
+    year: "2025",
     en: {
       title: "AI-Based Production Planning System",
       subtitle: "Hybrid scheduling algorithm reducing delays by 57%",
-      company: "Industrial roller manufacturer · ITU capstone",
+      company: "ITU capstone · machining sector",
       description: "Created a hybrid production scheduling system combining FCFS (First Come First Serve), SPT (Shortest Processing Time), and ATC (Apparent Tardiness Cost) algorithms for dynamic job scheduling. Deployed at the production line, cutting average delay by 57% and reducing average delay from 3.25 days to 1.4 days. Delay costs were reduced by 30%.",
       highlights: [
         "Hybrid FCFS + SPT + ATC scheduling algorithm",
@@ -72,7 +72,7 @@ const projectsData = [
     tr: {
       title: "Yapay Zeka Tabanlı Üretim Planlama Sistemi",
       subtitle: "Gecikmeleri %57 azaltan hibrit çizelgeleme algoritması",
-      company: "Endüstriyel merdane üreticisi · İTÜ bitirme projesi",
+      company: "İTÜ bitirme projesi · talaşlı imalat",
       description: "Dinamik iş çizelgeleme için FCFS (İlk Gelen İlk Hizmet), SPT (En Kısa İşlem Süresi) ve ATC (Görünür Gecikme Maliyeti) algoritmalarını birleştiren hibrit bir üretim çizelgeleme sistemi oluşturuldu. Üretim hattında devreye alınan sistem, ortalama gecikmeyi %57 azalttı ve ortalama gecikmeyi 3,25 günden 1,4 güne düşürdü. Gecikme maliyetleri %30 azaltıldı.",
       highlights: [
         "Hibrit FCFS + SPT + ATC çizelgeleme algoritması",
@@ -98,7 +98,7 @@ const projectsData = [
     en: {
       title: "Adjustable Curved Roller Design",
       subtitle: "Turkey's first original adjustable curved roller / sprinkle remover",
-      company: "Industrial roller manufacturer",
+      company: "Machining · industrial rollers",
       description: "Developed Turkey's first original adjustable curved roller design using SolidWorks and Ansys FEA. The adjustable curvature reduces the need for spare rollers in plastic film lines, and the design went into production with measurable gains in line efficiency, setup time and material cost.",
       highlights: [
         "First original design of its kind in Turkey",
@@ -112,7 +112,7 @@ const projectsData = [
     tr: {
       title: "Ayarlanabilir Açıcı Merdane Tasarımı",
       subtitle: "Türkiye'nin ilk özgün ayarlanabilir açıcı merdanesi",
-      company: "Endüstriyel merdane üreticisi",
+      company: "Talaşlı imalat · endüstriyel merdane",
       description: "SolidWorks ve Ansys FEA kullanılarak Türkiye'nin ilk özgün ayarlanabilir kavisli merdane tasarımı geliştirildi. Ayarlanabilir eğrilik, plastik film hatlarında yedek merdane ihtiyacını azaltıyor; tasarım üretime alındı ve hat verimliliği, ayar süresi ve malzeme maliyetinde ölçülebilir kazanç sağladı.",
       highlights: [
         "Türkiye'de türünün ilk özgün tasarımı",
@@ -139,7 +139,7 @@ const projectsData = [
     en: {
       title: "Custom Machine Designs for Suitcase Assembly Line",
       subtitle: "3 mechanical systems targeting 12–18% labor time reduction",
-      company: "Luggage manufacturer",
+      company: "Luggage manufacturing",
       description: "Designed 3 different mechanical systems specifically for suitcase assembly and thermoforming production lines. All designs were developed using SolidWorks and validated with Ansys FEA. The systems are currently in prototype testing phase, targeting a 12–18% reduction in labor time across the assembly process.",
       highlights: [
         "3 custom mechanical system designs",
@@ -153,7 +153,7 @@ const projectsData = [
     tr: {
       title: "Montaj Hattı için Özel Makine Tasarımları",
       subtitle: "İşçilik süresini %12–18 azaltmayı sağlayan mekanik sistemler",
-      company: "Bavul üreticisi",
+      company: "Bavul üretimi",
       description: "Montaj ve termoform üretim hatları için özel olarak 3 farklı mekanik sistem tasarlandı. Tüm tasarımlar SolidWorks kullanılarak geliştirildi ve Ansys FEA ile doğrulandı. Sistemler şu anda prototip test aşamasında olup montaj sürecinde %12–18 işçilik süresi azaltımı hedeflenmektedir.",
       highlights: [
         "3 özel mekanik sistem tasarımı",
@@ -178,7 +178,7 @@ const projectsData = [
     en: {
       title: "Daily Production Data Analysis & Reporting Mobile App",
       subtitle: "AppSheet-based mobile app for real-time production analytics",
-      company: "Luggage manufacturer",
+      company: "Luggage manufacturing",
       description: "Developed a prototype mobile application using AppSheet and Excel-based logic for daily production data analysis and reporting. The app provides real-time graphical reports for daily production output, scrap rates, and efficiency metrics. Currently in active use; future updates will include logistics tracking and production planning modules.",
       highlights: [
         "AppSheet + Excel VBA mobile application",
@@ -192,7 +192,7 @@ const projectsData = [
     tr: {
       title: "Günlük Üretim Verisi Analiz ve Raporlama Mobil Uygulaması",
       subtitle: "Gerçek zamanlı üretim analitiği için AppSheet tabanlı mobil uygulama",
-      company: "Bavul üreticisi",
+      company: "Bavul üretimi",
       description: "Günlük üretim verisi analizi ve raporlaması için AppSheet ve Excel tabanlı mantık kullanılarak prototip bir mobil uygulama geliştirildi. Uygulama, günlük üretim çıktısı, hurda oranları ve verimlilik metrikleri için gerçek zamanlı grafiksel raporlar sunmaktadır. Şu anda aktif kullanımda; gelecek güncellemeler lojistik takip ve üretim planlama modüllerini içerecek.",
       highlights: [
         "AppSheet + Excel VBA mobil uygulaması",
@@ -288,6 +288,7 @@ const projectsData = [
   },
   {
     id: "file-organizer",
+    repo: "https://github.com/sngzege/FileOrganizer",
     domain: "software",
     glyph: "doc",
     featured: false,
@@ -329,6 +330,7 @@ const projectsData = [
   },
   {
     id: "drive-assist",
+    repo: "https://github.com/sngzege/DriveAssist",
     domain: "software",
     glyph: "lock",
     featured: false,
@@ -370,6 +372,7 @@ const projectsData = [
   },
   {
     id: "arge-kanban",
+    repo: "https://github.com/sngzege/ArGe-Kanban",
     domain: "production",
     glyph: "kanban",
     featured: false,
@@ -411,6 +414,7 @@ const projectsData = [
   },
   {
     id: "synccore",
+    repo: "https://github.com/sngzege/SyncCore",
     domain: "software",
     glyph: "diff",
     featured: false,

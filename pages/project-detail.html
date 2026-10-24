@@ -57,7 +57,7 @@
         }
     </style>
 </head>
-<body class="site" data-page="projects" id="top">
+<body class="site" data-page="portfolio" id="top">
 
     <header data-site-header></header>
 
@@ -78,6 +78,7 @@
                 year: "Year",
                 domain: "Discipline",
                 tools: "Tools",
+                source: "Source",
                 prev: "Previous",
                 next: "Next",
                 not_found_title: "Project not found",
@@ -92,6 +93,7 @@
                 year: "Yıl",
                 domain: "Disiplin",
                 tools: "Araçlar",
+                source: "Kaynak kod",
                 prev: "Önceki",
                 next: "Sonraki",
                 not_found_title: "Proje bulunamadı",
@@ -110,7 +112,7 @@
             if (index === -1) {
                 host.innerHTML = `
                     <section class="hero drafting"><div class="wrap stack">
-                        <a class="crumb" href="projects.html">${ICON_BACK}${t.back}</a>
+                        <a class="crumb" href="portfolio.html#projects">${ICON_BACK}${t.back}</a>
                         <h1 class="h-page">${t.not_found_title}</h1>
                         <p class="lead">${t.not_found_p}</p>
                     </div></section>`;
@@ -130,6 +132,7 @@
                 org ? [t.org, esc(org)] : null,
                 [t.year, esc(project.year)],
                 [t.domain, esc(domain)],
+                project.repo ? [t.source, `<a class="link-arrow" href="${esc(project.repo)}" target="_blank" rel="noopener noreferrer">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>`] : null,
                 [t.tools, `<div class="chips">${project.tags.map((x) => `<span class="chip">${esc(x)}</span>`).join("")}</div>`]
             ].filter(Boolean).map(([k, v]) => `<div class="spec__row"><dt>${k}</dt><dd>${v}</dd></div>`).join("");
 
@@ -140,7 +143,7 @@
             host.innerHTML = `
                 <section class="hero drafting" style="padding-bottom:clamp(40px,5vw,64px)">
                     <div class="wrap stack-lg">
-                        <a class="crumb" href="projects.html">${ICON_BACK}${t.back}</a>
+                        <a class="crumb" href="portfolio.html#projects">${ICON_BACK}${t.back}</a>
                         <div class="detail-hero__grid">
                             <div class="stack">
                                 <span class="eyebrow">${esc(domain)}</span>

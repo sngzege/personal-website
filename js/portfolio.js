@@ -7,50 +7,50 @@
       nav_home: "Home",
       nav_about: "About",
       nav_projects: "Projects",
+      nav_portfolio: "Portfolio",
       nav_solutions: "Solutions",
-      nav_blog: "Blog",
       nav_resources: "Resources",
       nav_contact: "Contact",
-      nav_resume: "Résumé",
       nav_menu: "Menu",
       brand_tag: "MFG ENG · IST",
       footer_role: "Manufacturing engineer · R&D, production systems and industrial software",
-      footer_location: "Istanbul, Türkiye · open to relocation",
+      footer_location: "Istanbul, Türkiye",
       footer_rights: "All rights reserved.",
       footer_top: "Back to top",
       view_project: "View project",
       lang_label: "Language",
       // Employer names are kept generic on the public site.
-      org_now: "Urban furniture manufacturer",
-      org_luggage: "Luggage manufacturer",
-      org_roller: "Industrial roller manufacturer"
+      org_now: "Metal fabrication · urban furniture",
+      org_luggage: "Luggage manufacturing · thermoforming",
+      org_roller: "Machining · industrial rollers"
     },
     tr: {
       nav_home: "Ana Sayfa",
       nav_about: "Hakkımda",
       nav_projects: "Projeler",
+      nav_portfolio: "Portföy",
       nav_solutions: "Çözümler",
-      nav_blog: "Blog",
       nav_resources: "Kaynaklar",
       nav_contact: "İletişim",
-      nav_resume: "Özgeçmiş",
       nav_menu: "Menü",
       brand_tag: "İMALAT MÜH · IST",
       footer_role: "İmalat mühendisi · Ar-Ge, üretim sistemleri ve endüstriyel yazılım",
-      footer_location: "İstanbul, Türkiye · yer değişikliğine açık",
+      footer_location: "İstanbul, Türkiye",
       footer_rights: "Tüm hakları saklıdır.",
       footer_top: "Başa dön",
       view_project: "Projeyi incele",
-      lang_label: "Dil"
+      lang_label: "Dil",
+      org_now: "Metal işleme · kent mobilyası",
+      org_luggage: "Bavul üretimi · termoform",
+      org_roller: "Talaşlı imalat · endüstriyel merdane"
     }
   };
 
   const NAV_ITEMS = [
     { key: "home", href: "home.html" },
     { key: "about", href: "about.html" },
-    { key: "projects", href: "projects.html" },
+    { key: "portfolio", href: "portfolio.html" },
     { key: "solutions", href: "engineering-solutions.html" },
-    { key: "blog", href: "blog.html" },
     { key: "resources", href: "resources_value_added_downloads.html" }
   ];
 
@@ -120,16 +120,6 @@
   function updateLanguageButtons() {
     document.querySelectorAll("[data-set-lang]").forEach((btn) => {
       btn.setAttribute("aria-pressed", String(btn.getAttribute("data-set-lang") === currentLang));
-    });
-    // Legacy pages
-    ["btn-en", "btn-tr", "btn-en-mob", "btn-tr-mob"].forEach((id) => {
-      const button = document.getElementById(id);
-      if (!button) return;
-      const isActive = id.includes(currentLang);
-      button.style.background = isActive ? "var(--brand-accent)" : "transparent";
-      button.style.color = isActive ? "#0b0d10" : "var(--color-text-muted)";
-      button.style.boxShadow = "none";
-      button.setAttribute("aria-pressed", String(isActive));
     });
   }
 
@@ -220,10 +210,9 @@
           </div>
           <nav class="site-footer__links" aria-label="Footer">
             <a href="about.html" data-i18n="nav_about">${t("nav_about")}</a>
-            <a href="projects.html" data-i18n="nav_projects">${t("nav_projects")}</a>
+            <a href="portfolio.html" data-i18n="nav_portfolio">${t("nav_portfolio")}</a>
             <a href="engineering-solutions.html" data-i18n="nav_solutions">${t("nav_solutions")}</a>
-            <a href="blog.html" data-i18n="nav_blog">${t("nav_blog")}</a>
-            <a href="resume.html" data-i18n="nav_resume">${t("nav_resume")}</a>
+            <a href="resources_value_added_downloads.html" data-i18n="nav_resources">${t("nav_resources")}</a>
             <a href="contact.html" data-i18n="nav_contact">${t("nav_contact")}</a>
             <a href="https://www.linkedin.com/in/ege-sengoz-a92713226/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://github.com/sngzege" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -355,45 +344,6 @@
     });
   }
 
-  /* Legacy helpers --------------------------------------------------------- */
-  function createResourcesLink(isMobile) {
-    const link = document.createElement("a");
-    const isActive = window.location.pathname.endsWith("resources_value_added_downloads.html");
-    link.href = "resources_value_added_downloads.html";
-    link.setAttribute("data-i18n", "nav_resources");
-    link.textContent = currentLang === "tr" ? "Kaynaklar" : "Resources";
-    if (isMobile) {
-      link.className = isActive ? "text-primary font-medium" : "text-secondary font-medium";
-    } else {
-      link.className = isActive ? "text-primary font-medium border-b-2" : "text-secondary font-medium hover:text-primary transition-colors";
-      if (isActive) link.style.borderColor = "var(--brand-accent)";
-    }
-    return link;
-  }
-
-  function ensureResourcesLink() {
-    if (!document.body.classList.contains("legacy")) return;
-    const nav = document.querySelector("nav");
-    if (!nav) return;
-    const desktopContact = nav.querySelector(".hidden.md\\:flex a[href='contact.html']");
-    if (desktopContact && !nav.querySelector(".hidden.md\\:flex a[href='resources_value_added_downloads.html']")) {
-      desktopContact.before(createResourcesLink(false));
-    }
-    const mobileMenu = document.getElementById("mobile-menu");
-    const mobileContact = mobileMenu ? mobileMenu.querySelector("a[href='contact.html']") : null;
-    if (mobileContact && !mobileMenu.querySelector("a[href='resources_value_added_downloads.html']")) {
-      mobileContact.before(createResourcesLink(true));
-    }
-  }
-
-  function setupMobileMenu() {
-    const menuButton = document.getElementById("mobile-menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
-    if (!menuButton || !mobileMenu || menuButton.dataset.bound === "true") return;
-    menuButton.dataset.bound = "true";
-    menuButton.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
-  }
-
   // Content stays visible at rest; reveal only adds a short entrance for
   // elements that start below the fold.
   function setupScrollReveal(options = {}) {
@@ -428,8 +378,6 @@
   /* Boot ------------------------------------------------------------------ */
   function boot() {
     renderChrome();
-    ensureResourcesLink();
-    setupMobileMenu();
     applyTranslations();
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
@@ -441,7 +389,6 @@
     setLang,
     registerPageTranslations,
     onLanguageChange,
-    setupMobileMenu,
     setupScrollReveal,
     setupSkillBars,
     projectCard,

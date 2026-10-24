@@ -2,115 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Projects — Ege Şengöz</title>
-    <meta name="description" data-i18n-content="projects_meta" content="Engineering and software projects by Ege Şengöz: mechanical design, production scheduling, industrial IoT and AI tools." />
-    <meta name="theme-color" content="#0e1013" />
-    <link rel="icon" href="../public/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" />
-    <link rel="stylesheet" href="../css/main.css" />
+    <meta name="robots" content="noindex" />
+    <title>Portfolio — Ege Şengöz</title>
+    <meta http-equiv="refresh" content="0; url=portfolio.html#projects" />
+    <link rel="canonical" href="https://www.egesengoz.com/pages/portfolio.html" />
+    <style>body{margin:0;background:#0e1013;color:#e8ecf1;font-family:system-ui,sans-serif;display:grid;place-items:center;min-height:100vh}a{color:#c9a86a}</style>
 </head>
-<body class="site" data-page="projects" data-title-key="projects_title" id="top">
-
-    <header data-site-header></header>
-
-    <main>
-        <section class="hero drafting" style="padding-bottom:clamp(32px,4vw,48px)">
-            <div class="wrap stack">
-                <span class="eyebrow" data-i18n="projects_eyebrow">Project register</span>
-                <h1 class="h-page" data-i18n="projects_h1">Projects</h1>
-                <p class="lead" data-i18n="projects_lead">Mechanical designs that went into production, scheduling and monitoring systems running on real lines, and the software tools built around them.</p>
-            </div>
-        </section>
-
-        <section style="padding-bottom:clamp(64px,9vw,112px)">
-            <div class="wrap stack-lg">
-                <div class="section-head" style="margin-bottom:0">
-                    <div class="filters" id="filters" role="group" data-i18n-aria="filter_label" aria-label="Filter projects"></div>
-                    <span class="mono small muted num" id="result-count" aria-live="polite"></span>
-                </div>
-                <div class="project-grid" id="projects-grid"></div>
-            </div>
-        </section>
-    </main>
-
-    <footer data-site-footer></footer>
-
-    <script src="../js/portfolio.js"></script>
-    <script src="../data/projects.js"></script>
-    <script>
-        const i18n = {
-            en: {
-                projects_title: "Projects — Ege Şengöz",
-                projects_meta: "Engineering and software projects by Ege Şengöz: mechanical design, production scheduling, industrial IoT and AI tools.",
-                projects_eyebrow: "Project register",
-                projects_h1: "Projects",
-                projects_lead: "Mechanical designs that went into production, scheduling and monitoring systems running on real lines, and the software tools built around them.",
-                filter_label: "Filter projects",
-                filter_all: "All",
-                count_one: "1 project",
-                count_many: "{n} projects",
-                empty: "No projects in this category yet."
-            },
-            tr: {
-                projects_title: "Projeler — Ege Şengöz",
-                projects_meta: "Ege Şengöz'ün mühendislik ve yazılım projeleri: mekanik tasarım, üretim çizelgeleme, endüstriyel IoT ve yapay zeka araçları.",
-                projects_eyebrow: "Proje kaydı",
-                projects_h1: "Projeler",
-                projects_lead: "Üretime giren mekanik tasarımlar, gerçek hatlarda çalışan çizelgeleme ve izleme sistemleri, ve bunların etrafında geliştirilen yazılım araçları.",
-                filter_label: "Projeleri filtrele",
-                filter_all: "Tümü",
-                count_one: "1 proje",
-                count_many: "{n} proje",
-                empty: "Bu kategoride henüz proje yok."
-            }
-        };
-
-        const DOMAIN_ORDER = ["mechanical", "production", "software"];
-        let currentFilter = "all";
-        try {
-            const fromHash = location.hash.replace("#", "");
-            if (DOMAIN_ORDER.includes(fromHash)) currentFilter = fromHash;
-        } catch (e) { /* ignore */ }
-
-        function renderFilters(lang) {
-            const t = i18n[lang];
-            const items = [{ key: "all", label: t.filter_all, n: projectsData.length }].concat(
-                DOMAIN_ORDER.map((d) => ({ key: d, label: projectDomains[d][lang], n: projectsData.filter((p) => p.domain === d).length }))
-            );
-            document.getElementById("filters").innerHTML = items.map((f) =>
-                `<button type="button" class="filter" data-filter="${f.key}" aria-pressed="${f.key === currentFilter}">${PortfolioApp.escapeHtml(f.label)} <span class="filter__count">${f.n}</span></button>`
-            ).join("");
-        }
-
-        function renderGrid(lang) {
-            const t = i18n[lang];
-            const list = currentFilter === "all" ? projectsData : projectsData.filter((p) => p.domain === currentFilter);
-            const grid = document.getElementById("projects-grid");
-            grid.innerHTML = list.length
-                ? list.map((p) => PortfolioApp.projectCard(p, lang)).join("")
-                : `<p class="empty">${t.empty}</p>`;
-            document.getElementById("result-count").textContent =
-                list.length === 1 ? t.count_one : t.count_many.replace("{n}", list.length);
-        }
-
-        function render(lang) {
-            renderFilters(lang);
-            renderGrid(lang);
-        }
-
-        document.getElementById("filters").addEventListener("click", (e) => {
-            const btn = e.target.closest("[data-filter]");
-            if (!btn) return;
-            currentFilter = btn.getAttribute("data-filter");
-            try { history.replaceState(null, "", currentFilter === "all" ? location.pathname + location.search : "#" + currentFilter); } catch (err) { /* ignore */ }
-            render(PortfolioApp.getLang());
-        });
-
-        PortfolioApp.registerPageTranslations(i18n);
-        PortfolioApp.onLanguageChange(render);
-    </script>
+<body>
+    <p><a href="portfolio.html#projects">Portfolio</a></p>
+    <script>window.location.replace('portfolio.html' + window.location.search + '#projects');</script>
 </body>
 </html>
