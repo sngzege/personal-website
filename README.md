@@ -1,75 +1,36 @@
-# HTML
+# egesengoz.com
 
-A modern HTML project utilizing Tailwind CSS for building responsive web applications with minimal setup.
+Personal site of Ege Şengöz. Static HTML + Tailwind, deployed on Vercel.
 
-## 🚀 Features
+## Develop
 
-- **HTML5** - Modern HTML structure with best practices
-- **Tailwind CSS** - Utility-first CSS framework for rapid UI development
-- **Custom Components** - Pre-built component classes for buttons and containers
-- **NPM Scripts** - Easy-to-use commands for development and building
-- **Responsive Design** - Mobile-first approach for all screen sizes
-
-## 📋 Prerequisites
-
-- Node.js (v12.x or higher)
-- npm or yarn
-
-## 🛠️ Installation
-
-1. Install dependencies:
 ```bash
 npm install
-# or
-yarn install
+npm run dev        # Tailwind watch + http://127.0.0.1:5173
+npm run build:css  # one-off CSS build (commit css/main.css)
 ```
 
-2. Start the development server:
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-## 📁 Project Structure
+## Structure
 
 ```
-html_app/
-├── css/
-│   ├── tailwind.css   # Tailwind source file with custom utilities
-│   └── main.css       # Compiled CSS (generated)
-├── pages/             # HTML pages
-├── index.html         # Main entry point
-├── package.json       # Project dependencies and scripts
-└── tailwind.config.js # Tailwind CSS configuration
+index.html            redirect to pages/home.html
+pages/                one HTML file per page (EN/TR strings live at the bottom of each)
+js/portfolio.js       language switching, shared header/footer, project cards, mail forms
+data/projects.js      projects (metric, domain, glyph, featured, order)
+data/services.js      services on the Solutions page
+data/credentials.js   ISO lead-auditor list and other certifications
+data/blog.js          notes
+data/resources.js     templates (set status "ready" and a file path to enable download)
+css/tailwind.css      design tokens and components -> compiled to css/main.css
 ```
 
-## 🎨 Styling
+Pages use `<body class="site" data-page="...">` with empty `<header data-site-header>` and
+`<footer data-site-footer>` elements; `portfolio.js` fills them.
 
-This project uses Tailwind CSS for styling. Custom utility classes include:
+Employer names are kept generic on the public site; change `org_*` strings in
+`js/portfolio.js` to show real names. Contact forms open the visitor's email app
+(`CONTACT_EMAIL` in `js/portfolio.js`).
 
+## Workflow
 
-## 🧩 Customization
-
-To customize the Tailwind configuration, edit the `tailwind.config.js` file:
-
-
-## 📦 Build for Production
-
-Build the CSS for production:
-
-```bash
-npm run build:css
-# or
-yarn build:css
-```
-
-## 📱 Responsive Design
-
-The app is built with responsive design using Tailwind CSS breakpoints:
-
-- `sm`: 640px and up
-- `md`: 768px and up
-- `lg`: 1024px and up
-- `xl`: 1280px and up
-- `2xl`: 1536px and up
+Work happens on `dev`; merge to `main` to publish.

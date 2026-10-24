@@ -2,264 +2,103 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="blog_title">Blog — Ege Şengöz</title>
-    <meta name="description" content="Technical notes on manufacturing systems, audits, software-enabled operations, and applied engineering." data-i18n-content="blog_meta_description" />
-    <link rel="stylesheet" href="../css/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Notes — Ege Şengöz</title>
+    <meta name="description" data-i18n-content="blog_meta" content="Field notes from Ege Şengöz on machine monitoring, ISO audits, fixture design, production scheduling and internal tools." />
+    <meta name="theme-color" content="#0e1013" />
+    <link rel="icon" href="../public/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
-    <style>
-        .accent-line { width: 48px; height: 3px; background: #c2410c; border-radius: 2px; }
-        .scroll-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1); }
-        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
-        .tag { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.75rem; font-weight: 500; background: #f7f7f5; color: #4a5568; border: 1px solid #e5e7eb; }
-        .blog-card { transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s; border: 1.5px solid #e5e7eb; }
-        .blog-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-color: #c2410c; }
-        .status-wip { background: rgba(194,65,12,0.1); color: #c2410c; border-color: rgba(194,65,12,0.25); }
-        .status-news { background: rgba(30,58,95,0.1); color: #1e3a5f; border-color: rgba(30,58,95,0.25); }
-        .status-idea { background: rgba(214,158,46,0.1); color: #b7791f; border-color: rgba(214,158,46,0.25); }
-        .status-update { background: rgba(56,161,105,0.1); color: #38a169; border-color: rgba(56,161,105,0.25); }
-        .filter-btn { padding: 6px 18px; border-radius: 999px; font-size: 0.875rem; font-weight: 500; border: 1.5px solid #e5e7eb; color: #4a5568; background: white; cursor: pointer; transition: all 0.2s; }
-        .filter-btn.active, .filter-btn:hover { background: #c2410c; color: white; border-color: #c2410c; }
-        .featured-card { background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 60%, #1e3a5f 100%); }
-        .read-time { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #9ca3af; }
-    </style>
-  </head>
-<body class="legacy bg-background text-text-primary" style="font-family:'DM Sans',sans-serif;">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" />
+    <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body class="site" data-page="blog" data-title-key="blog_title" id="top">
 
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <a href="home.html" style="font-family:'Fraunces',serif;" class="text-xl font-bold text-primary tracking-tight">
-                    E.Şengöz<span style="color:#c2410c;">.</span>
-                </a>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="home.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_home">Home</a>
-                    <a href="about.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_about">About</a>
-                    <a href="projects.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_projects">Projects</a>
-                    <a href="blog.html" class="text-primary font-medium border-b-2" style="border-color:#c2410c;" data-i18n="nav_blog">Blog</a>
-                    <a href="engineering-solutions.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_solutions">Solutions</a>
-                    <a href="contact.html" class="btn-primary text-sm px-5 py-2" data-i18n="nav_contact">Contact</a>
-                    <div style="display:flex;align-items:center;background:#f3f4f6;border-radius:999px;padding:3px;gap:2px;">
-                        <button id="btn-en" onclick="setLang('en')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;transition:all 0.2s;background:transparent;color:#6b7280;">EN</button>
-                        <button id="btn-tr" onclick="setLang('tr')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;transition:all 0.2s;background:transparent;color:#6b7280;">TR</button>
-                    </div>
-                </div>
-                <button class="md:hidden p-2 text-primary" id="mobile-menu-btn">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
+    <header data-site-header></header>
+
+    <main>
+        <section class="hero drafting" style="padding-bottom:clamp(32px,4vw,48px)">
+            <div class="wrap stack">
+                <span class="eyebrow" data-i18n="blog_eyebrow">Notes</span>
+                <h1 class="h-page" data-i18n="blog_h1">Field notes from the shop floor.</h1>
+                <p class="lead" data-i18n="blog_lead">Working notes on machine monitoring, audits, fixtures, scheduling and internal tools. Most are drafts; full write-ups appear here as they're finished.</p>
             </div>
-            <div class="md:hidden hidden mt-4 pb-4 border-t border-gray-100" id="mobile-menu">
-                <div class="flex flex-col space-y-4 pt-4">
-                    <a href="home.html" class="text-secondary font-medium" data-i18n="nav_home">Home</a>
-                    <a href="about.html" class="text-secondary font-medium" data-i18n="nav_about">About</a>
-                    <a href="projects.html" class="text-secondary font-medium" data-i18n="nav_projects">Projects</a>
-                    <a href="blog.html" class="text-primary font-medium" data-i18n="nav_blog">Blog</a>
-                    <a href="engineering-solutions.html" class="text-secondary font-medium" data-i18n="nav_solutions">Solutions</a>
-                    <a href="contact.html" class="text-secondary font-medium" data-i18n="nav_contact">Contact</a>
-                    <div style="display:flex;align-items:center;background:#f3f4f6;border-radius:999px;padding:3px;gap:2px;width:fit-content;">
-                        <button id="btn-en-mob" onclick="setLang('en')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;background:transparent;color:#6b7280;">EN</button>
-                        <button id="btn-tr-mob" onclick="setLang('tr')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;background:transparent;color:#6b7280;">TR</button>
-                    </div>
-                </div>
+        </section>
+
+        <section style="padding-bottom:clamp(64px,9vw,112px)">
+            <div class="wrap stack-lg">
+                <div class="filters" id="filters" role="group" data-i18n-aria="filter_label" aria-label="Filter notes"></div>
+                <div class="note-list" id="notes"></div>
             </div>
-        </div>
-    </nav>
+        </section>
+    </main>
 
-    <section class="pt-32 pb-16 bg-surface">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="accent-line mb-5"></div>
-            <h1 style="font-family:'Fraunces',serif;" class="text-hero text-primary mb-4" data-i18n="blog_h1">Technical Notes</h1>
-            <p class="text-secondary text-xl max-w-2xl leading-relaxed" data-i18n="blog_subtitle">Field notes, engineering experiments, and practical perspectives on manufacturing systems, quality, and digital tooling.</p>
-        </div>
-    </section>
-
-    <section class="py-10 bg-surface border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <div id="featured-post" class="scroll-reveal"></div>
-        </div>
-    </section>
-
-    <section class="py-8 bg-white border-b border-gray-100 sticky top-[73px] z-40">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-wrap gap-3 items-center">
-                <span class="text-sm text-secondary font-medium mr-2" data-i18n="blog_filter_label">Filter:</span>
-                <button class="filter-btn active" data-filter="all" data-i18n="blog_filter_all">All Posts</button>
-                <button class="filter-btn" data-filter="wip" data-i18n="blog_filter_wip">Work in Progress</button>
-                <button class="filter-btn" data-filter="news" data-i18n="blog_filter_news">Industry Notes</button>
-                <button class="filter-btn" data-filter="idea" data-i18n="blog_filter_idea">Ideas</button>
-                <button class="filter-btn" data-filter="update" data-i18n="blog_filter_update">Updates</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="blog-grid"></div>
-        </div>
-    </section>
-
-    <footer class="bg-primary text-gray-400 py-10">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <a href="home.html" style="font-family:'Fraunces',serif;" class="text-xl font-bold text-white">E.Şengöz<span style="color:#c2410c;">.</span></a>
-            <p class="text-sm text-gray-500" data-i18n="blog_footer_rights">© 2026 E.Şengöz. All rights reserved.</p>
-        </div>
-    </footer>
+    <footer data-site-footer></footer>
 
     <script src="../js/portfolio.js"></script>
     <script src="../data/blog.js"></script>
     <script>
         const i18n = {
             en: {
-                blog_title: "Blog — Ege Şengöz",
-                blog_meta_description: "Technical notes on manufacturing systems, audits, software-enabled operations, and applied engineering.",
-                blog_h1: "Technical Notes",
-                blog_subtitle: "Field notes, engineering experiments, and practical perspectives on manufacturing systems, quality, and digital tooling.",
-                blog_filter_label: "Filter:",
-                blog_filter_all: "All Posts",
-                blog_filter_wip: "Work in Progress",
-                blog_filter_news: "Industry Notes",
-                blog_filter_idea: "Ideas",
-                blog_filter_update: "Updates",
-                blog_read: "Read",
-                blog_footer_rights: "© 2026 E.Şengöz. All rights reserved."
+                blog_title: "Notes — Ege Şengöz",
+                blog_meta: "Field notes from Ege Şengöz on machine monitoring, ISO audits, fixture design, production scheduling and internal tools.",
+                blog_eyebrow: "Notes",
+                blog_h1: "Field notes from the shop floor.",
+                blog_lead: "Working notes on machine monitoring, audits, fixtures, scheduling and internal tools. Most are drafts; full write-ups appear here as they're finished.",
+                filter_label: "Filter notes",
+                all: "All", wip: "In progress", news: "Industry notes", idea: "Ideas", update: "Updates",
+                empty: "Nothing here yet."
             },
             tr: {
-                blog_title: "Blog — Ege Şengöz",
-                blog_meta_description: "Üretim sistemleri, denetimler, yazılım destekli operasyonlar ve uygulamalı mühendislik üzerine teknik notlar.",
-                blog_h1: "Teknik Notlar",
-                blog_subtitle: "Saha notları, mühendislik denemeleri ve üretim, kalite ve dijital araçlar üzerine pratik perspektifler.",
-                blog_filter_label: "Filtrele:",
-                blog_filter_all: "Tüm Yazılar",
-                blog_filter_wip: "Çalışma Aşamasında",
-                blog_filter_news: "Sektör Notları",
-                blog_filter_idea: "Fikirler",
-                blog_filter_update: "Güncellemeler",
-                blog_read: "Oku",
-                blog_footer_rights: "© 2026 E.Şengöz. Tüm hakları saklıdır."
+                blog_title: "Notlar — Ege Şengöz",
+                blog_meta: "Ege Şengöz'den makine izleme, ISO denetimleri, fikstür tasarımı, üretim çizelgeleme ve iç araçlar üzerine saha notları.",
+                blog_eyebrow: "Notlar",
+                blog_h1: "Sahadan notlar.",
+                blog_lead: "Makine izleme, denetimler, fikstürler, çizelgeleme ve iç araçlar üzerine çalışma notları. Çoğu taslak; tamamlanan yazılar burada yayımlanacak.",
+                filter_label: "Notları filtrele",
+                all: "Tümü", wip: "Devam ediyor", news: "Sektör notları", idea: "Fikirler", update: "Güncellemeler",
+                empty: "Henüz bir şey yok."
             }
         };
+        const CATS = ["wip", "news", "idea", "update"];
+        const esc = PortfolioApp.escapeHtml;
+        let filter = "all";
 
-        let currentLang = window.PortfolioApp.getLang();
-        let currentFilter = "all";
-
-        window.PortfolioApp.registerPageTranslations(i18n);
-        window.PortfolioApp.onLanguageChange((lang) => {
-            currentLang = lang;
-            renderBlog();
-        }, { immediate: false });
-
-        function escapeHtml(str) {
-            return String(str)
-                .replaceAll("&", "&amp;")
-                .replaceAll("<", "&lt;")
-                .replaceAll(">", "&gt;")
-                .replaceAll('"', "&quot;")
-                .replaceAll("'", "&#039;");
-        }
-
-        function renderFeatured(post) {
-            const t = i18n[currentLang];
-            const data = post[currentLang];
-            const timeLabel = `${post.date} · ${post.readTime[currentLang]}`;
-            const tagsHtml = post.tags
-                .slice(0, 4)
-                .map(tag => `<span class=\"tag\" style=\"background:rgba(255,255,255,0.1);color:#d1d5db;border-color:rgba(255,255,255,0.15);\">${escapeHtml(tag)}</span>`)
-                .join("");
-
-            return `
-                <div class="featured-card rounded-2xl overflow-hidden">
-                    <div class="grid grid-cols-1 lg:grid-cols-2">
-                        <div class="p-10 flex flex-col justify-center">
-                            <div class="flex items-center gap-3 mb-5">
-                                <span class="tag ${post.statusClass}">${escapeHtml(post.status[currentLang])}</span>
-                                <span class="read-time">${escapeHtml(timeLabel)}</span>
-                            </div>
-                            <h2 style="font-family:'Fraunces',serif;" class="text-2xl font-bold text-white mb-4 leading-snug">${escapeHtml(data.title)}</h2>
-                            <p class="text-gray-300 text-sm leading-relaxed mb-6">${escapeHtml(data.excerpt)}</p>
-                            <div class="flex flex-wrap gap-2 mb-6">${tagsHtml}</div>
-                            <a href="#" class="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all duration-300 text-sm">
-                                ${t.blog_read}
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-                            </a>
-                        </div>
-                        <div class="relative min-h-64 lg:min-h-0">
-                            <img src="${post.image}" alt="${escapeHtml(data.title)}" class="absolute inset-0 w-full h-full object-cover opacity-40" loading="lazy" onerror="this.src='${post.fallbackImage}';this.onerror=null;" />
-                            <div class="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-transparent lg:from-transparent"></div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        function renderCards(posts) {
-            const t = i18n[currentLang];
-            return posts.map((post) => {
-                const data = post[currentLang];
-                const timeLabel = `${post.date} · ${post.readTime[currentLang]}`;
-                const tagsHtml = post.tags.slice(0, 3).map(tag => `<span class=\"tag\">${escapeHtml(tag)}</span>`).join("");
-
-                return `
-                    <div class="blog-card bg-white rounded-2xl overflow-hidden scroll-reveal">
-                        <div class="relative overflow-hidden h-48">
-                            <img src="${post.image}" alt="${escapeHtml(data.title)}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" onerror="this.src='${post.fallbackImage}';this.onerror=null;" />
-                            <div class="absolute top-4 left-4">
-                                <span class="tag ${post.statusClass}">${escapeHtml(post.status[currentLang])}</span>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex items-center gap-3 mb-3">
-                                <span class="read-time">${escapeHtml(timeLabel)}</span>
-                            </div>
-                            <h3 style="font-family:'Fraunces',serif;" class="text-lg font-semibold text-primary mb-2 leading-snug">${escapeHtml(data.title)}</h3>
-                            <p class="text-secondary text-sm leading-relaxed mb-4">${escapeHtml(data.excerpt)}</p>
-                            <div class="flex flex-wrap gap-2 mb-4">${tagsHtml}</div>
-                            <a href="#" class="inline-flex items-center gap-1.5 text-accent text-sm font-semibold hover:gap-2.5 transition-all duration-200">
-                                ${t.blog_read}
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                `;
+        function render(lang) {
+            const t = i18n[lang];
+            const cats = ["all"].concat(CATS.filter((c) => blogPosts.some((p) => p.category === c)));
+            document.getElementById("filters").innerHTML = cats.map((c) => {
+                const n = c === "all" ? blogPosts.length : blogPosts.filter((p) => p.category === c).length;
+                return `<button type="button" class="filter" data-filter="${c}" aria-pressed="${c === filter}">${t[c]} <span class="filter__count">${n}</span></button>`;
             }).join("");
+            const list = filter === "all" ? blogPosts : blogPosts.filter((p) => p.category === filter);
+            document.getElementById("notes").innerHTML = list.length ? list.map((p) => {
+                const d = p[lang] || p.en;
+                const status = p.status ? (p.status[lang] || p.status.en) : t[p.category];
+                const read = p.readTime ? (p.readTime[lang] || p.readTime.en) : "";
+                return `
+                    <article class="note">
+                        <span class="note__date">${esc(p.date)}</span>
+                        <div class="note__body">
+                            <h2 class="h-card">${esc(d.title)}</h2>
+                            <p class="note__excerpt">${esc(d.excerpt)}</p>
+                            <div class="chips">${(p.tags || []).slice(0, 4).map((x) => `<span class="chip">${esc(x)}</span>`).join("")}</div>
+                        </div>
+                        <div class="stack-sm" style="justify-items:end">
+                            <span class="status status--${esc(p.category)}">${esc(status)}</span>
+                            ${read ? `<span class="mono small muted">${esc(read)}</span>` : ""}
+                        </div>
+                    </article>`;
+            }).join("") : `<p class="empty">${t.empty}</p>`;
         }
-
-        function renderBlog() {
-            const featured = blogPosts.find(p => p.featured) || blogPosts[0];
-            const featuredContainer = document.getElementById("featured-post");
-            if (featuredContainer) {
-                featuredContainer.innerHTML = renderFeatured(featured);
-            }
-
-            const grid = document.getElementById("blog-grid");
-            if (!grid) {
-                return;
-            }
-
-            const cards = blogPosts.filter(p => !p.featured);
-            const filtered = currentFilter === "all" ? cards : cards.filter(p => p.category === currentFilter);
-            grid.innerHTML = renderCards(filtered);
-
-            setTimeout(() => {
-                document.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('visible'));
-            }, 50);
-        }
-
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentFilter = btn.getAttribute('data-filter');
-                renderBlog();
-            });
+        document.getElementById("filters").addEventListener("click", (e) => {
+            const b = e.target.closest("[data-filter]");
+            if (!b) return;
+            filter = b.getAttribute("data-filter");
+            render(PortfolioApp.getLang());
         });
-
-        renderBlog();
+        PortfolioApp.registerPageTranslations(i18n);
+        PortfolioApp.onLanguageChange(render);
     </script>
-
 </body>
 </html>
-

@@ -47,7 +47,7 @@
                         </div>
                         <div class="tb-cell">
                             <span class="tb-label" data-i18n="tb_org">Organisation</span>
-                            <span class="tb-value">Vegavizyon City Furniture</span>
+                            <span class="tb-value" data-i18n="org_now">Urban furniture manufacturer</span>
                         </div>
                     </div>
                     <div class="tb-row">
@@ -127,7 +127,7 @@
                         <span class="path__when" data-i18n="p1_when">Dec 2025 – now</span>
                         <div class="path__body">
                             <h3 class="path__role" data-i18n="p1_role">R&amp;D and Design Engineer</h3>
-                            <span class="path__org">Vegavizyon City Furniture</span>
+                            <span class="path__org" data-i18n="org_now">Urban furniture manufacturer</span>
                             <p class="path__note" data-i18n="p1_note">Urban furniture from concept to production handover. Building an IoT condition-monitoring prototype and a self-hosted PostgreSQL data layer.</p>
                         </div>
                     </li>
@@ -135,7 +135,7 @@
                         <span class="path__when" data-i18n="p2_when">Sep – Dec 2025</span>
                         <div class="path__body">
                             <h3 class="path__role" data-i18n="p2_role">R&amp;D Engineer</h3>
-                            <span class="path__org" data-i18n="p2_org">Uyar Luggage</span>
+                            <span class="path__org" data-i18n="org_luggage">Luggage manufacturer</span>
                             <p class="path__note" data-i18n="p2_note">Three mechanical systems for suitcase assembly and thermoforming lines, and a production-monitoring app still in daily use.</p>
                         </div>
                     </li>
@@ -143,7 +143,7 @@
                         <span class="path__when">2023 – 2025</span>
                         <div class="path__body">
                             <h3 class="path__role" data-i18n="p3_role">Manufacturing Manager</h3>
-                            <span class="path__org">Alfa Roller</span>
+                            <span class="path__org" data-i18n="org_roller">Industrial roller manufacturer</span>
                             <p class="path__note" data-i18n="p3_note">Led a team of eight operators. Lean scheduling cut line efficiency losses by 12%; a hybrid AI scheduler cut average delay by 57%.</p>
                         </div>
                     </li>
@@ -151,7 +151,7 @@
                         <span class="path__when">2022 – 2023</span>
                         <div class="path__body">
                             <h3 class="path__role" data-i18n="p4_role">R&amp;D Engineer</h3>
-                            <span class="path__org">Alfa Roller</span>
+                            <span class="path__org" data-i18n="org_roller">Industrial roller manufacturer</span>
                             <p class="path__note" data-i18n="p4_note">Designed Türkiye's first adjustable curved roller and commissioned a new line around an original air-shaft design.</p>
                         </div>
                     </li>
@@ -159,7 +159,7 @@
                         <span class="path__when">2021 – 2022</span>
                         <div class="path__body">
                             <h3 class="path__role" data-i18n="p5_role">CNC &amp; Manual Lathe Operator</h3>
-                            <span class="path__org">Alfa Roller</span>
+                            <span class="path__org" data-i18n="org_roller">Industrial roller manufacturer</span>
                             <p class="path__note" data-i18n="p5_note">Precision parts on Fanuc CNC lathes to ±0.01 mm, and extrusion moulds programmed in CAM.</p>
                         </div>
                     </li>
@@ -292,8 +292,7 @@
                 p1_role: "R&D and Design Engineer",
                 p1_note: "Urban furniture from concept to production handover. Building an IoT condition-monitoring prototype and a self-hosted PostgreSQL data layer.",
                 p2_when: "Sep – Dec 2025",
-                p2_role: "R&D Engineer",
-                p2_org: "Uyar Luggage",
+                p2_role: "R&D Engineer", 
                 p2_note: "Three mechanical systems for suitcase assembly and thermoforming lines, and a production-monitoring app still in daily use.",
                 p3_role: "Manufacturing Manager",
                 p3_note: "Led a team of eight operators. Lean scheduling cut line efficiency losses by 12%; a hybrid AI scheduler cut average delay by 57%.",
@@ -362,8 +361,7 @@
                 p1_role: "Ar-Ge ve Tasarım Mühendisi",
                 p1_note: "Kent mobilyalarını konseptten üretime devre kadar yürütüyorum. IoT tabanlı durum izleme prototipi ve şirket içi PostgreSQL veri katmanı geliştiriyorum.",
                 p2_when: "Eyl – Ara 2025",
-                p2_role: "Ar-Ge Mühendisi",
-                p2_org: "Uyar Bavul",
+                p2_role: "Ar-Ge Mühendisi", 
                 p2_note: "Bavul montaj ve termoform hatları için üç mekanik sistem; sahada hâlâ her gün kullanılan bir üretim izleme uygulaması.",
                 p3_role: "Üretim Müdürü",
                 p3_note: "Sekiz kişilik operatör ekibini yönettim. Yalın çizelgeleme hat verimlilik kayıplarını %12, hibrit AI çizelgeleyici ortalama gecikmeyi %57 azalttı.",
@@ -401,13 +399,7 @@
             const all = PortfolioApp.getTranslations().work_all;
             document.getElementById("work-all").textContent = `${all} (${projectsData.length})`;
 
-            document.getElementById("iso-row").innerHTML = isoLeadAuditor.map((iso) =>
-                `<div class="iso"><span class="iso__code">ISO ${iso.code}</span><span class="iso__area">${PortfolioApp.escapeHtml(iso[lang])}</span></div>`
-            ).join("");
-            document.getElementById("cred-list").innerHTML = credentials.map((c) => {
-                const d = c[lang] || c.en;
-                return `<li class="cred"><span class="cred__name">${PortfolioApp.escapeHtml(d.name)}</span><span class="cred__std">${PortfolioApp.escapeHtml(c.standard)}</span>${d.note ? `<span class="cred__note">${PortfolioApp.escapeHtml(d.note)}</span>` : ""}</li>`;
-            }).join("");
+            renderCredentials(document.getElementById("iso-row"), document.getElementById("cred-list"), lang);
         }
         PortfolioApp.onLanguageChange(renderHome);
     </script>

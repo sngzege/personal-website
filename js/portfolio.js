@@ -19,7 +19,11 @@
       footer_rights: "All rights reserved.",
       footer_top: "Back to top",
       view_project: "View project",
-      lang_label: "Language"
+      lang_label: "Language",
+      // Employer names are kept generic on the public site.
+      org_now: "Urban furniture manufacturer",
+      org_luggage: "Luggage manufacturer",
+      org_roller: "Industrial roller manufacturer"
     },
     tr: {
       nav_home: "Ana Sayfa",
@@ -299,6 +303,58 @@
       </a>`;
   }
 
+  /* Contact helpers -------------------------------------------------------- */
+  const CONTACT_EMAIL = "info@egesengoz.com";
+
+  function mailtoHref(subject, body) {
+    const q = [];
+    if (subject) q.push("subject=" + encodeURIComponent(subject));
+    if (body) q.push("body=" + encodeURIComponent(body));
+    return "mailto:" + CONTACT_EMAIL + (q.length ? "?" + q.join("&") : "");
+  }
+
+  // Forms on this static site don't post anywhere: they compose an email in
+  // the visitor's mail app. `build(form)` returns { subject, body }.
+  function bindMailForm(form, build) {
+    if (!form) return;
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      const { subject, body } = build(form);
+      window.location.href = mailtoHref(subject, body);
+    });
+  }
+
+  function bindCopyButtons(root = document) {
+    root.querySelectorAll("[data-copy]").forEach((btn) => {
+      if (btn.dataset.bound) return;
+      btn.dataset.bound = "1";
+      btn.addEventListener("click", () => {
+        const text = btn.getAttribute("data-copy");
+        const done = () => {
+          const label = btn.textContent;
+          btn.textContent = currentLang === "tr" ? "Kopyalandı" : "Copied";
+          window.setTimeout(() => { btn.textContent = label; }, 1600);
+        };
+        const fallback = () => {
+          const target = document.getElementById(btn.getAttribute("data-copy-target") || "");
+          if (target) {
+            const range = document.createRange();
+            range.selectNodeContents(target);
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+          }
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done, fallback);
+        } else {
+          fallback();
+        }
+      });
+    });
+  }
+
   /* Legacy helpers --------------------------------------------------------- */
   function createResourcesLink(isMobile) {
     const link = document.createElement("a");
@@ -390,7 +446,11 @@
     setupSkillBars,
     projectCard,
     glyphSvg,
-    escapeHtml
+    escapeHtml,
+    CONTACT_EMAIL,
+    mailtoHref,
+    bindMailForm,
+    bindCopyButtons
   };
   window.setLang = setLang;
 })();

@@ -2,325 +2,174 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="contact_title">Contact — Ege Şengöz</title>
-    <meta name="description" data-i18n-content="contact_meta" content="Get in touch with Ege Şengöz — industrial engineer available for consulting, mechanical design, and audit services." />
-    <link rel="stylesheet" href="../css/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Contact — Ege Şengöz</title>
+    <meta name="description" data-i18n-content="contact_meta" content="Contact Ege Şengöz about manufacturing engineering, industrial IoT, production scheduling or ERP integration work." />
+    <meta name="theme-color" content="#0e1013" />
+    <link rel="icon" href="../public/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
-    <style>
-        .accent-line { width: 48px; height: 3px; background: #c2410c; border-radius: 2px; }
-        .contact-card { transition: transform 0.3s, box-shadow 0.3s; }
-        .contact-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(0,0,0,0.1); }
-        .social-link { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-radius: 12px; border: 1.5px solid #e5e7eb; transition: all 0.25s; text-decoration: none; }
-        .social-link:hover { border-color: #c2410c; background: #fff8f5; }
-        .scroll-reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1); }
-        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
-        .availability-dot { width: 10px; height: 10px; border-radius: 50%; background: #38a169; display: inline-block; animation: pulse-dot 2s infinite; }
-        @keyframes pulse-dot { 0%,100%{box-shadow:0 0 0 0 rgba(56,161,105,0.4);} 50%{box-shadow:0 0 0 6px rgba(56,161,105,0);} }
-    </style>
-  </head>
-<body class="legacy bg-background text-text-primary" style="font-family:'DM Sans',sans-serif;">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" />
+    <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body class="site" data-page="contact" data-title-key="contact_title" id="top">
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <a href="home.html" style="font-family:'Fraunces',serif;" class="text-xl font-bold text-primary tracking-tight">
-                    E.Şengöz<span style="color:#c2410c;">.</span>
-                </a>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="home.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_home">Home</a>
-                    <a href="about.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_about">About</a>
-                    <a href="projects.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_projects">Projects</a>
-                    <a href="blog.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_blog">Blog</a>
-                    <a href="engineering-solutions.html" class="text-secondary font-medium hover:text-primary transition-colors" data-i18n="nav_solutions">Solutions</a>
-                    <a href="contact.html" class="btn-primary text-sm px-5 py-2" data-i18n="nav_contact">Contact</a>
-                    <div style="display:flex;align-items:center;background:#f3f4f6;border-radius:999px;padding:3px;gap:2px;">
-                        <button id="btn-en" onclick="setLang('en')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;transition:all 0.2s;background:transparent;color:#6b7280;">EN</button>
-                        <button id="btn-tr" onclick="setLang('tr')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;transition:all 0.2s;background:transparent;color:#6b7280;">TR</button>
+    <header data-site-header></header>
+
+    <main>
+        <section class="hero drafting" style="padding-bottom:clamp(32px,4vw,48px)">
+            <div class="wrap stack">
+                <span class="eyebrow" data-i18n="contact_eyebrow">Contact</span>
+                <h1 class="h-page" data-i18n="contact_h1">Tell me what the line is doing.</h1>
+                <p class="lead" data-i18n="contact_lead">A project, a role, or a production problem you want a second opinion on. Email is the fastest way to reach me.</p>
+            </div>
+        </section>
+
+        <section style="padding-bottom:clamp(64px,9vw,112px)">
+            <div class="wrap split">
+                <div class="stack-lg split__aside">
+                    <dl class="contact-list" style="margin:0">
+                        <div class="contact-row">
+                            <dt data-i18n="c_email">Email</dt>
+                            <dd><a id="email-text" href="mailto:info@egesengoz.com">info@egesengoz.com</a></dd>
+                            <button type="button" class="copy-btn" data-copy="info@egesengoz.com" data-copy-target="email-text" data-i18n="c_copy">Copy</button>
+                        </div>
+                        <div class="contact-row">
+                            <dt>LinkedIn</dt>
+                            <dd><a href="https://www.linkedin.com/in/ege-sengoz-a92713226/" target="_blank" rel="noopener noreferrer">in/ege-sengoz</a></dd>
+                            <span></span>
+                        </div>
+                        <div class="contact-row">
+                            <dt>GitHub</dt>
+                            <dd><a href="https://github.com/sngzege" target="_blank" rel="noopener noreferrer">sngzege</a></dd>
+                            <span></span>
+                        </div>
+                        <div class="contact-row">
+                            <dt data-i18n="c_loc">Location</dt>
+                            <dd data-i18n="c_loc_v">Istanbul, Türkiye · remote and on-site</dd>
+                            <span></span>
+                        </div>
+                    </dl>
+                    <div class="stack-sm">
+                        <h2 class="h-card" data-i18n="expect_title">What to expect</h2>
+                        <ul class="ticks">
+                            <li data-i18n="expect_1">A reply within one business day.</li>
+                            <li data-i18n="expect_2">A free 30-minute call to scope the problem.</li>
+                            <li data-i18n="expect_3">Remote work or on-site visits; I can travel.</li>
+                            <li data-i18n="expect_4">An NDA before we discuss sensitive designs, if you need one.</li>
+                        </ul>
                     </div>
                 </div>
-                <button class="md:hidden p-2 text-primary" id="mobile-menu-btn">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="md:hidden hidden mt-4 pb-4 border-t border-gray-100" id="mobile-menu">
-                <div class="flex flex-col space-y-4 pt-4">
-                    <a href="home.html" class="text-secondary font-medium" data-i18n="nav_home">Home</a>
-                    <a href="about.html" class="text-secondary font-medium" data-i18n="nav_about">About</a>
-                    <a href="projects.html" class="text-secondary font-medium" data-i18n="nav_projects">Projects</a>
-                    <a href="blog.html" class="text-secondary font-medium" data-i18n="nav_blog">Blog</a>
-                    <a href="engineering-solutions.html" class="text-secondary font-medium" data-i18n="nav_solutions">Solutions</a>
-                    <a href="contact.html" class="text-primary font-medium" data-i18n="nav_contact">Contact</a>
-                    <div style="display:flex;align-items:center;background:#f3f4f6;border-radius:999px;padding:3px;gap:2px;width:fit-content;">
-                        <button id="btn-en-mob" onclick="setLang('en')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;background:transparent;color:#6b7280;">EN</button>
-                        <button id="btn-tr-mob" onclick="setLang('tr')" style="padding:4px 14px;border-radius:999px;font-size:0.8rem;font-weight:600;border:none;cursor:pointer;background:transparent;color:#6b7280;">TR</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Page Header -->
-    <section class="pt-32 pb-16" style="background:linear-gradient(135deg,#1e3a5f 0%,#1a1a1a 100%);">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="accent-line mb-5"></div>
-            <h1 style="font-family:'Fraunces',serif;" class="text-hero text-white mb-4" data-i18n="contact_hero_title">Let's Connect</h1>
-            <p class="text-gray-300 text-xl max-w-2xl" data-i18n="contact_hero_lead">Whether you have a project in mind, need engineering expertise, or just want to talk shop — I'm reachable through the channels below.</p>
-            <div class="flex items-center gap-2 mt-6">
-                <span class="availability-dot"></span>
-                <span class="text-gray-300 text-sm" data-i18n="contact_availability">Available for new projects and consulting engagements</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Content -->
-    <section class="py-20 bg-surface">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-
-                <!-- Left: Direct Contact -->
-                <div class="lg:col-span-1 space-y-6">
-                    <div class="scroll-reveal">
-                        <div class="accent-line mb-4"></div>
-                        <h2 style="font-family:'Fraunces',serif;" class="text-2xl font-semibold text-primary mb-2" data-i18n="contact_direct_title">Direct Contact</h2>
-                        <p class="text-secondary text-sm" data-i18n="contact_direct_desc">Reach out directly — I typically respond within 24 hours on business days.</p>
-                    </div>
-
-                    <!-- Email -->
-                    <div class="contact-card bg-white rounded-2xl p-6 border border-gray-100 scroll-reveal">
-                        <div class="flex items-start gap-4">
-                            <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#fff3ed;">
-                                <svg class="w-5 h-5" style="color:#c2410c;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
+                <div class="panel">
+                    <form class="form" id="contact-form" novalidate>
+                        <div class="stack-sm">
+                            <h2 class="h-card" data-i18n="form_title">Write a message</h2>
+                            <p class="form__hint" data-i18n="form_hint">Sending opens your email app with this message filled in, addressed to info@egesengoz.com.</p>
+                        </div>
+                        <div class="form__row">
+                            <div class="field">
+                                <label for="cf-name" data-i18n="f_name">Name</label>
+                                <input class="input" id="cf-name" name="name" type="text" autocomplete="name" required />
                             </div>
-                            <div>
-                                <p class="text-xs text-secondary font-medium uppercase tracking-wide mb-1" data-i18n="contact_email_label">Email</p>
-                                <a href="mailto:info@egesengoz.com" class="text-primary font-semibold hover:text-accent transition-colors" style="--tw-text-opacity:1;">info@egesengoz.com</a>
-                                <p class="text-secondary text-xs mt-1" data-i18n="contact_email_desc">Best for project inquiries & detailed questions</p>
+                            <div class="field">
+                                <label for="cf-company" data-i18n="f_company">Company</label>
+                                <input class="input" id="cf-company" name="company" type="text" autocomplete="organization" />
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Location -->
-                    <div class="contact-card bg-white rounded-2xl p-6 border border-gray-100 scroll-reveal">
-                        <div class="flex items-start gap-4">
-                            <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#fff3ed;">
-                                <svg class="w-5 h-5" style="color:#c2410c;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="text-xs text-secondary font-medium uppercase tracking-wide mb-1" data-i18n="contact_location_label">Location</p>
-                                <p class="text-primary font-semibold">Istanbul, Türkiye</p>
-                                <p class="text-secondary text-xs mt-1" data-i18n="contact_location_desc">Available for remote & on-site engagements</p>
-                            </div>
+                        <div class="field">
+                            <label for="cf-topic" data-i18n="f_topic">Topic</label>
+                            <select class="input" id="cf-topic" name="topic">
+                                <option value="project" data-i18n="t_project">Project or consulting</option>
+                                <option value="iso" data-i18n="t_iso">ISO / quality systems</option>
+                                <option value="iot" data-i18n="t_iot">Machine monitoring / IoT</option>
+                                <option value="software" data-i18n="t_software">Software, ERP or AI tools</option>
+                                <option value="design" data-i18n="t_design">Mechanical design or analysis</option>
+                                <option value="job" data-i18n="t_job">Job opportunity</option>
+                                <option value="other" data-i18n="t_other">Something else</option>
+                            </select>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Right: Social & Professional Links -->
-                <div class="lg:col-span-2 space-y-8">
-                    <div class="scroll-reveal">
-                        <div class="accent-line mb-4"></div>
-                        <h2 style="font-family:'Fraunces',serif;" class="text-2xl font-semibold text-primary mb-2" data-i18n="contact_profiles_title">Professional Profiles</h2>
-                        <p class="text-secondary text-sm" data-i18n="contact_profiles_desc">Find my work, connect professionally, and see my latest activity on these platforms.</p>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 scroll-reveal">
-                        <!-- LinkedIn -->
-                        <a href="https://www.linkedin.com/in/ege-sengoz-a92713226/" target="_blank" rel="noopener noreferrer" class="social-link bg-white">
-                            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#0077b5;">
-                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="text-primary font-semibold text-sm" data-i18n="contact_linkedin_label">LinkedIn</p>
-                                <p class="text-secondary text-xs" data-i18n="contact_linkedin_desc">Professional network & career history</p>
-                            </div>
-                            <svg class="w-4 h-4 text-secondary ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                        </a>
-
-                        <!-- GitHub -->
-                        <a href="https://github.com/sngzege" target="_blank" rel="noopener noreferrer" class="social-link bg-white">
-                            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#1a1a1a;">
-                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <p class="text-primary font-semibold text-sm" data-i18n="contact_github_label">GitHub</p>
-                                <p class="text-secondary text-xs" data-i18n="contact_github_desc">Open source & software projects</p>
-                            </div>
-                            <svg class="w-4 h-4 text-secondary ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                        </a>
-
-
-                    <!-- Response info -->
-                    <div class="bg-white rounded-2xl p-7 border border-gray-100 scroll-reveal">
-                        <h3 style="font-family:'Fraunces',serif;" class="text-xl font-semibold text-primary mb-4" data-i18n="contact_expect_title">What to Expect</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-3">
-                                <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#fff3ed;">
-                                    <svg class="w-3 h-3" style="color:#c2410c;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                </div>
-                                <div>
-                                    <p class="text-primary font-medium text-sm" data-i18n="contact_expect_1_title">Response within 24 hours</p>
-                                    <p class="text-secondary text-xs" data-i18n="contact_expect_1_desc">On business days — I check email every morning.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#fff3ed;">
-                                    <svg class="w-3 h-3" style="color:#c2410c;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                </div>
-                                <div>
-                                    <p class="text-primary font-medium text-sm" data-i18n="contact_expect_2_title">Free initial consultation</p>
-                                    <p class="text-secondary text-xs" data-i18n="contact_expect_2_desc">30-minute call to understand your project scope and requirements.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#fff3ed;">
-                                    <svg class="w-3 h-3" style="color:#c2410c;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                </div>
-                                <div>
-                                    <p class="text-primary font-medium text-sm" data-i18n="contact_expect_3_title">Remote & on-site available</p>
-                                    <p class="text-secondary text-xs" data-i18n="contact_expect_3_desc">Based in Istanbul, MI — available to travel for on-site engagements.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-3">
-                                <div class="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#fff3ed;">
-                                    <svg class="w-3 h-3" style="color:#c2410c;" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-                                </div>
-                                <div>
-                                    <p class="text-primary font-medium text-sm" data-i18n="contact_expect_4_title">NDA available on request</p>
-                                    <p class="text-secondary text-xs" data-i18n="contact_expect_4_desc">Happy to sign NDAs for sensitive engineering projects.</p>
-                                </div>
-                            </div>
+                        <div class="field">
+                            <label for="cf-message" data-i18n="f_message">Message</label>
+                            <textarea class="input" id="cf-message" name="message" required data-i18n-placeholder="f_message_ph" placeholder="What is happening on the line today, and what should happen instead?"></textarea>
                         </div>
-                    </div>
-
-                    <!-- Services CTA -->
-                    <div class="rounded-2xl p-7 scroll-reveal" style="background:linear-gradient(135deg,#1e3a5f,#1a1a1a);">
-                        <h3 style="font-family:'Fraunces',serif;" class="text-xl font-semibold text-white mb-2" data-i18n="contact_cta_title">Looking for specific services?</h3>
-                        <p class="text-gray-300 text-sm mb-5" data-i18n="contact_cta_desc">Browse my Engineering Solutions page to see exactly what I offer — from ISO audits to mechanical design and software tools.</p>
-                        <a href="engineering-solutions.html" class="btn-primary inline-flex items-center gap-2 text-sm">
-                            <span data-i18n="contact_cta_button">View Engineering Solutions</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-                        </a>
-                    </div>
+                        <div class="form__foot">
+                            <button class="btn btn--primary" type="submit" data-i18n="f_send">Open in email app</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
-    <footer class="bg-primary text-gray-400 py-10">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <span style="font-family:'Fraunces',serif;" class="text-white font-semibold text-lg">E.Şengöz<span style="color:#c2410c;">.</span></span>
-            <div class="flex items-center gap-6 text-sm">
-                <a href="home.html" class="hover:text-white transition-colors" data-i18n="nav_home">Home</a>
-                <a href="projects.html" class="hover:text-white transition-colors" data-i18n="nav_projects">Projects</a>
-                <a href="engineering-solutions.html" class="hover:text-white transition-colors" data-i18n="nav_solutions">Solutions</a>
-                <a href="contact.html" class="hover:text-white transition-colors" data-i18n="nav_contact">Contact</a>
-            </div>
-            <span class="text-sm" data-i18n="contact_copyright">© 2026 Ege Şengöz. All rights reserved.</span>
-        </div>
-    </footer>
+    <footer data-site-footer></footer>
 
     <script src="../js/portfolio.js"></script>
     <script>
-        PortfolioApp.registerPageTranslations({
+        const i18n = {
             en: {
                 contact_title: "Contact — Ege Şengöz",
-                contact_meta: "Get in touch with Ege Şengöz — industrial engineer available for consulting, mechanical design, and audit services.",
-                contact_hero_title: "Let's Connect",
-                contact_hero_lead: "Whether you have a project in mind, need engineering expertise, or just want to talk shop — I'm reachable through the channels below.",
-                contact_availability: "Available for new projects and consulting engagements",
-                contact_direct_title: "Direct Contact",
-                contact_direct_desc: "Reach out directly — I typically respond within 24 hours on business days.",
-                contact_email_label: "Email",
-                contact_email_desc: "Best for project inquiries & detailed questions",
-                contact_location_label: "Location",
-                contact_location_desc: "Available for remote & on-site engagements",
-                contact_profiles_title: "Professional Profiles",
-                contact_profiles_desc: "Find my work, connect professionally, and see my latest activity on these platforms.",
-                contact_linkedin_label: "LinkedIn",
-                contact_linkedin_desc: "Professional network & career history",
-                contact_github_label: "GitHub",
-                contact_github_desc: "Open source & software projects",
-                contact_expect_title: "What to Expect",
-                contact_expect_1_title: "Response within 24 hours",
-                contact_expect_1_desc: "On business days — I check email every morning.",
-                contact_expect_2_title: "Free initial consultation",
-                contact_expect_2_desc: "30-minute call to understand your project scope and requirements.",
-                contact_expect_3_title: "Remote & on-site available",
-                contact_expect_3_desc: "Based in Istanbul, MI — available to travel for on-site engagements.",
-                contact_expect_4_title: "NDA available on request",
-                contact_expect_4_desc: "Happy to sign NDAs for sensitive engineering projects.",
-                contact_cta_title: "Looking for specific services?",
-                contact_cta_desc: "Browse my Engineering Solutions page to see exactly what I offer — from ISO audits to mechanical design and software tools.",
-                contact_cta_button: "View Engineering Solutions",
-                contact_copyright: "© 2026 Ege Şengöz. All rights reserved."
+                contact_meta: "Contact Ege Şengöz about manufacturing engineering, industrial IoT, production scheduling or ERP integration work.",
+                contact_eyebrow: "Contact",
+                contact_h1: "Tell me what the line is doing.",
+                contact_lead: "A project, a role, or a production problem you want a second opinion on. Email is the fastest way to reach me.",
+                c_email: "Email", c_copy: "Copy", c_loc: "Location", c_loc_v: "Istanbul, Türkiye · remote and on-site",
+                expect_title: "What to expect",
+                expect_1: "A reply within one business day.",
+                expect_2: "A free 30-minute call to scope the problem.",
+                expect_3: "Remote work or on-site visits; I can travel.",
+                expect_4: "An NDA before we discuss sensitive designs, if you need one.",
+                form_title: "Write a message",
+                form_hint: "Sending opens your email app with this message filled in, addressed to info@egesengoz.com.",
+                f_name: "Name", f_company: "Company", f_topic: "Topic", f_message: "Message",
+                f_message_ph: "What is happening on the line today, and what should happen instead?",
+                t_project: "Project or consulting", t_iso: "ISO / quality systems", t_iot: "Machine monitoring / IoT",
+                t_software: "Software, ERP or AI tools", t_design: "Mechanical design or analysis", t_job: "Job opportunity", t_other: "Something else",
+                f_send: "Open in email app",
+                mail_from: "From", mail_company: "Company"
             },
             tr: {
                 contact_title: "İletişim — Ege Şengöz",
-                contact_meta: "Ege Şengöz ile iletişime geçin — danışmanlık, mekanik tasarım ve denetim hizmetleri için ulaşabilirsiniz.",
-                contact_hero_title: "İletişime Geçin",
-                contact_hero_lead: "Aklınızda bir proje olsun, mühendislik uzmanlığına ihtiyacınız olsun ya da sadece sohbet etmek isteyin — aşağıdaki kanallardan bana ulaşabilirsiniz.",
-                contact_availability: "Yeni projeler ve danışmanlık hizmetleri için müsaitim",
-                contact_direct_title: "Doğrudan İletişim",
-                contact_direct_desc: "Doğrudan bana ulaşın — iş günlerinde genellikle 24 saat içinde yanıt veririm.",
-                contact_email_label: "E-posta",
-                contact_email_desc: "Proje talepleri ve detaylı sorular için en uygun",
-                contact_location_label: "Konum",
-                contact_location_desc: "Uzaktan ve yerinde çalışmalar için müsaitim",
-                contact_profiles_title: "Profesyonel Profiller",
-                contact_profiles_desc: "Çalışmalarımı keşfedin, profesyonel olarak bağlantı kurun ve bu platformlardaki güncel faaliyetlerimi görün.",
-                contact_linkedin_label: "LinkedIn",
-                contact_linkedin_desc: "Profesyonel ağ ve kariyer geçmişi",
-                contact_github_label: "GitHub",
-                contact_github_desc: "Açık kaynak ve yazılım projeleri",
-                contact_expect_title: "Ne Beklemelisiniz",
-                contact_expect_1_title: "24 saat içinde yanıt",
-                contact_expect_1_desc: "İş günlerinde — her sabah e-postalarımı kontrol ederim.",
-                contact_expect_2_title: "Ücretsiz ön danışma",
-                contact_expect_2_desc: "Proje kapsamınızı ve gereksinimlerinizi anlamak için 30 dakikalık görüşme.",
-                contact_expect_3_title: "Uzaktan ve yerinde hizmet",
-                contact_expect_3_desc: "Merkezi İstanbul — yerinde çalışmalar için seyahat edebilirim.",
-                contact_expect_4_title: "Talep üzerine Gizlilik Sözleşmesi",
-                contact_expect_4_desc: "Hassas mühendislik projeleri için NDA imzalamaktan mutluluk duyarım.",
-                contact_cta_title: "Belirli hizmetler mi arıyorsunuz?",
-                contact_cta_desc: "Tam olarak neler sunduğumu görmek için Mühendislik Çözümleri sayfama göz atın — ISO denetimlerinden mekanik tasarıma ve yazılım araçlarına kadar.",
-                contact_cta_button: "Mühendislik Çözümlerini Görüntüle",
-                contact_copyright: "© 2026 Ege Şengöz. Tüm hakları saklıdır."
+                contact_meta: "İmalat mühendisliği, endüstriyel IoT, üretim çizelgeleme veya ERP entegrasyonu için Ege Şengöz ile iletişime geçin.",
+                contact_eyebrow: "İletişim",
+                contact_h1: "Hattın bugün ne yaptığını anlatın.",
+                contact_lead: "Bir proje, bir pozisyon ya da ikinci bir görüş istediğiniz bir üretim sorunu. Bana en hızlı e-postayla ulaşırsınız.",
+                c_email: "E-posta", c_copy: "Kopyala", c_loc: "Konum", c_loc_v: "İstanbul, Türkiye · uzaktan ve sahada",
+                expect_title: "Sizi neler bekliyor",
+                expect_1: "Bir iş günü içinde yanıt.",
+                expect_2: "Sorunu netleştirmek için ücretsiz 30 dakikalık görüşme.",
+                expect_3: "Uzaktan çalışma ya da saha ziyareti; seyahat edebilirim.",
+                expect_4: "Gerekirse hassas tasarımları konuşmadan önce gizlilik sözleşmesi (NDA).",
+                form_title: "Mesaj yazın",
+                form_hint: "Gönder dediğinizde e-posta uygulamanız bu mesaj doldurulmuş şekilde, info@egesengoz.com adresine açılır.",
+                f_name: "Ad Soyad", f_company: "Şirket", f_topic: "Konu", f_message: "Mesaj",
+                f_message_ph: "Hatta bugün ne oluyor, ne olması gerekiyor?",
+                t_project: "Proje veya danışmanlık", t_iso: "ISO / kalite sistemleri", t_iot: "Makine izleme / IoT",
+                t_software: "Yazılım, ERP veya AI araçları", t_design: "Mekanik tasarım veya analiz", t_job: "İş fırsatı", t_other: "Diğer",
+                f_send: "E-posta uygulamasında aç",
+                mail_from: "Gönderen", mail_company: "Şirket"
             }
+        };
+        PortfolioApp.registerPageTranslations(i18n);
+        PortfolioApp.bindCopyButtons();
+
+        // Preselect topic from ?topic= or ?service=
+        try {
+            const params = new URLSearchParams(location.search);
+            const topic = params.get("topic");
+            const map = { "iso-certification-consultancy": "iso", "iot-digital-transformation": "iot", "software-development": "software", "data-analysis-solutions": "software", "custom-machine-design": "design", "static-dynamic-analysis": "design" };
+            const want = topic || map[params.get("service")];
+            if (want) document.getElementById("cf-topic").value = want;
+        } catch (e) { /* ignore */ }
+
+        PortfolioApp.bindMailForm(document.getElementById("contact-form"), (form) => {
+            const t = i18n[PortfolioApp.getLang()];
+            const sel = form.topic;
+            const topic = sel.options[sel.selectedIndex].text;
+            const lines = [form.message.value.trim(), "", "—", `${t.mail_from}: ${form.name.value.trim()}`];
+            if (form.company.value.trim()) lines.push(`${t.mail_company}: ${form.company.value.trim()}`);
+            return { subject: `${topic} — ${form.name.value.trim()}`, body: lines.join("\n") };
         });
-
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-
-        const reveals = document.querySelectorAll('.scroll-reveal');
-        PortfolioApp.setupScrollReveal({ threshold: 0.1 });
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, i) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => entry.target.classList.add('visible'), i * 80);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        reveals.forEach(el => observer.observe(el));
     </script>
-
-
 </body>
 </html>

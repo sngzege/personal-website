@@ -34,5 +34,21 @@ const credentials = [
   }
 ];
 
+function renderCredentials(isoHost, listHost, lang) {
+  const esc = window.PortfolioApp.escapeHtml;
+  if (isoHost) {
+    isoHost.innerHTML = isoLeadAuditor.map((iso) =>
+      `<div class="iso"><span class="iso__code">ISO ${iso.code}</span><span class="iso__area">${esc(iso[lang] || iso.en)}</span></div>`
+    ).join("");
+  }
+  if (listHost) {
+    listHost.innerHTML = credentials.map((c) => {
+      const d = c[lang] || c.en;
+      return `<li class="cred"><span class="cred__name">${esc(d.name)}</span><span class="cred__std">${esc(c.standard)}</span>${d.note ? `<span class="cred__note">${esc(d.note)}</span>` : ""}</li>`;
+    }).join("");
+  }
+}
+
 window.isoLeadAuditor = isoLeadAuditor;
 window.credentials = credentials;
+window.renderCredentials = renderCredentials;
